@@ -9,3 +9,5 @@ Links that helped me build my site:
 
 [http://jmcglone.com/guides/github-pages/](http://jmcglone.com/guides/github-pages/)
 
+[https://www.andrewmunsell.com/tutorials/jekyll-by-example/tutorial](https://www.andrewmunsell.com/tutorials/jekyll-by-example/tutorial)
+
