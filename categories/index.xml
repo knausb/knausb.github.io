@@ -1,57 +1,66 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Hugo Frais theme</title>
-    <link>http://0.0.0.0/categories/</link>
-    <description>Recent content in Categories on Hugo Frais theme</description>
+    <title>Categories on Hugo Foundation6</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on Hugo Foundation6</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
+    <language>en-us</language>
     
-	<atom:link href="http://0.0.0.0/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Development</title>
-      <link>http://0.0.0.0/categories/development/</link>
+      <link>/categories/development/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://0.0.0.0/categories/development/</guid>
+      <guid>/categories/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>http://0.0.0.0/categories/golang/</link>
+      <link>/categories/golang/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://0.0.0.0/categories/golang/</guid>
+      <guid>/categories/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ipsum</title>
+      <link>/categories/ipsum/</link>
+      <pubDate>Thu, 17 Sep 2015 13:47:08 +0200</pubDate>
+      
+      <guid>/categories/ipsum/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lambentem</title>
-      <link>http://0.0.0.0/categories/lambentem/</link>
+      <link>/categories/lambentem/</link>
       <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
       
-      <guid>http://0.0.0.0/categories/lambentem/</guid>
+      <guid>/categories/lambentem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lorem</title>
-      <link>http://0.0.0.0/categories/lorem/</link>
+      <link>/categories/lorem/</link>
       <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
       
-      <guid>http://0.0.0.0/categories/lorem/</guid>
+      <guid>/categories/lorem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>http://0.0.0.0/categories/r/</link>
+      <link>/categories/r/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>http://0.0.0.0/categories/r/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>About me on Hugo Frais theme</title>
-    <link>http://0.0.0.0/about/</link>
-    <description>Recent content in About me on Hugo Frais theme</description>
+    <title>About me on Hugo Foundation6</title>
+    <link>/about/</link>
+    <description>Recent content in About me on Hugo Foundation6</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
+    <language>en-us</language>
     <lastBuildDate>Sat, 05 Nov 2016 21:05:33 +0530</lastBuildDate>
     
-	<atom:link href="http://0.0.0.0/about/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/about/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About Hugo Frais</title>
-      <link>http://0.0.0.0/about/</link>
+      <link>/about/</link>
       <pubDate>Thu, 10 Nov 2016 11:27:27 -0400</pubDate>
       
-      <guid>http://0.0.0.0/about/</guid>
+      <guid>/about/</guid>
       <description>Hugo frais A fresh and french single column theme for Hugo.
 How to install Inside the folder of your Hugo site run:
 $ cd themes $ git clone https://github.com/the2ne/hugo-frais  Then update your config.toml file:
