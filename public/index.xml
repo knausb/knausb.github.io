@@ -1,185 +1,223 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My blog</title>
-    <link>/</link>
-    <description>Recent content on My blog</description>
+    <title>Hugo Frais theme</title>
+    <link>http://0.0.0.0/</link>
+    <description>Recent content on Hugo Frais theme</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>yourname@example.com (yourname)</managingEditor>
-    <webMaster>yourname@example.com (yourname)</webMaster>
-    <copyright>(c) 2016 Copyright my blog</copyright>
+    <language>en-US</language>
     <lastBuildDate>Sat, 05 Nov 2016 19:41:01 +0530</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://0.0.0.0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Name of the work 2</title>
-      <link>/portfolio/work2/</link>
+      <link>http://0.0.0.0/portfolio/work2/</link>
       <pubDate>Sat, 05 Nov 2016 19:41:01 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work2/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work2/</guid>
       <description>&lt;p&gt;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Name of the work 3</title>
-      <link>/portfolio/work3/</link>
+      <link>http://0.0.0.0/portfolio/work3/</link>
       <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work3/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work3/</guid>
       <description>&lt;p&gt;Fifth abundantly made Give sixth hath. Cattle creature i be don&amp;rsquo;t them.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Item without image</title>
-      <link>/portfolio/work4/</link>
+      <link>http://0.0.0.0/portfolio/work4/</link>
       <pubDate>Sat, 05 Nov 2016 19:50:47 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work4/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work4/</guid>
       <description>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Name of the work 5</title>
-      <link>/portfolio/work5/</link>
+      <link>http://0.0.0.0/portfolio/work5/</link>
       <pubDate>Sat, 05 Nov 2016 19:53:42 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work5/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work5/</guid>
       <description>&lt;p&gt;Fifth abundantly made Give sixth hath. Cattle creature i be don&amp;rsquo;t them.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Name of the work 6</title>
-      <link>/portfolio/work6/</link>
+      <link>http://0.0.0.0/portfolio/work6/</link>
       <pubDate>Sat, 05 Nov 2016 19:56:17 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work6/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work6/</guid>
       <description>&lt;p&gt;Fifth abundantly made Give sixth hath. Cattle creature i be don&amp;rsquo;t them.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Name of the work 7</title>
-      <link>/portfolio/work7/</link>
+      <link>http://0.0.0.0/portfolio/work7/</link>
       <pubDate>Sat, 05 Nov 2016 19:57:40 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work7/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work7/</guid>
       <description>&lt;p&gt;Fifth abundantly made Give sixth hath. Cattle creature i be don&amp;rsquo;t them.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Name of the work 8</title>
-      <link>/portfolio/work8/</link>
+      <link>http://0.0.0.0/portfolio/work8/</link>
       <pubDate>Sat, 05 Nov 2016 19:59:22 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work8/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work8/</guid>
       <description>&lt;p&gt;Fifth abundantly made Give sixth hath. Cattle creature i be don&amp;rsquo;t them.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Item with image</title>
-      <link>/portfolio/work9/</link>
+      <link>http://0.0.0.0/portfolio/work9/</link>
       <pubDate>Sat, 05 Nov 2016 20:02:19 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work9/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work9/</guid>
       <description>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Item with image</title>
-      <link>/portfolio/work10/</link>
+      <link>http://0.0.0.0/portfolio/work10/</link>
       <pubDate>Sat, 05 Nov 2016 20:22:08 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work10/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work10/</guid>
       <description>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 &lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Creating a New Theme</title>
-      <link>/2014/09/28/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/2014/09/28/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>Migrate to Hugo from Jekyll</title>
-      <link>/2014/03/10/migrate-to-hugo-from-jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/2014/03/10/migrate-to-hugo-from-jekyll/</guid>
-      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
-    </item>
-    
-    <item>
       <title>Item with image</title>
-      <link>/portfolio/work11/</link>
+      <link>http://0.0.0.0/portfolio/work11/</link>
       <pubDate>Sat, 05 Nov 2016 20:23:59 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work11/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work11/</guid>
       <description>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>A Plain Markdown Post</title>
-      <link>/2016/12/30/a-plain-markdown-post/</link>
+      <link>http://0.0.0.0/post/2016-12-30-hello-markdown/</link>
       <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/2016/12/30/a-plain-markdown-post/</guid>
+      
+      <guid>http://0.0.0.0/post/2016-12-30-hello-markdown/</guid>
       <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
  You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/showcase/</link>
+      <link>http://0.0.0.0/showcase/</link>
       <pubDate>Mon, 05 Dec 2016 14:41:00 +0100</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/showcase/</guid>
+      
+      <guid>http://0.0.0.0/showcase/</guid>
       <description>Showcase Showcase text in english.</description>
     </item>
     
     <item>
+      <title></title>
+      <link>http://0.0.0.0/showcase.sv/</link>
+      <pubDate>Mon, 05 Dec 2016 14:41:00 +0100</pubDate>
+      
+      <guid>http://0.0.0.0/showcase.sv/</guid>
+      <description>Exempel Exempel text på svenska för Showcase.</description>
+    </item>
+    
+    <item>
+      <title>Introduktion</title>
+      <link>http://0.0.0.0/post/introduction.sv/</link>
+      <pubDate>Mon, 05 Dec 2016 12:29:19 +0100</pubDate>
+      
+      <guid>http://0.0.0.0/post/introduction.sv/</guid>
+      <description>En rubrik Text om ämnet ett.</description>
+    </item>
+    
+    <item>
+      <title>Migrate to Hugo from Jekyll</title>
+      <link>http://0.0.0.0/post/migrate-from-jekyll/</link>
+      <pubDate>Sun, 13 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>http://0.0.0.0/post/migrate-from-jekyll/</guid>
+      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
+▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+    </item>
+    
+    <item>
+      <title>Creating a new theme</title>
+      <link>http://0.0.0.0/post/creating-a-new-theme/</link>
+      <pubDate>Sat, 12 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>http://0.0.0.0/post/creating-a-new-theme/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+    </item>
+    
+    <item>
+      <title>Lambentem constabat quinos quaeritis colorem amorem</title>
+      <link>http://0.0.0.0/post/markdown-ipsum/</link>
+      <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>http://0.0.0.0/post/markdown-ipsum/</guid>
+      <description>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.</description>
+    </item>
+    
+    <item>
+      <title>About Hugo Frais</title>
+      <link>http://0.0.0.0/about/</link>
+      <pubDate>Thu, 10 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>http://0.0.0.0/about/</guid>
+      <description>Hugo frais A fresh and french single column theme for Hugo.
+How to install Inside the folder of your Hugo site run:
+$ cd themes $ git clone https://github.com/the2ne/hugo-frais  Then update your config.toml file:
+theme = &amp;quot;hugo-frais&amp;quot;  For more information read the official setup guide of Hugo.
+Configuration You can define some social network like:
+ [params] author str : the author&amp;rsquo;s website name; [params] pseudo str : the author&amp;rsquo;s online pseudonym; [params] twitter str : Twitter account; [params] github str : GitHub account; [params] linkedin str : LinkedIn account;  This will activate menu items and meta Twitter Card.</description>
+    </item>
+    
+    <item>
       <title>Name of the work 1</title>
-      <link>/portfolio/work1/</link>
+      <link>http://0.0.0.0/portfolio/work1/</link>
       <pubDate>Sat, 05 Nov 2016 18:25:22 +0530</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/portfolio/work1/</guid>
+      
+      <guid>http://0.0.0.0/portfolio/work1/</guid>
       <description>&lt;p&gt;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life. One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>What is Hugo?</title>
-      <link>/2016/04/24/what-is-hugo/</link>
+      <link>http://0.0.0.0/post/what-is-hugo/</link>
       <pubDate>Sun, 24 Apr 2016 02:50:28 +0200</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/2016/04/24/what-is-hugo/</guid>
+      
+      <guid>http://0.0.0.0/post/what-is-hugo/</guid>
       <description>Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike other systems which dynamically build a page every time a visitor requests one, Hugo does the building when you create your content. Since websites are viewed far more often than they are edited, Hugo is optimized for website viewing while providing a great writing experience.
 Sites built with Hugo are extremely fast and very secure.</description>
     </item>
     
     <item>
       <title>Introduction</title>
-      <link>/2016/04/21/introduction/</link>
+      <link>http://0.0.0.0/post/introduction/</link>
       <pubDate>Thu, 21 Apr 2016 02:50:28 +0200</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/2016/04/21/introduction/</guid>
+      
+      <guid>http://0.0.0.0/post/introduction/</guid>
       <description>Hugo is written in Go with support for multiple platforms.
 The latest release can be found at Hugo Releases. We currently provide pre-built binaries for &amp;nbsp;Windows, &amp;nbsp;Linux, &amp;nbsp;FreeBSD and &amp;nbsp;OS&amp;nbsp;X (Darwin) for x64, i386 and ARM architectures.
 Hugo may also be compiled from source wherever the Go compiler tool chain can run, e.g. for other operating systems including DragonFly BSD, OpenBSD, Plan&amp;nbsp;9 and Solaris. See http://golang.org/doc/install/source for the full set of supported combinations of target operating systems and compilation architectures.</description>
@@ -187,10 +225,10 @@ Hugo may also be compiled from source wherever the Go compiler tool chain can ru
     
     <item>
       <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
+      <link>http://0.0.0.0/post/2015-07-23-r-rmarkdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/2015/07/23/hello-r-markdown/</guid>
+      
+      <guid>http://0.0.0.0/post/2015-07-23-r-rmarkdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
@@ -198,19 +236,19 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
     <item>
       <title>Lorem Ipsum</title>
-      <link>/2015/01/01/lorem-ipsum/</link>
+      <link>http://0.0.0.0/post/2015-01-01-lorem-ipsum/</link>
       <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/2015/01/01/lorem-ipsum/</guid>
+      
+      <guid>http://0.0.0.0/post/2015-01-01-lorem-ipsum/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>http://0.0.0.0/about/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/about/</guid>
+      
+      <guid>http://0.0.0.0/about/</guid>
       <description>Hugo is a static site engine written in Go.
 It makes use of a variety of open source projects including:
  Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.
@@ -220,29 +258,29 @@ Setup Some fun facts about Hugo:
     
     <item>
       <title>Contact</title>
-      <link>/contact/</link>
+      <link>http://0.0.0.0/contact/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/contact/</guid>
+      
+      <guid>http://0.0.0.0/contact/</guid>
       <description> First Name  Last Name  E-Mail  City  State AL CA IL      Send   </description>
     </item>
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>/2014/04/02/hugo-template-primer/</link>
+      <link>http://0.0.0.0/post/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/2014/04/02/hugo-template-primer/</guid>
+      
+      <guid>http://0.0.0.0/post/goisforlovers/</guid>
       <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
 This document is a brief primer on using go templates.</description>
     </item>
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>/2014/04/02/getting-started-with-hugo/</link>
+      <link>http://0.0.0.0/post/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/2014/04/02/getting-started-with-hugo/</guid>
+      
+      <guid>http://0.0.0.0/post/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at installing hugo

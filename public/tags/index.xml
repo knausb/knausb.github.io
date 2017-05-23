@@ -1,97 +1,130 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on My blog</title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on My blog</description>
+    <title>Tags on Hugo Frais theme</title>
+    <link>http://0.0.0.0/tags/</link>
+    <description>Recent content in Tags on Hugo Frais theme</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>yourname@example.com (yourname)</managingEditor>
-    <webMaster>yourname@example.com (yourname)</webMaster>
-    <copyright>(c) 2016 Copyright my blog</copyright>
+    <language>en-US</language>
     <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://0.0.0.0/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Development</title>
-      <link>/tags/development/</link>
+      <link>http://0.0.0.0/tags/development/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/tags/development/</guid>
+      
+      <guid>http://0.0.0.0/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Go</title>
-      <link>/tags/go/</link>
+      <link>http://0.0.0.0/tags/go/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/tags/go/</guid>
+      
+      <guid>http://0.0.0.0/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>/tags/golang/</link>
+      <link>http://0.0.0.0/tags/golang/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/tags/golang/</guid>
+      
+      <guid>http://0.0.0.0/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>/tags/hugo/</link>
+      <link>http://0.0.0.0/tags/hugo/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/tags/hugo/</guid>
+      
+      <guid>http://0.0.0.0/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ipsum</title>
+      <link>http://0.0.0.0/tags/ipsum/</link>
+      <pubDate>Sun, 13 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>http://0.0.0.0/tags/ipsum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambentem</title>
+      <link>http://0.0.0.0/tags/lambentem/</link>
+      <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>http://0.0.0.0/tags/lambentem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lorem</title>
+      <link>http://0.0.0.0/tags/lorem/</link>
+      <pubDate>Sun, 13 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>http://0.0.0.0/tags/lorem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Plot</title>
-      <link>/tags/plot/</link>
+      <link>http://0.0.0.0/tags/plot/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/tags/plot/</guid>
+      
+      <guid>http://0.0.0.0/tags/plot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R Markdown</title>
-      <link>/tags/r-markdown/</link>
+      <link>http://0.0.0.0/tags/r-markdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/tags/r-markdown/</guid>
+      
+      <guid>http://0.0.0.0/tags/r-markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Regression</title>
-      <link>/tags/regression/</link>
+      <link>http://0.0.0.0/tags/regression/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/tags/regression/</guid>
+      
+      <guid>http://0.0.0.0/tags/regression/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Templates</title>
-      <link>/tags/templates/</link>
+      <link>http://0.0.0.0/tags/templates/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/tags/templates/</guid>
+      
+      <guid>http://0.0.0.0/tags/templates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Themes</title>
-      <link>/tags/themes/</link>
+      <link>http://0.0.0.0/tags/themes/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <author>yourname@example.com (yourname)</author>
-      <guid>/tags/themes/</guid>
+      
+      <guid>http://0.0.0.0/tags/themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trabes</title>
+      <link>http://0.0.0.0/tags/trabes/</link>
+      <pubDate>Sat, 12 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>http://0.0.0.0/tags/trabes/</guid>
       <description></description>
     </item>
     
