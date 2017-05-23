@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on Hugo Foundation6</title>
-    <link>https://example.org/tags/hugo/</link>
-    <description>Recent content in Hugo on Hugo Foundation6</description>
+    <title>Hugo on Kube for Hugo</title>
+    <link>/tags/hugo/</link>
+    <description>Recent content in Hugo on Kube for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Apr 2017 22:01:15 +0100</lastBuildDate>
     
-	<atom:link href="https://example.org/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Prototyping with markdown</title>
+      <link>/blog/prototyping/</link>
+      <pubDate>Sun, 02 Apr 2017 22:01:15 +0100</pubDate>
+      
+      <guid>/blog/prototyping/</guid>
+      <description>I have been working on a large set of documentation for a prototype that will eventually make it into a product. One issue with the publishing system at my company is that it makes doing prototypes, or really anything not within the rigidly and narrowly scoped model, difficult to set up. It takes a lot of work just to get to the point where you can begin writing.
+Since time was of the essence and writing is expensive, I decided to do the prototype outside of the publishing system.</description>
+    </item>
+    
+    <item>
       <title>Getting Started with Hugo</title>
-      <link>https://example.org/2014/04/getting-started-with-hugo/</link>
+      <link>/post/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.org/2014/04/getting-started-with-hugo/</guid>
+      <guid>/post/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at installing hugo
