@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Regression on Hugo Frais theme</title>
-    <link>http://0.0.0.0/tags/regression/</link>
-    <description>Recent content in Regression on Hugo Frais theme</description>
+    <title>Regression on Hugo Foundation6</title>
+    <link>/tags/regression/</link>
+    <description>Recent content in Regression on Hugo Foundation6</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
+    <language>en-us</language>
     <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
     
-	<atom:link href="http://0.0.0.0/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hello R Markdown</title>
-      <link>http://0.0.0.0/post/2015-07-23-r-rmarkdown/</link>
+      <link>/2015/07/hello-r-markdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>http://0.0.0.0/post/2015-07-23-r-rmarkdown/</guid>
+      <guid>/2015/07/hello-r-markdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>

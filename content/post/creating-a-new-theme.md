@@ -1,9 +1,13 @@
-+++
-title = "Creating a new theme"
-description = ""
-date = "2016-11-12T11:27:27-04:00"
-tags = ["Ipsum", "Trabes"]
-+++
+---
+author: "Michael Henderson"
+date: 2014-09-28
+linktitle: Creating a New Theme
+next: /tutorials/github-pages-blog
+prev: /tutorials/automated-deployments
+title: Creating a New Theme
+weight: 10
+---
+
 
 ## Introduction
 
