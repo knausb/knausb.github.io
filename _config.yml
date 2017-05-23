@@ -1,4 +1,4 @@
 name: Brian J. Knaus
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
-theme: slate
+theme: jekyll-theme-slate
