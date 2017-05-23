@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lambentem on Hugo Foundation6</title>
-    <link>/categories/lambentem/</link>
+    <link>https://example.org/categories/lambentem/</link>
     <description>Recent content in Lambentem on Hugo Foundation6</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 11 Nov 2016 11:27:27 -0400</lastBuildDate>
     
-	<atom:link href="/categories/lambentem/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/categories/lambentem/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Lambentem constabat quinos quaeritis colorem amorem</title>
-      <link>/2016/11/lambentem-constabat-quinos-quaeritis-colorem-amorem/</link>
+      <link>https://example.org/2016/11/lambentem-constabat-quinos-quaeritis-colorem-amorem/</link>
       <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
       
-      <guid>/2016/11/lambentem-constabat-quinos-quaeritis-colorem-amorem/</guid>
+      <guid>https://example.org/2016/11/lambentem-constabat-quinos-quaeritis-colorem-amorem/</guid>
       <description>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.</description>
     </item>
     
