@@ -1,7 +1,7 @@
-baseurl = "/"
+baseurl = "http://knausb.github.io/"
 relativeurls = true
 languageCode = "en-us"
-title = "A Hugo website"
+title = "Brian J. Knaus"
 theme = "hugo-lithium-theme"
 googleAnalytics = ""
 disqusShortname = ""
