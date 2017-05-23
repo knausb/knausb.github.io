@@ -15,11 +15,14 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     url = "/about/"
 [[menu.main]]
     name = "GitHub"
-    url = "https://github.com/rstudio/blogdown"
+    url = "https://github.com/knausb"
 [[menu.main]]
     name = "Twitter"
     url = "https://twitter.com/rstudio"
-
+[[menu.main]]
+    name = "Blog"
+    url = "blog/"
+    
 [params]
     description = "Brian J. Knaus's GitHub Home."
 
