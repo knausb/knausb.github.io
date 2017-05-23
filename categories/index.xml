@@ -1,22 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Creative portfolio</title>
-    <link>https://example.org/categories/</link>
-    <description>Recent content in Categories on Creative portfolio</description>
+    <title>Categories on Hugo Frais theme</title>
+    <link>http://0.0.0.0/categories/</link>
+    <description>Recent content in Categories on Hugo Frais theme</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy;2016 Your name or company</copyright>
+    <language>en-US</language>
     
-	<atom:link href="https://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://0.0.0.0/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Development</title>
+      <link>http://0.0.0.0/categories/development/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://0.0.0.0/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>http://0.0.0.0/categories/golang/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://0.0.0.0/categories/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambentem</title>
+      <link>http://0.0.0.0/categories/lambentem/</link>
+      <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>http://0.0.0.0/categories/lambentem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lorem</title>
+      <link>http://0.0.0.0/categories/lorem/</link>
+      <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>http://0.0.0.0/categories/lorem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
-      <link>https://example.org/categories/r/</link>
+      <link>http://0.0.0.0/categories/r/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://example.org/categories/r/</guid>
+      <guid>http://0.0.0.0/categories/r/</guid>
       <description></description>
     </item>
     

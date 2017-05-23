@@ -1,242 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.21" />
+    <meta charset="utf-8">
+    <title>Migrate to Hugo from Jekyll | Hugo Frais theme</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Olivier Fredon">
+<meta name="description" content="" />
 
-  <title>Migrate to Hugo from Jekyll &middot; Blackburn Theme Demo</title>
+    
+<meta property="og:locale" content="en-US">
+<meta property="og:title" content="Migrate to Hugo from Jekyll" />
+<meta property="og:description" content="" />
+<meta property="og:site_name" content="Hugo Frais theme" />
+<meta property="og:url" content="http://0.0.0.0/post/migrate-from-jekyll/" />
 
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
 
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
-  <!--<![endif]-->
 
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
-  <!--<![endif]-->
 
-  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+<meta property="og:type" content="article" />
+<meta property="article:section" content="post" />
+<meta property="article:published_time" content="2016-11-13" />
+<meta property="article:modified_time" content="2016-11-13" />
 
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 
-  
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Migrate to Hugo from Jekyll" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:url" content="http://0.0.0.0/post/migrate-from-jekyll/" />
+<meta name="twitter:image:src" content="http://0.0.0.0//media/twitter-card.jpg">
+<meta name="twitter:domain" content="http://0.0.0.0/">
+<meta name="twitter:site" content="@the2ne" />
+<meta name="twitter:creator" content="@the2ne" />
 
-  
-  
+    <base href="http://0.0.0.0/">
+    <meta name="generator" content="Hugo 0.21" />
+    <link rel="canonical" href="http://0.0.0.0/post/migrate-from-jekyll/">
+    
+    <link rel="stylesheet" href="/css/style.css">
 
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-
-  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
-
-  
-  
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#636363">
+<meta name="apple-mobile-web-app-title" content="Hugo Frais theme">
+<meta name="application-name" content="Hugo Frais theme">
+<meta name="theme-color" content="#333333">
 
 </head>
 
 
-<body>
-<div id="layout">
+<body class="template template--post">
+    <section class="header-wrapper">
+        <header class="headline" role="banner">
+    
+        <a class="headline__title" href="http://0.0.0.0/">Hugo Frais</a>
+    
+</header>
 
-  
-<a href="#menu" id="menuLink" class="menu-link">
-  
-  <span></span>
-</a>
-<div id="menu">
-
-  
-  <a class="pure-menu-heading brand" href="https://www.example.com/">Blackburn</a>
-
-
-  <div class="pure-menu">
-    <ul class="pure-menu-list">
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://www.example.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
-      
+        <nav class="menu" role="navigation" id="main-menu">
+    <input type="checkbox" id="menu">
+    <label for="menu" onclick>Menu</label>
+    <ul class="menu__items">
+        
+        
+        <li><a href="/post/">Posts</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/showcase.sv/">Exempel</a></li>
+        
+        <li><a href="/showcase/">Showcase</a></li>
+        
+        
+        
+        <li class="twitter">
+            <a href="https://twitter.com/the2ne" title="Follow me">Twitter</a>
         </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://www.example.com/about/"><i class='fa fa-user fa-fw'></i>About</a>
-      
+        
+        
+        <li class="github">
+            <a href="https://github.com/the2ne" title="Fork me">GitHub</a>
         </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://www.example.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
-      
+        
+        
+        <li class="linkedin">
+            <a href="https://fr.linkedin.com/in/the2ne" title="About me">LinkedIn</a>
         </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://www.example.com/"><i class='fa fa-home fa-fw'></i>Home</a>
-      
-        </li>
-      
+        
     </ul>
-  </div>
+</nav>
 
-  <div class="pure-menu social">
-  <ul class="pure-menu-list">
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://twitter.com/*" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
-    </li>
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://facebook.com/*" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://instagram.com/*" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
-    </li>
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-  </ul>
-</div>
-
-
-  <div>
-  <div class="small-print">
-    <small>&copy; 2016. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
-</div>
-
-</div>
-
-
-  <div id="main">
-
-
-<div class="header">
-  <h1>Migrate to Hugo from Jekyll</h1>
-  <h2></h2>
-</div>
-<div class="content">
-
-  <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>10 Mar 2014, 00:00</time>
-  </div>
-
-  
-
-  
-
-  
-
-</div>
-
-  
+    </section>
+    <main class="content" role="main" id="main-content" itemscope itemtype="http://schema.org/Article">
+        <article class="post">
+            <header>
+                <h1 class="post__title" itemprop="name">Migrate to Hugo from Jekyll</h1>
+            </header>
+            <section class="post__content" itemprop="articleBody">
+                
 
 <h2 id="move-static-content-to-static">Move static content to <code>static</code></h2>
 
@@ -260,7 +124,7 @@ With Jekyll, something that looked like</p>
 
 <h2 id="create-your-hugo-configuration-file">Create your Hugo configuration file</h2>
 
-<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="https://www.example.com/overview/configuration/">Hugo configuration documentation</a> for details.</p>
+<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="/overview/configuration/">Hugo configuration documentation</a> for details.</p>
 
 <h2 id="set-your-configuration-publish-folder-to-site">Set your configuration publish folder to <code>_site</code></h2>
 
@@ -286,13 +150,13 @@ git submodule add -b gh-pages git@github.com:your-username/your-repo.git public
 
 <h2 id="convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</h2>
 
-<p>That&rsquo;s the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/">Jekyll&rsquo;s template documentation</a> if you need to refresh your memory on how you built your blog and <a href="https://www.example.com/layout/templates/">Hugo&rsquo;s template</a> to learn Hugo&rsquo;s way.</p>
+<p>That&rsquo;s the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/">Jekyll&rsquo;s template documentation</a> if you need to refresh your memory on how you built your blog and <a href="/layout/templates/">Hugo&rsquo;s template</a> to learn Hugo&rsquo;s way.</p>
 
 <p>As a single reference data point, converting my templates for <a href="http://heyitsalex.net/">heyitsalex.net</a> took me no more than a few hours.</p>
 
 <h2 id="convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</h2>
 
-<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/">plugins</a>; Hugo has <a href="https://www.example.com/doc/shortcodes/">shortcodes</a>. It&rsquo;s fairly trivial to do a port.</p>
+<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/">plugins</a>; Hugo has <a href="/doc/shortcodes/">shortcodes</a>. It&rsquo;s fairly trivial to do a port.</p>
 
 <h3 id="implementation">Implementation</h3>
 
@@ -405,74 +269,34 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
 
 <p><a href="http://heyitsalex.net/">Hey, it&rsquo;s Alex</a> was migrated in less than a <em>father-with-kids day</em> from Jekyll to Hugo. You can see all the changes (and screw-ups) by looking at this <a href="https://github.com/alexandre-normand/alexandre-normand/compare/869d69435bd2665c3fbf5b5c78d4c22759d7613a...b7f6605b1265e83b4b81495423294208cc74d610">diff</a>.</p>
 
+            </section>
+            <footer class="post__meta">
+                <ul class="post__meta__infos">
+    <li class="post__meta__author" itemprop="author">Olivier Fredon</li>
+    <li class="post__meta__date"><time datetime="2016-11-13" itemprop="datePublished">13 November 2016</time></li>
+</ul>
 
-  
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
+<ul class="post__meta__taxonomies">
     
-  </div>
-  <div class="pure-u-10-24">
+    <li class="tags"><a href="http://0.0.0.0/tags/lorem">Lorem </a></li>
     
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="https://www.example.com/post/creating-a-new-theme/">Creating a New Theme</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://www.example.com/post/creating-a-new-theme/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
-
-  
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
+    <li class="tags"><a href="http://0.0.0.0/tags/ipsum">Ipsum </a></li>
     
     
-    if (window.location.hostname == "localhost")
-        return;
+</ul>
+<meta itemprop="url" content="http://0.0.0.0/post/migrate-from-jekyll/">
+<meta itemprop="wordCount" content="813" />
+<meta itemprop="timeRequired" content="4 Min" />
 
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'Your Disqus shortname';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </footer>
+        </article>
+    </main>
+    <footer class="legal" role="contentinfo">
+    <p>Performed by <a href="//gohugo.io" title="Hugo :: A fast and modern static website engine">Hugo</a> with the <a href="//github.com/the2ne/hugo-frais" title="Theme by Olivier Fredon">Hugo Frais</a> theme.</p>
+</footer>
 
-
-</div>
-
-</div>
-</div>
-<script src="https://www.example.com/js/ui.js"></script>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'Your Google Analytics tracking ID', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
+    
 
 
 </body>
 </html>
-

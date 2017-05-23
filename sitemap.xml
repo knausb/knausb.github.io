@@ -1,18 +1,287 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>/en/sitemap.xml</loc>
-		
-	   	<lastmod>2016-12-30T21:49:57-07:00</lastmod>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>/sv/sitemap.xml</loc>
-		
-	   	<lastmod>2016-12-05T14:41:00+01:00</lastmod>
-		
-	</sitemap>
-	
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work2/</loc>
+    <lastmod>2016-11-05T19:41:01+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work3/</loc>
+    <lastmod>2016-11-05T19:44:32+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work4/</loc>
+    <lastmod>2016-11-05T19:50:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work5/</loc>
+    <lastmod>2016-11-05T19:53:42+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work6/</loc>
+    <lastmod>2016-11-05T19:56:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work7/</loc>
+    <lastmod>2016-11-05T19:57:40+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work8/</loc>
+    <lastmod>2016-11-05T19:59:22+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work9/</loc>
+    <lastmod>2016-11-05T20:02:19+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work10/</loc>
+    <lastmod>2016-11-05T20:22:08+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work11/</loc>
+    <lastmod>2016-11-05T20:23:59+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/2016-12-30-hello-markdown/</loc>
+    <lastmod>2016-12-30T21:49:57-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/showcase/</loc>
+    <lastmod>2016-12-05T14:41:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/showcase.sv/</loc>
+    <lastmod>2016-12-05T14:41:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/introduction.sv/</loc>
+    <lastmod>2016-12-05T12:29:19+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/migrate-from-jekyll/</loc>
+    <lastmod>2016-11-13T11:27:27-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/creating-a-new-theme/</loc>
+    <lastmod>2016-11-12T11:27:27-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/markdown-ipsum/</loc>
+    <lastmod>2016-11-11T11:27:27-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/about/</loc>
+    <lastmod>2016-11-10T11:27:27-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/contact/</loc>
+    <lastmod>2016-11-06T13:00:25+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/about/</loc>
+    <lastmod>2016-11-05T21:05:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/work1/</loc>
+    <lastmod>2016-11-05T18:25:22+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/what-is-hugo/</loc>
+    <lastmod>2016-04-24T02:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/introduction/</loc>
+    <lastmod>2016-04-21T02:50:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/2015-07-23-r-rmarkdown/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/2015-01-01-lorem-ipsum/</loc>
+    <lastmod>2015-01-01T13:09:13-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/about/</loc>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/contact/</loc>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/goisforlovers/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/hugoisforlovers/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/categories/development/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/development/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/go/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/categories/golang/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/golang/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/hugo/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/</loc>
+    <lastmod>2016-11-05T19:41:01+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/ipsum/</loc>
+    <lastmod>2016-11-13T11:27:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/categories/lambentem/</loc>
+    <lastmod>2016-11-11T11:27:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/lambentem/</loc>
+    <lastmod>2016-11-11T11:27:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/categories/lorem/</loc>
+    <lastmod>2016-11-11T11:27:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/lorem/</loc>
+    <lastmod>2016-11-13T11:27:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/plot/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/portfolio/</loc>
+    <lastmod>2016-11-05T18:25:22+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/post/</loc>
+    <lastmod>2016-12-30T21:49:57-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/categories/r/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/r-markdown/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/regression/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/templates/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/themes/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0/tags/trabes/</loc>
+    <lastmod>2016-11-12T11:27:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
