@@ -6,7 +6,6 @@ body {
 }
 
 body {
-  font-family: 'Merriweather', serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,12 +18,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', sans-serif;
   color: #222;
 }
 
 a {
   outline: none;
+}
+
+code {
+  background-color: rgba(0, 0, 0, 0.02);
 }
 
 .wrapper {
@@ -43,7 +45,6 @@ a {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 15px;
-  font-family: 'Lato', sans-serif;
   text-align: right;
 }
 
@@ -61,6 +62,7 @@ a {
   display: block;
   max-height: 40px;
   width: auto;
+  border-radius: 50%;
 }
 
 .nav-links {
@@ -90,11 +92,11 @@ a {
 
 .content {
   max-width: 700px;
-  margin: 60px auto 80px;
+  margin: 40px auto 10px;
   padding: 0 15px;
   font-size: 16px;
   line-height: 1.7;
-  color: #555;
+  color: #333;
 }
 
 .article-title {
@@ -112,7 +114,6 @@ a {
   margin-top: 12px;
   float: right;
   font-size: 10px;
-  font-family: 'Lato', sans-serif;
   padding: 1px 5px;
   font-weight: bold;
   border-radius: 3px;
@@ -189,7 +190,6 @@ a {
   display: inline-block;
   text-decoration: none;
   font-size: 21px;
-  font-family: 'Lato', sans-serif;
   font-weight: bold;
   color: #222;
   padding: 5px 0;
@@ -203,7 +203,6 @@ a {
 .footer {
   padding: 25px 0;
   text-align: center;
-  font-family: 'Lato', sans-serif;
 }
 
 .footer-links {
@@ -271,7 +270,6 @@ a {
   .content {
     font-size: 19px;
     line-height: 1.8;
-    margin: 100px auto;
   }
 
   .highlight {
@@ -293,6 +291,13 @@ a {
     float: right;
   }
 
+  .archive-item-link {
+    text-overflow: ellipsis;
+    max-width: calc(100% - 120px);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
   .article-title {
     font-size: 42px;
   }
@@ -303,5 +308,14 @@ a {
 
   .footer-links {
     font-size: inherit;
+  }
+}
+
+@media print {
+  .header, .footer {
+    display: none;
+  }
+  .article-content a {
+    box-shadow: none;
   }
 }
