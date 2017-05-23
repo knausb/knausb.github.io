@@ -1,66 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Hugo Foundation6</title>
-    <link>https://example.org/categories/</link>
-    <description>Recent content in Categories on Hugo Foundation6</description>
+    <title>Categories on Kube for Hugo</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on Kube for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Design</title>
+      <link>/categories/design/</link>
+      <pubDate>Sun, 02 Apr 2017 22:01:15 +0100</pubDate>
+      
+      <guid>/categories/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Development</title>
-      <link>https://example.org/categories/development/</link>
+      <link>/categories/development/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.org/categories/development/</guid>
+      <guid>/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>General</title>
+      <link>/categories/general/</link>
+      <pubDate>Thu, 02 Mar 2017 21:56:55 +0100</pubDate>
+      
+      <guid>/categories/general/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>https://example.org/categories/golang/</link>
+      <link>/categories/golang/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.org/categories/golang/</guid>
+      <guid>/categories/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ipsum</title>
-      <link>https://example.org/categories/ipsum/</link>
+      <link>/categories/ipsum/</link>
       <pubDate>Thu, 17 Sep 2015 13:47:08 +0200</pubDate>
       
-      <guid>https://example.org/categories/ipsum/</guid>
+      <guid>/categories/ipsum/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lambentem</title>
-      <link>https://example.org/categories/lambentem/</link>
+      <link>/categories/lambentem/</link>
       <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
       
-      <guid>https://example.org/categories/lambentem/</guid>
+      <guid>/categories/lambentem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lorem</title>
-      <link>https://example.org/categories/lorem/</link>
+      <link>/categories/lorem/</link>
       <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
       
-      <guid>https://example.org/categories/lorem/</guid>
+      <guid>/categories/lorem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://example.org/categories/r/</link>
+      <link>/categories/r/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://example.org/categories/r/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
