@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Kube for Hugo</title>
+    <title>Categories on Brian J. Knaus</title>
     <link>/categories/</link>
-    <description>Recent content in Categories on Kube for Hugo</description>
+    <description>Recent content in Categories on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Design</title>
-      <link>/categories/design/</link>
-      <pubDate>Sun, 02 Apr 2017 22:01:15 +0100</pubDate>
-      
-      <guid>/categories/design/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Development</title>
@@ -29,56 +20,11 @@
     </item>
     
     <item>
-      <title>General</title>
-      <link>/categories/general/</link>
-      <pubDate>Thu, 02 Mar 2017 21:56:55 +0100</pubDate>
-      
-      <guid>/categories/general/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Golang</title>
       <link>/categories/golang/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>/categories/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ipsum</title>
-      <link>/categories/ipsum/</link>
-      <pubDate>Thu, 17 Sep 2015 13:47:08 +0200</pubDate>
-      
-      <guid>/categories/ipsum/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Lambentem</title>
-      <link>/categories/lambentem/</link>
-      <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
-      
-      <guid>/categories/lambentem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Lorem</title>
-      <link>/categories/lorem/</link>
-      <pubDate>Fri, 11 Nov 2016 11:27:27 -0400</pubDate>
-      
-      <guid>/categories/lorem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>/categories/r/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
