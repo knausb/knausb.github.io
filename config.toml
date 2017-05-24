@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "http://knausb.github.io/"
 title = "Brian J. Knaus"
 languageCode = "en-us"
 paginate = "10" # Number of posts per page
