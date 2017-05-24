@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About me on Kube for Hugo</title>
+    <link>/about/</link>
+    <description>Recent content in About me on Kube for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Nov 2016 21:05:33 +0530</lastBuildDate>
+    
+	<atom:link href="/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Hugo Frais</title>
+      <link>/about/</link>
+      <pubDate>Thu, 10 Nov 2016 11:27:27 -0400</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hugo frais A fresh and french single column theme for Hugo.
+How to install Inside the folder of your Hugo site run:
+$ cd themes $ git clone https://github.com/the2ne/hugo-frais  Then update your config.toml file:
+theme = &amp;quot;hugo-frais&amp;quot;  For more information read the official setup guide of Hugo.
+Configuration You can define some social network like:
+ [params] author str : the author&amp;rsquo;s website name; [params] pseudo str : the author&amp;rsquo;s online pseudonym; [params] twitter str : Twitter account; [params] github str : GitHub account; [params] linkedin str : LinkedIn account;  This will activate menu items and meta Twitter Card.</description>
+    </item>
+    
+  </channel>
+</rss>
