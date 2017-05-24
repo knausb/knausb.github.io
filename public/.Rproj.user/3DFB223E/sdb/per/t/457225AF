@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "name: Brian J. Knaus\nmarkdown: kramdown\npermalink: /blog/:year/:month/:day/:title\n",
+    "created" : 1495503405789.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4197417024",
+    "id" : "457225AF",
+    "lastKnownWriteTime" : 1495503164,
+    "last_content_update" : 1495503164,
+    "path" : "~/gits/knausb.github.io/_config.yml",
+    "project_path" : "_config.yml",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "yaml"
+}
