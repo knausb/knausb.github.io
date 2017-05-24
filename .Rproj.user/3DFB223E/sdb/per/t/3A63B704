@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\nlayout: default\ntitle: Brian J. Knaus\n---\n\n<div class=\"blurb\">\n\t<h2>Brian J. Knaus</h2>\n\t<h5>quantitative and computational biologist, evolutionary genomics</h5>\n\t\n\t<p>\n\tA biologist, these days, must wear many hats. \n\tAuthor, naturalist, molecular and quantitative geneticist, computational biologist, statistician and graphic artist.\n\tWe run the risk of becoming a jack of all trades but master of none.\n\tThrough this process we learn what issues are important, and we learn to master these.\n\tA biologist, these days, is a jack of many trades, as well as a master of several well chosen trades.\n\t</p>\n\n\t</div> \n",
+    "created" : 1495503201305.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "199526710",
+    "id" : "3A63B704",
+    "lastKnownWriteTime" : 1495503789,
+    "last_content_update" : 1495503789549,
+    "path" : "~/gits/knausb.github.io/index.html",
+    "project_path" : "index.html",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "html"
+}
