@@ -1,4 +1,4 @@
-baseurl = "http://knausb.github.io/"
+baseurl = "/"
 title = "Brian J. Knaus"
 languageCode = "en-us"
 paginate = "10" # Number of posts per page
@@ -14,7 +14,7 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
 [Params]
     subtitle = "Brian J. Knaus's home on GitHub" # Subtitle of your site
-    description = "Brian J. Knaus's Personal blog" # Description of your site
+    description = "Brian J. Knaus's Personal blog about everything" # Description of your site
     opengraph = true
     leftsidebar = false # Move sidebar to the left side if true
     authorbox = true
