@@ -1,25 +1,29 @@
-baseURL = "/"
+baseurl = "http://knausb.github.io/"
+title = "Brian J. Knaus"
 languageCode = "en-us"
-title = "Kube for Hugo"
-theme = "kube"
-description = "Brian J. Knaus's GitHub Home"
-Paginate = 4
-[Params]
-  RSSLink = "/index.xml"
-  author = "Brian J. Knaus" # add your company name
-  github = "knausb" # add your github profile name
-  twitter = "" # add your twitter profile
-  email = "briank.lists@gmail.com"
+paginate = "10" # Number of posts per page
+theme = "Mainroad"
+disqusShortname = "" # Enable comments by entering your Disqus shortname
+googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
-[[menu.main]]
-    name = "Docs"
-    weight = -100
-    url = "/docs/"
-[[menu.main]]
-    name = "Blog"
-    weight = -100
-    url = "/blog/"
-[[menu.main]]
-    name = "Faq"
-    weight = -100
-    url = "/faq/"
+[Author]
+    name = "Brian J. Knaus"
+    bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
+    avatar = "img/avatar.png"
+
+
+[Params]
+    subtitle = "Brian J. Knaus's home on GitHub" # Subtitle of your site
+    description = "Brian J. Knaus's Personal blog" # Description of your site
+    opengraph = true
+    leftsidebar = false # Move sidebar to the left side if true
+    authorbox = true
+    post_navigation = true
+
+
+[Params.widgets]
+    search = true # Enable "Search" widget
+    recent_articles = true # Enable "Recent arcticles" widget
+    categories = true # Enable "Categories" widget
+    tags = true # Enable "Tags" widget
+        tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
