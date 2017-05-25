@@ -13,7 +13,7 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
 
 [Params]
-    subtitle = "Brian J. Knuas's home on GitHub" # Subtitle of your site
+    subtitle = "Brian J. Knaus's home on GitHub" # Subtitle of your site
     description = " John Doe's Personal blog about everything" # Description of your site
     opengraph = true
     readmore = false # Show "Read more" button in list if true
