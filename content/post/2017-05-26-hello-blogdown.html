@@ -12,3 +12,12 @@ thumbnail: ''
 
 
 <p>This is my first blog. Hello blogdown!</p>
+<p>I built this site using the directions I found at <a href="https://proquestionasker.github.io/blog/Making_Site/">this link</a> provided by Amber Thomas. Note that the scripts ‘setup.sh’ and ‘deploy.sh’ work on your GitHub repository names ‘username.github.io’. Even if you think you’re building it somewhere else, this script will clobber the contents of that repository. Also, try a few themes before you add content. I found that some of the theme did not play well with blogdown on GitHub. And after I tried a few themes I think I accumulated a little baggage. For example, I had directories names ‘font’ and ‘fonts’. I ended up deleting everything and starting again when I settled on a theme.</p>
+<p>Once you have the template up and running you’ll want to familiarize yourself with the blogdown documenation. It can be found here:</p>
+<pre class="r"><code>library(help = &quot;blogdown&quot;)</code></pre>
+<p>You can use</p>
+<pre class="r"><code>new_post(title=&quot;My new post&quot;)</code></pre>
+<p>To create a template for a new post. You can build it and view it locally as follows.</p>
+<pre class="r"><code>serve_site()</code></pre>
+<p>If you like what you see you can commit and push your changes on git to the ‘sources’ branch. If you followed the directions I did you can now run the ‘deploy.sh’ script and it should post to your GitHub site.</p>
+<p>Happy blogging!</p>
