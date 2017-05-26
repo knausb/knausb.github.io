@@ -8,8 +8,8 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
 [Author]
     name = "Brian J. Knaus"
-    bio = "Brian J. Knaus is a quantitative and computational biologist and an evolutionary genomicist."
-    avatar = "img/avatar.png"
+    bio = "Brian J. Knaus is a quantitative and computational biologist and an evolutionary genomicist. When I'm not doing that I'm probably running in the forest."
+    avatar = "img/knausb.png"
 
 
 [Params]
