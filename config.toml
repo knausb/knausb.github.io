@@ -33,3 +33,9 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 [[menu.main]]
     name = "vcfR"
     url = "https://github.com/knausb/vcfR"
+    weight = 5000
+
+
+[[menu.main]]
+    name = "Jekyll migration"
+    weight = 10
