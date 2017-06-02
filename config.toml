@@ -80,7 +80,7 @@ paginate = 5
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)
-    about = "Evolutionary genomic, quantitative and computational biology."
+    about = "Evolutionary genomics, quantitative and computational biology."
 
     # How many posts to show on the sidebar (Default: 5)
     #num_recent_posts = 2
