@@ -4,7 +4,7 @@ author: Brian J. Knaus
 date: '2017-05-26'
 slug: hello-blogdown
 categories: []
-tags: [rstats]
+tags: [R]
 description: 'First post'
 thumbnail: ''
 ---
@@ -51,3 +51,13 @@ If you like what you see you can commit and push your changes on git to the 'sou
 If you followed the directions I did you can now run the 'deploy.sh' script and it should post to your GitHub site.
 
 Happy blogging!
+
+
+### Update 2017-06-02
+
+I had trouble figuring out how to modify the menu in the theme Mainroad.
+This may have to do with my inexperience with Hugo.
+So I changed to the theme Hugo Bootstrag v4 Blog.
+It seems simpler and may match my skill set better.
+
+
