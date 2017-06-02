@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Brian J. Knaus</title>
-    <link>https://knausb.github.io/categories/r/</link>
+    <link>/categories/r/</link>
     <description>Recent content in R on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 26 May 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://knausb.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hello blogdown</title>
-      <link>https://knausb.github.io/2017/05/hello-blogdown/</link>
+      <link>/2017/05/hello-blogdown/</link>
       <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/05/hello-blogdown/</guid>
+      <guid>/2017/05/hello-blogdown/</guid>
       <description>This is my first blog. Hello blogdown!
 I built this site using the directions I found at this link provided by Amber Thomas. Note that the scripts ‘setup.sh’ and ‘deploy.sh’ work on your GitHub repository names ‘username.github.io’. Even if you think you’re building it somewhere else, this script will clobber the contents of that repository. Also, try a few themes before you add content. I found that some of the theme did not play well with blogdown on GitHub.</description>
     </item>
     
     <item>
       <title>Hello R Markdown</title>
-      <link>https://knausb.github.io/2015/07/hello-r-markdown/</link>
+      <link>/2015/07/hello-r-markdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://knausb.github.io/2015/07/hello-r-markdown/</guid>
+      <guid>/2015/07/hello-r-markdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
