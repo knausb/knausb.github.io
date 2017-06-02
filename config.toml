@@ -16,12 +16,12 @@ paginate = 5
   page = "/:slug/"
 
 [[menu.sidebar]]
-  name = "Link 1"
-  url = "https://example.com"
+  name = "vcfR"
+  url = "https://CRAN.R-project.org/package=vcfR"
 
 [[menu.sidebar]]
-  name = "Link 2"
-  url = "https://example.org"
+  name = "vcfR on GitHub"
+  url = "https://github.com/knausb/vcfR"
 
 # custom navbar menu entry.   See the custom_navbar parameter below for
 # details.
