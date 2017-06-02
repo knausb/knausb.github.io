@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rstats on Brian J. Knaus</title>
-    <link>http://knausb.github.io/tags/rstats/</link>
+    <link>/knausb/knausb.github.io/tags/rstats/</link>
     <description>Recent content in Rstats on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 26 May 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://knausb.github.io/tags/rstats/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/knausb/knausb.github.io/tags/rstats/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hello blogdown</title>
-      <link>http://knausb.github.io/post/hello-blogdown/</link>
+      <link>/knausb/knausb.github.io/2017/05/hello-blogdown/</link>
       <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://knausb.github.io/post/hello-blogdown/</guid>
+      <guid>/knausb/knausb.github.io/2017/05/hello-blogdown/</guid>
       <description>This is my first blog. Hello blogdown!
 I built this site using the directions I found at this link provided by Amber Thomas. Note that the scripts ‘setup.sh’ and ‘deploy.sh’ work on your GitHub repository names ‘username.github.io’. Even if you think you’re building it somewhere else, this script will clobber the contents of that repository. Also, try a few themes before you add content. I found that some of the theme did not play well with blogdown on GitHub.</description>
     </item>

@@ -14,7 +14,6 @@ categories = [
     "golang",
 ]
 menu = "main"
-thumbnail = "img/placeholder.png"
 +++
 
 Hugo uses the excellent [go][] [html/template][gohtmltemplate] library for
@@ -23,8 +22,6 @@ small amount of logic. In our experience that it is just the right amount of
 logic to be able to create a good static website. If you have used other
 template systems from different languages or frameworks you will find a lot of
 similarities in go templates.
-
-<!--more-->
 
 This document is a brief primer on using go templates. The [go docs][gohtmltemplate]
 provide more details.

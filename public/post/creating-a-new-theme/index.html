@@ -1,73 +1,224 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creating a New Theme</title>
-<meta name="description" content="Brian J. Knaus&#39;s Personal blog.">
+  <title>
+    Creating a New Theme // Brian J. Knaus
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Michael Henderson">
 <meta name="generator" content="Hugo 0.21" />
-<meta property="og:title" content="Creating a New Theme" />
-<meta property="og:description" content="Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.
-We&rsquo;ll start with creating a new site with a very basic template." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://knausb.github.io/post/creating-a-new-theme/" />
+
+  <meta property="og:title" content="Creating a New Theme" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="/post/creating-a-new-theme/" />
 
 
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
 
-<meta property="article:published_time" content="2014-09-28T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2014-09-28T00:00:00&#43;00:00"/>
+  <link rel="stylesheet" href="//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Brian J. Knaus" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 
 
+  
 
+  
 
+  
 
-
-
-
-
-
-
-<link rel="dns-prefetch" href="//fonts.googleapis.com" />
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
-<link rel="stylesheet" href="http://knausb.github.io/css/style.css" type="text/css" media="all" />
-<script type="text/javascript" src="http://knausb.github.io/js/scripts.js"></script>
-<link rel="shortcut icon" href="http://knausb.github.io/favicon.ico">
+  
 </head>
-<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
-	<div class="container container-outer">
-		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
-			<div class="container container-inner clearfix">
-				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
-					<a class="logo__link" href="http://knausb.github.io/" title="Brian J. Knaus" rel="home">
-						<h1 class="logo__title">Brian J. Knaus</h1>
-						<h2 class="logo__tagline">Brian J. Knaus&#39;s home on GitHub</h2>
-					</a>
-				</div>
-			</div>
-			<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-	<ul class="menu__list">
-		<li class="menu__item "><a class="menu__link" href="">JEKYLL MIGRATION</a></li>
-		<li class="menu__item "><a class="menu__link" href="https://github.com/knausb/vcfR">VCFR</a></li>
-		<li class="menu__item "><a class="menu__link" href="/post/goisforlovers/">(HU)GO TEMPLATE PRIMER</a></li>
-		<li class="menu__item "><a class="menu__link" href="/about/">ABOUT HUGO</a></li>
-		<li class="menu__item "><a class="menu__link" href="/post/hugoisforlovers/">GETTING STARTED WITH HUGO</a></li>
-	</ul>
-</nav>
-		</header>
-		<div class="wrapper clearfix">
 
-<div class="main-content content" role="main" itemprop="mainContentOfPage">
-	<article class="post">
-		<header class="post__header clearfix">
-			<h1 class="post__title">Creating a New Theme</h1>
-			<p class="post__meta meta">
-				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-				<time class="post__meta-date" datetime="2014-09-28T00:00:00">September 28, 2014</time>
-			</p>
-		</header>
-		<div class="post__content clearfix">
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="">Jekyll migration</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://github.com/knausb/vcfR">vcfR</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/post/goisforlovers/">(Hu)go Template Primer</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">About Hugo</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/post/hugoisforlovers/">Getting Started with Hugo</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
 			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#some-definitions">Some Definitions</a>
+<ul>
+<li><a href="#skins">Skins</a></li>
+<li><a href="#the-home-page">The Home Page</a></li>
+<li><a href="#site-configuration-file">Site Configuration File</a></li>
+<li><a href="#content">Content</a>
+<ul>
+<li><a href="#front-matter">Front Matter</a></li>
+<li><a href="#markdown">Markdown</a></li>
+</ul></li>
+<li><a href="#template-files">Template Files</a>
+<ul>
+<li><a href="#single-template">Single Template</a></li>
+<li><a href="#list-template">List Template</a></li>
+<li><a href="#partial-template">Partial Template</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#create-a-new-site">Create a New Site</a>
+<ul>
+<li><a href="#generate-the-html-for-the-new-site">Generate the HTML For the New Site</a></li>
+<li><a href="#test-the-new-site">Test the New Site</a></li>
+</ul></li>
+<li><a href="#create-a-new-theme">Create a New Theme</a>
+<ul>
+<li><a href="#create-a-skeleton">Create a Skeleton</a></li>
+<li><a href="#update-the-configuration-file-to-use-the-theme">Update the Configuration File to Use the Theme</a></li>
+<li><a href="#generate-the-site">Generate the Site</a>
+<ul>
+<li><a href="#the-home-page-1">The Home Page</a></li>
+<li><a href="#the-magic-of-static">The Magic of Static</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#the-theme-development-cycle">The Theme Development Cycle</a>
+<ul>
+<li><a href="#purge-the-public-directory">Purge the public/ Directory</a></li>
+<li><a href="#hugo-s-watch-option">Hugo&rsquo;s Watch Option</a></li>
+<li><a href="#live-reload">Live Reload</a></li>
+<li><a href="#development-commands">Development Commands</a></li>
+</ul></li>
+<li><a href="#update-the-home-page-template">Update the Home Page Template</a>
+<ul>
+<li><a href="#make-a-static-home-page">Make a Static Home Page</a>
+<ul>
+<li><a href="#live-reload-1">Live Reload</a></li>
+</ul></li>
+<li><a href="#build-a-dynamic-home-page">Build a &ldquo;Dynamic&rdquo; Home Page</a>
+<ul>
+<li><a href="#create-new-posts">Create New Posts</a></li>
+</ul></li>
+<li><a href="#list-and-single-templates">List and Single Templates</a></li>
+<li><a href="#add-content-to-the-homepage">Add Content to the Homepage</a></li>
+<li><a href="#add-content-to-the-posts">Add Content to the Posts</a>
+<ul>
+<li><a href="#update-the-template-file">Update the Template File</a></li>
+</ul></li>
+<li><a href="#linking-to-content">Linking to Content</a></li>
+<li><a href="#create-a-post-listing">Create a Post Listing</a></li>
+</ul></li>
+<li><a href="#creating-top-level-pages">Creating Top Level Pages</a></li>
+<li><a href="#sharing-templates">Sharing Templates</a>
+<ul>
+<li><a href="#create-the-header-and-footer-partials">Create the Header and Footer Partials</a></li>
+<li><a href="#update-the-home-page-template-to-use-the-partials">Update the Home Page Template to Use the Partials</a></li>
+<li><a href="#update-the-default-single-template-to-use-the-partials">Update the Default Single Template to Use the Partials</a></li>
+</ul></li>
+<li><a href="#add-date-published-to-posts">Add “Date Published” to Posts</a>
+<ul>
+<li><a href="#add-date-published-to-the-template">Add “Date Published” to the Template</a></li>
+<li><a href="#don-t-repeat-yourself">Don&rsquo;t Repeat Yourself</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/post/creating-a-new-theme/">Creating a New Theme</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2014</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">Michael Henderson</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+
+			
+
+			
+
+            
 
 <h2 id="introduction">Introduction</h2>
 
@@ -1161,106 +1312,45 @@ $ vi themes/zafta/layouts/_default/single.html
 
 <p>DRY is a good design goal and Hugo does a great job supporting it. Part of the art of a good template is knowing when to add a new template and when to update an existing one. While you&rsquo;re figuring that out, accept that you&rsquo;ll be doing some refactoring. Hugo makes that easy and fast, so it&rsquo;s okay to delay splitting up a template.</p>
 
-		</div>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/post/hello-blogdown/">Hello blogdown</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
 		
-
-	</article>
-	
-<div class="authorbox clearfix">
-	<figure class="authorbox__avatar">
-		<img alt="Brian J. Knaus avatar" src="http://knausb.github.io/img/knausb.png" class="avatar" height="90" width="90">
-	</figure>
-	<div class="authorbox__header">
-		<span class="authorbox__name">About Brian J. Knaus</span>
-	</div>
-	<div class="authorbox__description">
-		Brian J. Knaus is a quantitative and computational biologist and an evolutionary genomicist. When I&#39;m not doing that I&#39;m probably running in the forest.
-	</div>
-</div>
-	
-<nav class="post-nav row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-	<div class="post-nav__item post-nav__item--prev col-1-2">
-		<a class="post-nav__link" href="http://knausb.github.io/post/migrate-from-jekyll/" rel="prev"><span class="post-nav__caption">«Previous</span><p class="post-nav__post-title">Migrate to Hugo from Jekyll</p></a>
-	</div>
-	<div class="post-nav__item post-nav__item--next col-1-2">
-		<a class="post-nav__link" href="http://knausb.github.io/post/hugoisforlovers/" rel="next"><span class="post-nav__caption">Next»</span><p class="post-nav__post-title">Getting Started with Hugo</p></a>
-	</div>
-</nav>
-
-	
-</div>
-
-<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-	
-<div class="widget-search widget">
-	<form class="widget-search__form" role="search" method="get" action="//google.com/search">
-		<label>
-			<span class="screen-reader-text">Search for:</span>
-			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
-		</label>
-		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="http://knausb.github.io/" />
-	</form>
-</div>
-	
-<div class="widget-recent widget">
-	<h4 class="widget__title">Recent Posts</h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/post/creating-a-new-theme/">Creating a New Theme</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/hello-blogdown/">Hello blogdown</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2016-12-30-hello-markdown/">A Plain Markdown Post</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2015-07-23-r-rmarkdown/">Hello R Markdown</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2015-01-01-lorem-ipsum/">Lorem Ipsum</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/goisforlovers/">(Hu)go Template Primer</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/hugoisforlovers/">Getting Started with Hugo</a></li>
 		</ul>
 	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
 </div>
+    </div>
+  </div>
+	
 
 	
-<div class="widget-categories widget">
-	<h4 class="widget__title">Categories</h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="http://knausb.github.io/categories/development">Development</a></li>
-			<li class="widget__item"><a class="widget__link" href="http://knausb.github.io/categories/golang">Golang</a></li>
-			<li class="widget__item"><a class="widget__link" href="http://knausb.github.io/categories/r">R</a></li>
-		</ul>
-	</div>
-</div>
-	
-	
-<div class="widget-taglist widget">
-	<h4 class="widget__title">Tags</h4>
-	<div class="widget__content">
-		<a class="widget__link widget__link--taglist" href="http://knausb.github.io/tags/development" title="development">development</a>
-		<a class="widget__link widget__link--taglist" href="http://knausb.github.io/tags/go" title="go">go</a>
-		<a class="widget__link widget__link--taglist" href="http://knausb.github.io/tags/golang" title="golang">golang</a>
-		<a class="widget__link widget__link--taglist" href="http://knausb.github.io/tags/hugo" title="hugo">hugo</a>
-		<a class="widget__link widget__link--taglist" href="http://knausb.github.io/tags/plot" title="plot">plot</a>
-		<a class="widget__link widget__link--taglist" href="http://knausb.github.io/tags/r-markdown" title="r-markdown">r-markdown</a>
-		<a class="widget__link widget__link--taglist" href="http://knausb.github.io/tags/regression" title="regression">regression</a>
-		<a class="widget__link widget__link--taglist" href="http://knausb.github.io/tags/rstats" title="rstats">rstats</a>
-		<a class="widget__link widget__link--taglist" href="http://knausb.github.io/tags/templates" title="templates">templates</a>
-		<a class="widget__link widget__link--taglist" href="http://knausb.github.io/tags/themes" title="themes">themes</a>
-	</div>
-</div>
-</aside>
-	</div>
-		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
-			<div class="container container-inner">
-				<p class="footer__copyright">&copy; 2017 Brian J. Knaus. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad theme</a>.</span></p>
-			</div>
-		</footer>
-	</div>
 
-<script>
-	var navigation = responsiveNav(".menu", {
-		navClass: "menu--collapse",
-	});
-</script>
-
+  
 </body>
 </html>
