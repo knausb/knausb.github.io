@@ -30,8 +30,6 @@ sudo docker run hello-world</code></pre>
 <p>Help can be found by adding ‘help’ to a command.</p>
 <pre class="bash"><code>sudo docker --help
 sudo docker run --help</code></pre>
-<p>When we’ve finished we can quit as follows.</p>
-<pre class="bash"><code>exit</code></pre>
 <p>Note that when we quit that no changes were made to the image.</p>
 </div>
 <div id="docker-images" class="section level2">
@@ -41,6 +39,8 @@ sudo docker run --help</code></pre>
 <p>When we find an image we’re interested in we can run it as follows.</p>
 <pre class="bash"><code>sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash</code></pre>
 <p>This command included a few options. The run command runs the image. If it is not found locally, or needs to be updated, it is done automatically for you. The –name= option allows you to assign a name to the container. If you don’t assign one it will be done automatically for you. The –rm option automatically removes the container for you when you exit. The -ti options allocates a pseudo-TTY and provides an interactive session. The name of the image we want to run as a container is rocker/r-base and once its started we’ll want to execute /bin/bash (our shell).</p>
+<p>When we’ve finished we can quit as follows.</p>
+<pre class="bash"><code>exit</code></pre>
 <p>We typically want to share some data between our host and our container. Using the -v option we can mount a host directory. Here mount the git repository for my R package as a data volume in the container.</p>
 <pre class="bash"><code>sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash -v ~/gits/vcfR:/RSource/vcfR</code></pre>
 <p>If you decide you would like to remove an image it can be done using <code>rmi</code>.</p>

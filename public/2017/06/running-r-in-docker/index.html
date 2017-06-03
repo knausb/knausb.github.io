@@ -8,7 +8,7 @@
 <meta property="og:title" content="Running R in Docker" />
 <meta property="og:description" content="Docker is a ‘container,’ or a mini-operating system, you can run within your existing operating system. This is nice because you can build an environment where you can build and test code. And if it breaks, you can kill it and start a new container and start again. In the context of R development there are at least two good reasons someone would want to run R in Docker. First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://knausb.github.io/2017/06/running-r-in-docker/" />
+<meta property="og:url" content="/2017/06/running-r-in-docker/" />
 
 
 
@@ -44,7 +44,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Running R in Docker",
-  "url": "https://knausb.github.io/2017/06/running-r-in-docker/",
+  "url": "/2017/06/running-r-in-docker/",
   "wordCount": "692",
   "datePublished": "2017-06-03T00:00:00&#43;00:00",
   "dateModified": "2017-06-03T00:00:00&#43;00:00",
@@ -58,12 +58,12 @@
 
 
 
-    <link rel="canonical" href="https://knausb.github.io/2017/06/running-r-in-docker/">
+    <link rel="canonical" href="/2017/06/running-r-in-docker/">
 
     <title>Running R in Docker | Brian J. Knaus</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://knausb.github.io/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
 
     
 
@@ -80,13 +80,13 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="https://knausb.github.io/">Home</a>
+          <a class="nav-link " href="/">Home</a>
           
           
-          <a class="nav-link" href="https://knausb.github.io/about/">About Brian</a>
+          <a class="nav-link" href="/about/">About Brian</a>
           
           
-          <a class="nav-link" href="https://knausb.github.io/vcfr/">vcfR</a>
+          <a class="nav-link" href="/vcfr/">vcfR</a>
           
           
         </nav>
@@ -95,7 +95,7 @@
 
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="https://knausb.github.io/" rel="home">Brian J. Knaus</a></h1>
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
         <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
       </div>
     </header>
@@ -109,7 +109,7 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2017/06/running-r-in-docker/">Running R in Docker</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/06/running-r-in-docker/">Running R in Docker</a></h2>
     <p class="blog-post-meta"><time datetime="2017-06-03T00:00:00Z">Sat Jun 03, 2017</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
@@ -137,8 +137,6 @@ sudo docker run hello-world</code></pre>
 <p>Help can be found by adding ‘help’ to a command.</p>
 <pre class="bash"><code>sudo docker --help
 sudo docker run --help</code></pre>
-<p>When we’ve finished we can quit as follows.</p>
-<pre class="bash"><code>exit</code></pre>
 <p>Note that when we quit that no changes were made to the image.</p>
 </div>
 <div id="docker-images" class="section level2">
@@ -148,6 +146,8 @@ sudo docker run --help</code></pre>
 <p>When we find an image we’re interested in we can run it as follows.</p>
 <pre class="bash"><code>sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash</code></pre>
 <p>This command included a few options. The run command runs the image. If it is not found locally, or needs to be updated, it is done automatically for you. The –name= option allows you to assign a name to the container. If you don’t assign one it will be done automatically for you. The –rm option automatically removes the container for you when you exit. The -ti options allocates a pseudo-TTY and provides an interactive session. The name of the image we want to run as a container is rocker/r-base and once its started we’ll want to execute /bin/bash (our shell).</p>
+<p>When we’ve finished we can quit as follows.</p>
+<pre class="bash"><code>exit</code></pre>
 <p>We typically want to share some data between our host and our container. Using the -v option we can mount a host directory. Here mount the git repository for my R package as a data volume in the container.</p>
 <pre class="bash"><code>sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash -v ~/gits/vcfR:/RSource/vcfR</code></pre>
 <p>If you decide you would like to remove an image it can be done using <code>rmi</code>.</p>
@@ -181,10 +181,10 @@ sudo docker run --help</code></pre>
     <section>
     <h4>Share</h4>
     <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=%2f2017%2f06%2frunning-r-in-docker%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
     </nav>
   </section>
 

@@ -65,14 +65,6 @@ sudo docker run --help
 ```
 
 
-When we've finished we can quit as follows.
-
-
-```{bash, eval = FALSE}
-exit
-```
-
-
 Note that when we quit that no changes were made to the image.
 
 
@@ -100,12 +92,22 @@ sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash
 This command included a few options. The run command runs the image. If it is not found locally, or needs to be updated, it is done automatically for you. The --name= option allows you to assign a name to the container. If you don't assign one it will be done automatically for you. The --rm option automatically removes the container for you when you exit. The -ti options allocates a pseudo-TTY and provides an interactive session. The name of the image we want to run as a container is rocker/r-base and once its started we'll want to execute /bin/bash (our shell).
 
 
+When we've finished we can quit as follows.
+
+
+```{bash, eval = FALSE}
+exit
+```
+
+
 We typically want to share some data between our host and our container. Using the -v option we can mount a host directory. Here mount the git repository for my R package as a data volume in the container.
 
 
 ```{bash, eval = FALSE}
 sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash -v ~/gits/vcfR:/RSource/vcfR
 ```
+
+
 
 
 If you decide you would like to remove an image it can be done using `rmi`.
