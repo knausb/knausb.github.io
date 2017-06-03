@@ -34,7 +34,7 @@ library(help = "blogdown")
 You can use
 
 ```{r, eval=FALSE}
-new_post(title="My new post")
+new_post(title="My new post", rmd = TRUE)
 ```
 
 
