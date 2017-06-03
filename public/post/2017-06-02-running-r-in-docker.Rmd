@@ -1,0 +1,157 @@
+---
+title: Running R in Docker
+author: ~
+date: '2017-06-02'
+slug: running-r-in-docker
+categories: [R]
+tags: [Docker, Rocker]
+description: ''
+draft: yes
+images: /2016/10/image.jpg
+---
+
+
+Docker is a 'container,' or a mini-operating system, you can run within your existing operating system.
+This is nice because you can build an environment where you can build and test code.
+And if it breaks, you can kill it and start a new container and start again.
+In the context of R development there are at least two good reasons someone would want to run R in Docker.
+First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel.
+You may not want to install this in your usual environment.
+Installing it into a container allows you to isolate this installation from the rest of your work environment.
+Second, if you are using compiled code you may need to use a tool such as the AddressSanitizer.
+This requires you to compile a version of R using [certain flags](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Using-Address-Sanitizer) that are helpful for identifying memory leaks but have a performance cost that make them undesireable for a production system.
+Again, creating a container for a version of R built with these flags can isolate it from your production environment.
+Here we explore how to run R within Docker.
+
+
+## Installing Docker
+
+In Debian-like Linux (including Ubuntu) you can install Docker using apt.
+
+
+```{bash, eval = FALSE}
+sudo apt install docker.io
+```
+
+
+## Docker basics
+
+
+When you have Docker installed you can test and modify its system status in a manner similar to other daemons.
+
+
+```{bash, eval = FALSE}
+service docker status
+service docker start
+service docker stop
+```
+
+
+With the Docker system running you can query its status.
+
+
+```{bash, eval = FALSE}
+sudo docker version
+sudo docker ps # Installed images.
+sudo docker run hello-world
+```
+
+
+Help can be found by adding 'help' to a command.
+
+
+```{bash, eval = FALSE}
+sudo docker --help
+sudo docker run --help
+```
+
+
+When we've finished we can quit as follows.
+
+
+```{bash, eval = FALSE}
+exit
+```
+
+
+Note that when we quit that no changes were made to the image.
+
+
+## Docker images
+
+
+In theory, we could create our own environment.
+However, others have already done a lot of the hard work for us by creating Docker images.
+We can search for Docker images using the seaerch command.
+
+
+```{bash, eval = FALSE}
+sudo docker search rocker
+```
+
+
+When we find an image we're interested in we can run it as follows.
+
+
+```{bash, eval = FALSE}
+sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash
+```
+
+
+This command included a few options. The run command runs the image. If it is not found locally, or needs to be updated, it is done automatically for you. The --name= option allows you to assign a name to the container. If you don't assign one it will be done automatically for you. The --rm option automatically removes the container for you when you exit. The -ti options allocates a pseudo-TTY and provides an interactive session. The name of the image we want to run as a container is rocker/r-base and once its started we'll want to execute /bin/bash (our shell).
+
+
+We typically want to share some data between our host and our container. Using the -v option we can mount a host directory. Here mount the git repository for my R package as a data volume in the container.
+
+
+```{bash, eval = FALSE}
+sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash -v ~/gits/vcfR:/RSource/vcfR
+```
+
+
+If you decide you would like to remove an image it can be done using `rmi`.
+
+
+```{bash, eval = FALSE}
+sudo docker rmi rocker/r-base
+```
+
+
+More help on Docker can be found at these links.
+
+[understanding-docker](https://docs.docker.com/engine/understanding-docker/)    
+[Find and run the whalesay image](https://docs.docker.com/engine/getstarted/step_three/)    
+[dockervolumes](https://docs.docker.com/engine/tutorials/dockervolumes/)  
+
+
+## Rocker
+
+The Rocker project includes containers for running R.
+Some of this is documented here: [Docker for R](http://dirk.eddelbuettel.com/blog/2014/10/23/).
+There is also a [Rocker Github](https://github.com/rocker-org/rocker) site for the images and documentation is on the [Rocker wiki](https://github.com/rocker-org/rocker/wiki).
+
+First we may want to make sure we have the most current version of the image.
+
+
+
+```{bash, eval = FALSE}
+docker pull rocker/r-devel-san
+```
+
+
+We can now start the image.
+
+
+```{bash, eval = FALSE}
+sudo docker run --name=r-devel-san -v ~/gits/vcfR:/RSource/vcfR --rm -ti r-devel-san /bin/bash
+```
+
+
+## Conclusion
+
+
+We've now illustrated how to install and use Docker to create 'containers' or isolated environments within a host operating system.
+We've also learned about the R specific Docker based project Rocker.
+With these tools in hand we should now be able to create environments for testing R packages in environments that we do not wish to install into our production environment.
+
+
