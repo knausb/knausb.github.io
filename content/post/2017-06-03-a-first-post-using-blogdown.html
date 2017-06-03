@@ -1,0 +1,42 @@
+---
+title: A first post using blogdown
+author: ~
+date: '2017-06-03'
+slug: a-first-post-using-blogdown
+categories: [R]
+tags: [blogdown]
+description: ''
+draft: yes
+---
+
+
+
+<p>Once you have Hugo and blogdown set up you should be ready to blog! We can use blogdown to create a template for our first blog.</p>
+<pre class="r"><code>library(blogdown)
+new_post(title=&quot;A first post using blogdown&quot;, rmd = TRUE)</code></pre>
+<p>This creates a file named:</p>
+<pre class="r"><code>./content/post/2017-06-03-a-first-post-using-blogdown.Rmd</code></pre>
+<p>where ‘.’ is the root directory of your github.io project. The function <code>new_post()</code> prefixes your post’s title with todays date to create the filename. It also fills whitespace with hyphens and converts all characters to lowercase. If you change your mind about the post you can simply delete this file.</p>
+<p>The template created by this function was an Rmarkdown file that had no content but the yaml header was as follows.</p>
+<pre class="r"><code>---
+title: A first post using blogdown
+author: ~
+date: &#39;2017-06-03&#39;
+slug: a-first-post-using-blogdown
+categories: []
+tags: []
+description: &#39;&#39;
+draft: yes
+images: /2016/10/image.jpg
+---</code></pre>
+<p>I work in RStudio, so I was able to serve the ste, including this new post, with the <code>serve_site()</code> command.</p>
+<pre class="r"><code>serve_site()</code></pre>
+<p>Unfortunately, this did not appear to work ‘straight out of the box.’ I received the below output, including an error.</p>
+<pre class="r"><code>Started building sites ...
+ERROR 2017/06/03 08:39:13 Error while rendering &quot;page&quot;: template: /home/knausb/gits/knausb.github.io/themes/hugo-theme-bootstrap4-blog/layouts/_default/single.html:5:7: executing &quot;/home/knausb/gits/knausb.github.io/themes/hugo-theme-bootstrap4-blog/layouts/_default/single.html&quot; at &lt;partial &quot;head-meta.h...&gt;: error calling partial: template: _internal/opengraph.html:5:42: executing &quot;_internal/opengraph.html&quot; at &lt;.&gt;: range can&#39;t iterate over /2016/
+Serving the directory /home/knausb/gits/knausb.github.io at http://127.0.0.1:4321</code></pre>
+<p>After trying a few things I found that removing the line <code>images: /2016/10/image.jpg</code> from the yaml header allowed for a clean build. Note that it was 2017 when I created this blog and this line appears to think its 2016. While the site is being served in RStudio it is refreshed every time you save, which makes trial and error fairly easy. Note that the output also states that the site is being served at <code>http://127.0.0.1:4321</code>. If you copy and paste this into a web browser you should be able to view your work.</p>
+<p>I then added:</p>
+<pre class="r"><code>categories: [R]
+tags: [blogdown]</code></pre>
+<p>to the yaml header and proceeded to fill the rest of the document with the content you just read.</p>

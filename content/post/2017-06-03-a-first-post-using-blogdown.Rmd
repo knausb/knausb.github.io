@@ -1,0 +1,92 @@
+---
+title: A first post using blogdown
+author: ~
+date: '2017-06-03'
+slug: a-first-post-using-blogdown
+categories: [R]
+tags: [blogdown]
+description: ''
+draft: yes
+---
+
+
+Once you have Hugo and blogdown set up you should be ready to blog!
+We can use blogdown to create a template for our first blog.
+
+
+```{r, eval=FALSE}
+library(blogdown)
+new_post(title="A first post using blogdown", rmd = TRUE)
+```
+
+
+This creates a file named:
+
+
+```{r, eval=FALSE}
+./content/post/2017-06-03-a-first-post-using-blogdown.Rmd
+```
+
+
+where '.' is the root directory of your github.io project.
+The function `new_post()` prefixes your post's title with todays date to create the filename.
+It also fills whitespace with hyphens and converts all characters to lowercase.
+If you change your mind about the post you can simply delete this file.
+
+
+The template created by this function was an Rmarkdown file that had no content but the yaml header was as follows.
+
+
+```{r, eval=FALSE}
+---
+title: A first post using blogdown
+author: ~
+date: '2017-06-03'
+slug: a-first-post-using-blogdown
+categories: []
+tags: []
+description: ''
+draft: yes
+images: /2016/10/image.jpg
+---
+```
+
+
+I work in RStudio, so I was able to serve the ste, including this new post, with the `serve_site()` command.
+
+
+```{r, eval=FALSE}
+serve_site()
+```
+
+
+Unfortunately, this did not appear to work 'straight out of the box.'
+I received the below output, including an error.
+
+
+```{r, eval=FALSE}
+Started building sites ...
+ERROR 2017/06/03 08:39:13 Error while rendering "page": template: /home/knausb/gits/knausb.github.io/themes/hugo-theme-bootstrap4-blog/layouts/_default/single.html:5:7: executing "/home/knausb/gits/knausb.github.io/themes/hugo-theme-bootstrap4-blog/layouts/_default/single.html" at <partial "head-meta.h...>: error calling partial: template: _internal/opengraph.html:5:42: executing "_internal/opengraph.html" at <.>: range can't iterate over /2016/
+Serving the directory /home/knausb/gits/knausb.github.io at http://127.0.0.1:4321
+```
+
+
+After trying a few things I found that removing the line `images: /2016/10/image.jpg` from the yaml header allowed for a clean build.
+Note that it was 2017 when I created this blog and this line appears to think its 2016.
+While the site is being served in RStudio it is refreshed every time you save, which makes trial and error fairly easy.
+Note that the output also states that the site is being served at `http://127.0.0.1:4321`.
+If you copy and paste this into a web browser you should be able to view your work.
+
+
+I then added:
+
+
+```{r, eval=FALSE}
+categories: [R]
+tags: [blogdown]
+```
+
+
+to the yaml header and proceeded to fill the rest of the document with the content you just read.
+
+
