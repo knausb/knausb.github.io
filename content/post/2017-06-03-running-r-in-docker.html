@@ -41,8 +41,9 @@ sudo docker run --help</code></pre>
 <p>This command included a few options. The run command runs the image. If it is not found locally, or needs to be updated, it is done automatically for you. The –name= option allows you to assign a name to the container. If you don’t assign one it will be done automatically for you. The –rm option automatically removes the container for you when you exit. The -ti options allocates a pseudo-TTY and provides an interactive session. The name of the image we want to run as a container is rocker/r-base and once its started we’ll want to execute /bin/bash (our shell).</p>
 <p>When we’ve finished we can quit as follows.</p>
 <pre class="bash"><code>exit</code></pre>
-<p>We typically want to share some data between our host and our container. Using the -v option we can mount a host directory. Here mount the git repository for my R package as a data volume in the container.</p>
+<p>We typically want to share some data between our host and our container. Using the -v option we can mount a host directory. Here we mount the git repository for my R package as a data volume in the container.</p>
 <pre class="bash"><code>sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash -v ~/gits/vcfR:/RSource/vcfR</code></pre>
+<p>When we are done, we can exit as demonstrated above.</p>
 <p>If you decide you would like to remove an image it can be done using <code>rmi</code>.</p>
 <pre class="bash"><code>sudo docker rmi rocker/r-base</code></pre>
 <p>More help on Docker can be found at these links.</p>
@@ -53,7 +54,10 @@ sudo docker run --help</code></pre>
 <div id="rocker" class="section level2">
 <h2>Rocker</h2>
 <p>The Rocker project includes containers for running R. Some of this is documented here: <a href="http://dirk.eddelbuettel.com/blog/2014/10/23/">Docker for R</a>. There is also a <a href="https://github.com/rocker-org/rocker">Rocker Github</a> site for the images and documentation is on the <a href="https://github.com/rocker-org/rocker/wiki">Rocker wiki</a>.</p>
-<p>First we may want to make sure we have the most current version of the image.</p>
+<p>Rocker is hosted at GitHub. If we haven’t used their images before we’ll want to clone one to a local directory. I keep all my git repositories in a directory calls ‘gits’ in my home directory. We can clone our repository there.</p>
+<pre class="bash"><code>cd gits
+git clone git@github.com:rocker-org/r-devel-san.git</code></pre>
+<p>When we use this image we’ll want to start by making sure we have the most current version. This is accomplished by ’pull’ing the repository.</p>
 <pre class="bash"><code>docker pull rocker/r-devel-san</code></pre>
 <p>We can now start the image.</p>
 <pre class="bash"><code>sudo docker run --name=r-devel-san -v ~/gits/vcfR:/RSource/vcfR --rm -ti r-devel-san /bin/bash</code></pre>
