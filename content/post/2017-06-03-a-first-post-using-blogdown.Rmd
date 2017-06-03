@@ -89,3 +89,8 @@ tags: [blogdown]
 to the yaml header and proceeded to fill the rest of the document with the content you just read.
 
 
+As long as the `draft: yes` line remains in the yaml header, you will be able to serve this site locally but not on your github.io site.
+In order to make the post viewable I deleted the line at which point the post became live.
+This appears to be a nice featre to allow you to work on developing content that you are not yet ready to share.
+And when you are ready to share, a simple change in the document facilitates it.
+
