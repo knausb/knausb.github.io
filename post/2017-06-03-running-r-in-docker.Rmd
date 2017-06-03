@@ -100,7 +100,7 @@ exit
 ```
 
 
-We typically want to share some data between our host and our container. Using the -v option we can mount a host directory. Here mount the git repository for my R package as a data volume in the container.
+We typically want to share some data between our host and our container. Using the -v option we can mount a host directory. Here we mount the git repository for my R package as a data volume in the container.
 
 
 ```{bash, eval = FALSE}
@@ -108,6 +108,7 @@ sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash -v ~/gits/vcfR
 ```
 
 
+When we are done, we can exit as demonstrated above.
 
 
 If you decide you would like to remove an image it can be done using `rmi`.
@@ -131,8 +132,21 @@ The Rocker project includes containers for running R.
 Some of this is documented here: [Docker for R](http://dirk.eddelbuettel.com/blog/2014/10/23/).
 There is also a [Rocker Github](https://github.com/rocker-org/rocker) site for the images and documentation is on the [Rocker wiki](https://github.com/rocker-org/rocker/wiki).
 
-First we may want to make sure we have the most current version of the image.
 
+Rocker is hosted at GitHub.
+If we haven't used their images before we'll want to clone one to a local directory.
+I keep all my git repositories in a directory calls 'gits' in my home directory.
+We can clone our repository there.
+
+
+```{bash, eval = FALSE}
+cd gits
+git clone git@github.com:rocker-org/r-devel-san.git
+```
+
+
+When we use this image we'll want to start by making sure we have the most current version.
+This is accomplished by 'pull'ing the repository.
 
 
 ```{bash, eval = FALSE}

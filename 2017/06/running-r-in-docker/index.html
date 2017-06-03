@@ -8,7 +8,7 @@
 <meta property="og:title" content="Running R in Docker" />
 <meta property="og:description" content="Docker is a ‘container,’ or a mini-operating system, you can run within your existing operating system. This is nice because you can build an environment where you can build and test code. And if it breaks, you can kill it and start a new container and start again. In the context of R development there are at least two good reasons someone would want to run R in Docker. First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://knausb.github.io/2017/06/running-r-in-docker/" />
+<meta property="og:url" content="/2017/06/running-r-in-docker/" />
 
 
 
@@ -44,8 +44,8 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Running R in Docker",
-  "url": "https://knausb.github.io/2017/06/running-r-in-docker/",
-  "wordCount": "692",
+  "url": "/2017/06/running-r-in-docker/",
+  "wordCount": "759",
   "datePublished": "2017-06-03T00:00:00&#43;00:00",
   "dateModified": "2017-06-03T00:00:00&#43;00:00",
   "author": {
@@ -58,12 +58,12 @@
 
 
 
-    <link rel="canonical" href="https://knausb.github.io/2017/06/running-r-in-docker/">
+    <link rel="canonical" href="/2017/06/running-r-in-docker/">
 
     <title>Running R in Docker | Brian J. Knaus</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://knausb.github.io/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
 
     
 
@@ -80,13 +80,13 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="https://knausb.github.io/">Home</a>
+          <a class="nav-link " href="/">Home</a>
           
           
-          <a class="nav-link" href="https://knausb.github.io/about/">About Brian</a>
+          <a class="nav-link" href="/about/">About Brian</a>
           
           
-          <a class="nav-link" href="https://knausb.github.io/vcfr/">vcfR</a>
+          <a class="nav-link" href="/vcfr/">vcfR</a>
           
           
         </nav>
@@ -95,7 +95,7 @@
 
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="https://knausb.github.io/" rel="home">Brian J. Knaus</a></h1>
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
         <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
       </div>
     </header>
@@ -109,7 +109,7 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2017/06/running-r-in-docker/">Running R in Docker</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/06/running-r-in-docker/">Running R in Docker</a></h2>
     <p class="blog-post-meta"><time datetime="2017-06-03T00:00:00Z">Sat Jun 03, 2017</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
@@ -148,8 +148,9 @@ sudo docker run --help</code></pre>
 <p>This command included a few options. The run command runs the image. If it is not found locally, or needs to be updated, it is done automatically for you. The –name= option allows you to assign a name to the container. If you don’t assign one it will be done automatically for you. The –rm option automatically removes the container for you when you exit. The -ti options allocates a pseudo-TTY and provides an interactive session. The name of the image we want to run as a container is rocker/r-base and once its started we’ll want to execute /bin/bash (our shell).</p>
 <p>When we’ve finished we can quit as follows.</p>
 <pre class="bash"><code>exit</code></pre>
-<p>We typically want to share some data between our host and our container. Using the -v option we can mount a host directory. Here mount the git repository for my R package as a data volume in the container.</p>
+<p>We typically want to share some data between our host and our container. Using the -v option we can mount a host directory. Here we mount the git repository for my R package as a data volume in the container.</p>
 <pre class="bash"><code>sudo docker run --name=my-r-base --rm -ti rocker/r-base /bin/bash -v ~/gits/vcfR:/RSource/vcfR</code></pre>
+<p>When we are done, we can exit as demonstrated above.</p>
 <p>If you decide you would like to remove an image it can be done using <code>rmi</code>.</p>
 <pre class="bash"><code>sudo docker rmi rocker/r-base</code></pre>
 <p>More help on Docker can be found at these links.</p>
@@ -160,7 +161,10 @@ sudo docker run --help</code></pre>
 <div id="rocker" class="section level2">
 <h2>Rocker</h2>
 <p>The Rocker project includes containers for running R. Some of this is documented here: <a href="http://dirk.eddelbuettel.com/blog/2014/10/23/">Docker for R</a>. There is also a <a href="https://github.com/rocker-org/rocker">Rocker Github</a> site for the images and documentation is on the <a href="https://github.com/rocker-org/rocker/wiki">Rocker wiki</a>.</p>
-<p>First we may want to make sure we have the most current version of the image.</p>
+<p>Rocker is hosted at GitHub. If we haven’t used their images before we’ll want to clone one to a local directory. I keep all my git repositories in a directory calls ‘gits’ in my home directory. We can clone our repository there.</p>
+<pre class="bash"><code>cd gits
+git clone git@github.com:rocker-org/r-devel-san.git</code></pre>
+<p>When we use this image we’ll want to start by making sure we have the most current version. This is accomplished by ’pull’ing the repository.</p>
 <pre class="bash"><code>docker pull rocker/r-devel-san</code></pre>
 <p>We can now start the image.</p>
 <pre class="bash"><code>sudo docker run --name=r-devel-san -v ~/gits/vcfR:/RSource/vcfR --rm -ti r-devel-san /bin/bash</code></pre>
@@ -181,10 +185,10 @@ sudo docker run --help</code></pre>
     <section>
     <h4>Share</h4>
     <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=%2f2017%2f06%2frunning-r-in-docker%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
     </nav>
   </section>
 
