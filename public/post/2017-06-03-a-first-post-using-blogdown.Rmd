@@ -10,6 +10,7 @@ description: ''
 
 
 Once you have Hugo and blogdown set up you should be ready to blog!
+How to set up Hugo and blogdown was briefly covered in a [previous post](../../05/hello-blogdown/index.html), with links to more information.
 We can use blogdown to create a template for our first blog.
 
 
