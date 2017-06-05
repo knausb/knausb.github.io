@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Brian J. Knaus</title>
-    <link>/tags/docker/</link>
+    <link>https://knausb.github.io/tags/docker/</link>
     <description>Recent content in Docker on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Sat, 03 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knausb.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Running R in Docker</title>
-      <link>/2017/06/running-r-in-docker/</link>
+      <link>https://knausb.github.io/2017/06/running-r-in-docker/</link>
       <pubDate>Sat, 03 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/running-r-in-docker/</guid>
+      <guid>https://knausb.github.io/2017/06/running-r-in-docker/</guid>
       <description>Docker is a ‘container,’ or a mini-operating system, you can run within your existing operating system. This is nice because you can build an environment where you can build and test code. And if it breaks, you can kill it and start a new container and start again. In the context of R development there are at least two good reasons someone would want to run R in Docker. First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel.</description>
     </item>
     
