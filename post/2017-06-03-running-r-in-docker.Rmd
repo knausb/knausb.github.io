@@ -162,6 +162,15 @@ sudo docker run --name=r-devel-san -v ~/gits/vcfR:/RSource/vcfR --rm -ti r-devel
 ```
 
 
+The rocker containers seem to run Debian.
+You can validate this by querying for release information.
+
+
+```{bash, eval = FALSE}
+cat /etc/*-release
+```
+
+
 ## Conclusion
 
 
