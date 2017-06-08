@@ -171,6 +171,16 @@ cat /etc/*-release
 ```
 
 
+> Update: rocker/r-devel-san appears to now be on the docker repository.
+> This means it can be run without pulling it.
+> Instead we can simply call it at the terminal (as above and repeated here).
+
+```{bash, eval = FALSE}
+sudo docker run --name=r-devel-san -v ~/gits/vcfR:/RSource/vcfR --rm -ti r-devel-san /bin/bash
+```
+
+
+
 ## Conclusion
 
 

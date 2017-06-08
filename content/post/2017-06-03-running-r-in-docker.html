@@ -63,6 +63,10 @@ git clone git@github.com:rocker-org/r-devel-san.git</code></pre>
 <pre class="bash"><code>sudo docker run --name=r-devel-san -v ~/gits/vcfR:/RSource/vcfR --rm -ti r-devel-san /bin/bash</code></pre>
 <p>The rocker containers seem to run Debian. You can validate this by querying for release information.</p>
 <pre class="bash"><code>cat /etc/*-release</code></pre>
+<blockquote>
+<p>Update: rocker/r-devel-san appears to now be on the docker repository. This means it can be run without pulling it. Instead we can simply call it at the terminal (as above and repeated here).</p>
+</blockquote>
+<pre class="bash"><code>sudo docker run --name=r-devel-san -v ~/gits/vcfR:/RSource/vcfR --rm -ti r-devel-san /bin/bash</code></pre>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
