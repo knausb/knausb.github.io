@@ -1,0 +1,30 @@
+---
+title: CRAN memory error
+author: Brian J. Knaus
+date: '2017-06-12'
+slug: cran-memory-error
+categories: [R]
+tags: [R, Rcpp, ASAN, UBSAN]
+description: ''
+draft: yes
+---
+
+
+
+<p>I have a package on CRAN where the CRAN tests are reporting a memory error. In order to use the address sanitizer (ASAN) we need to have a version of R that has been compiled specially to make use of it. In a previous post I described how we can use <a href="../running-r-in-docker/">Docker to run rocker images</a> so we do not have to change our system R. I’ve also validated the <a href="../validating-asan/">ASAN is working</a>. We’re alost ready to diagnose our issue. First we’ll need to install some software. We’ll also need to handle an R library issue.</p>
+<div id="installing-software" class="section level2">
+<h2>Installing software</h2>
+<p>In orderer to build the vignettes we’ll need a few dependencies from outside R. We can install these in our Docker instance in a manner similar to a typical system.</p>
+<pre class="r"><code>apt-get update
+apt-get install pandoc qpdf</code></pre>
+<p>We’ll also need to install some package dependencies. We can do this from the shell as follows.</p>
+<pre class="r"><code>R -e &#39;install.packages(c(&quot;ape&quot;, &quot;dplyr&quot;, &quot;knitr&quot;, &quot;poppr&quot;, &quot;Rcpp&quot;, &quot;memuse&quot;, &quot;pinfsc50&quot;, &quot;rmarkdown&quot;, &quot;testthat&quot;, &quot;tidyr&quot;, &quot;vegan&quot;, &quot;viridisLite&quot;), lib = &quot;/usr/local/lib/R/site-library&quot;)&#39;</code></pre>
+<p>This actually take a bit due to the number of packages that are needed.</p>
+</div>
+<div id="build-and-check-the-package" class="section level2">
+<h2>Build and check the package</h2>
+<p>You should now be able to build and check your package.</p>
+<pre class="r"><code>cd Rsource
+R CMD build vcfR/
+R CMD check --as-cran vcfR_1.5.0.9000.tar.gz</code></pre>
+</div>
