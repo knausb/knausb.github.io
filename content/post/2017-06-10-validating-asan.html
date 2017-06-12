@@ -6,7 +6,7 @@ slug: validating-asan
 categories: [R]
 tags: [ASAN, C++, R]
 description: ''
-draft: yes
+draft: no
 ---
 
 
@@ -31,7 +31,7 @@ int main(int, char **)
     a[3] = 4;
     return 0;
 }</code></pre>
-<p>This can be created with whatever your favorite text editor is. Note that we’ve initialized an array of class <code>int</code> that has three elements. Because C++ is a zero-based language, these elements are numbered 0-2. When we try to access the element at <code>a[3]</code> we are attempting to access an element that does not exist. Thsi should be a problem. We can now compile this program with options to enable the address sanitizer.</p>
+<p>This can be created with whatever your favorite text editor is. Note that we’ve initialized an array of class <code>int</code> that has three elements. Because C++ is a zero-based language, these elements are numbered 0-2. When we try to access the element at <code>a[3]</code> we are attempting to access an element that does not exist. This should be a problem. We can now compile this program with options to enable the address sanitizer.</p>
 <pre class="bash"><code>g++ -fno-omit-frame-pointer -fsanitize=address main.cpp</code></pre>
 <p>This should create an executable named <code>a.out</code> (the default name). We should now be able to execute this program as follows.</p>
 <pre class="bash"><code>./a.out</code></pre>
@@ -92,4 +92,7 @@ root@b3070ef7a56b:/# </code></pre>
 <p>Another issue this should point out is that no line numbers are reported to help us find the error in our source code. In theory, this is an option we should be able to turn on.</p>
 <p>For me, adding <code>-g3</code> to increase the debug level seemed to work.</p>
 <pre class="bash"><code>g++ -g3 -fno-omit-frame-pointer -fsanitize=address main.cpp</code></pre>
-<p>And I received line numbers.</p>
+<p>And I received line numbers. We should see the same output as above with a slight exception.</p>
+<pre class="bash"><code>    #0 0x55b1a72c3a0a in main /RSource/main.cpp:4</code></pre>
+<p>We now have a line number that we should probably scrutinize.</p>
+<p>We’ve now validated that the address sanitizer is installed and functioning as expected. We should now be able to proceed to test our own code.</p>

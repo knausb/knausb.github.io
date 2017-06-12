@@ -6,7 +6,7 @@ slug: validating-asan
 categories: [R]
 tags: [ASAN, C++, R]
 description: ''
-draft: yes
+draft: no
 ---
 
 
@@ -82,7 +82,7 @@ This can be created with whatever your favorite text editor is.
 Note that we've initialized an array of class `int` that has three elements.
 Because C++ is a zero-based language, these elements are numbered 0-2.
 When we try to access the element at `a[3]` we are attempting to access an element that does not exist.
-Thsi should be a problem.
+This should be a problem.
 We can now compile this program with options to enable the address sanitizer.
 
 
@@ -178,13 +178,18 @@ g++ -g3 -fno-omit-frame-pointer -fsanitize=address main.cpp
 ```
 
 And I received line numbers.
+We should see the same output as above with a slight exception.
 
 
+```{bash, eval = FALSE}
+    #0 0x55b1a72c3a0a in main /RSource/main.cpp:4
+```
 
 
+We now have a line number that we should probably scrutinize.
 
 
-
-
+We've now validated that the address sanitizer is installed and functioning as expected.
+We should now be able to proceed to test our own code.
 
 
