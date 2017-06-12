@@ -1,0 +1,95 @@
+---
+title: Validating ASAN
+author: ~
+date: '2017-06-10'
+slug: validating-asan
+categories: [R]
+tags: [ASAN, C++, R]
+description: ''
+draft: yes
+---
+
+
+
+<p>The <a href="https://github.com/google/sanitizers">address sanitizer</a> (ASAN) is a tool produced by <a href="https://github.com/google/sanitizers">google</a> that detects <a href="https://en.wikipedia.org/wiki/AddressSanitizer">memory coruption bugs</a>. It is relevant to the work I do, in part, because <a href="https://cran.r-project.org/">CRAN</a> checks contributed packages with this tool. This is a good practice on the part of CRAN to ensure that packages it hosts lack bugs. However, if you are unfamiliar with this tool it may present a formidable challenge to use. Here I explain how I’ve implemented it in my work.</p>
+<p>In the context of R packages, the use of ASAN requires a version of R that was compiled with <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Using-Address-Sanitizer">specific flags</a>. My current option to accomplish this is to use <a href="https://www.docker.com/">Docker</a> to run a container provided by <a href="https://hub.docker.com/u/rocker/">rocker</a>, which I’ve discussed <a href="../running-r-in-docker/">here</a>. This post picks up where that post ended, where we have a Docker container running. We can now proceed to validate that ASAN is enabled. I like to do this outside of the R tool chain as a simpler validation that things are in order. We can begin by starting our Docker container.</p>
+<pre class="bash"><code>sudo docker run --name=r-devel-san -v ~/gits/vcfR:/RSource/vcfR --rm -ti r-devel-san /bin/bash</code></pre>
+<p>First we’ll want to make sure <a href="http://llvm.org/">LLVM</a> is installed. The LLVM adds features to the ASAN. We can query for it’s presence by using <code>which</code>.</p>
+<pre class="bash"><code>which llvm-symbolizer-3.8</code></pre>
+<p>At the time of this writing the LLVM does not appear to have been installed in <code>rocker/r-devel-san</code>. That’s alright because we can install it as follows.</p>
+<pre class="r"><code>apt-get update
+apt-get install llvm</code></pre>
+<p>We can now use <code>which</code> to validate that LLVM is installed.</p>
+<pre class="bash"><code>which llvm-symbolizer-3.8
+/usr/bin/llvm-symbolizer-3.8</code></pre>
+<p>At the time this was written LLVM was at version 3.8, in the future you may have to modify this query to reflect updates.</p>
+<p>A nice example for learning ASAN can be found <a href="http://tsdgeos.blogspot.com/2014/03/asan-and-gcc-how-to-get-line-numbers-in.html">here</a>. This example is based on it. First, we’ll create a text file.</p>
+<pre class="bash"><code>cat main.cpp 
+int main(int, char **)
+{
+    int a[3];
+    a[3] = 4;
+    return 0;
+}</code></pre>
+<p>This can be created with whatever your favorite text editor is. Note that we’ve initialized an array of class <code>int</code> that has three elements. Because C++ is a zero-based language, these elements are numbered 0-2. When we try to access the element at <code>a[3]</code> we are attempting to access an element that does not exist. Thsi should be a problem. We can now compile this program with options to enable the address sanitizer.</p>
+<pre class="bash"><code>g++ -fno-omit-frame-pointer -fsanitize=address main.cpp</code></pre>
+<p>This should create an executable named <code>a.out</code> (the default name). We should now be able to execute this program as follows.</p>
+<pre class="bash"><code>./a.out</code></pre>
+<p>At which point a large amount of error information should be printed to the screen. On my system I see the following.</p>
+<pre class="bash"><code>root@b3070ef7a56b:/# ./a.out 
+=================================================================
+==1079==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffee7855ddc at pc 0x560201d98a0b bp 0x7ffee7855d90 sp 0x7ffee7855d88
+WRITE of size 4 at 0x7ffee7855ddc thread T0
+    #0 0x560201d98a0a in main (/a.out+0xa0a)
+    #1 0x7fd35dcaa2b0 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x202b0)
+    #2 0x560201d98849 in _start (/a.out+0x849)
+
+Address 0x7ffee7855ddc is located in stack of thread T0 at offset 44 in frame
+    #0 0x560201d9895f in main (/a.out+0x95f)
+
+  This frame has 1 object(s):
+    [32, 44) &#39;a&#39; &lt;== Memory access at offset 44 overflows this variable
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism or swapcontext
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: stack-buffer-overflow (/a.out+0xa0a) in main
+Shadow bytes around the buggy address:
+  0x10005cf02b60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10005cf02b70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10005cf02b80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10005cf02b90: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10005cf02ba0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=&gt;0x10005cf02bb0: 00 00 00 00 00 00 f1 f1 f1 f1 00[04]f4 f4 f3 f3
+  0x10005cf02bc0: f3 f3 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10005cf02bd0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10005cf02be0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10005cf02bf0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x10005cf02c00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Heap right redzone:      fb
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack partial redzone:   f4
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==1079==ABORTING
+root@b3070ef7a56b:/# </code></pre>
+<p>Only that this blog does not do the output justice. The output is actually quite colorful as an attempt to draw our attention to the important elements.</p>
+<p>This illustrates an important difference between using ASAN relative to looking for compile time errors or using valgrind: the program compiles and it is not until execution that it throws the error. In an R package this means that the package may build but the error may not be be generated until the running of the vignettes, examples or unit tests.</p>
+<p>Another issue this should point out is that no line numbers are reported to help us find the error in our source code. In theory, this is an option we should be able to turn on.</p>
+<p>For me, adding <code>-g3</code> to increase the debug level seemed to work.</p>
+<pre class="bash"><code>g++ -g3 -fno-omit-frame-pointer -fsanitize=address main.cpp</code></pre>
+<p>And I received line numbers.</p>
