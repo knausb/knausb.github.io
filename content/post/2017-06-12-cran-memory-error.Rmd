@@ -28,7 +28,7 @@ We can install these in our Docker instance in a manner similar to a typical sys
 
 ```{R, eval = FALSE}
 apt-get update
-apt-get install pandoc qpdf
+apt-get install pandoc qpdf libssl-dev libssh2-1-dev
 ```
 
 
@@ -37,7 +37,7 @@ We can do this from the shell as follows.
 
 
 ```{R, eval = FALSE}
-R -e 'install.packages(c("ape", "dplyr", "knitr", "poppr", "Rcpp", "memuse", "pinfsc50", "rmarkdown", "testthat", "tidyr", "vegan", "viridisLite"), lib = "/usr/local/lib/R/site-library")'
+R -e 'install.packages(c("ape", "dplyr", "knitr", "poppr", "Rcpp", "memuse", "pinfsc50", "rmarkdown", "testthat", "tidyr", "vegan", "viridisLite"), dependencies = TRUE, lib = "/usr/local/lib/R/site-library")'
 ```
 
 
