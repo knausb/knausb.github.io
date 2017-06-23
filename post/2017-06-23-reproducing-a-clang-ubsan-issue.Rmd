@@ -195,10 +195,14 @@ The CRAN output informs us as to which unit test, which function, and what line 
 Now that we can reproduce the error, and know where to look for it, we can attempt a fix.
 
 
+When we look at line 394 in the freq_peak.cpp we see the following.
+
 
 ```{bash, eval = FALSE}
-
+ int intQuery = myFreqs(i) * multiplier;
 ```
 
 
+Here `myFreqs(i)` is an element of an `Rcpp::NumericVector` which means it may include missing values.
+However, an `int` can not hold a missing value, which appears to be the source of our error.
 
