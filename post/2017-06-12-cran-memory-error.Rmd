@@ -6,7 +6,7 @@ slug: cran-memory-error
 categories: [R]
 tags: [R, Rcpp, ASAN, UBSAN]
 description: ''
-draft: yes
+draft: no
 ---
 
 
@@ -53,8 +53,366 @@ You should now be able to build and check your package.
 ```{R, eval = FALSE}
 cd Rsource
 R CMD build vcfR/
-R CMD check --as-cran vcfR_1.5.0.9000.tar.gz
+R CMD check --as-cran vcfR_1.4.0.9000.tar.gz
 ```
+
+
+
+### A package finding error
+
+I generated a curious error that took me a bit to track down.
+When trying to build my package I generate the below error.
+
+```{bash, eval = FALSE}
+Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
+  there is no package called ‘lattice’
+ERROR: lazy loading failed for package ‘vcfR’
+```
+
+
+I say this is curious because when I enter R and try to load this package interactively it seems to work fine.
+For some reason it is not found during the build invocation.
+I find I can circumvent this issue by moving packages to a specific location.
+On my system packages may be located at several locations.
+
+
+```{bash, eval = FALSE}
+.libPaths()
+"/usr/local/lib/R/site-library"
+"/usr/local/lib/R/library"
+"/usr/lib/R/library" 
+```
+
+
+I can remove packages and install them to a specific location like this.
+
+
+```{bash, eval = FALSE}
+find.package('lattice')
+remove.packages('lattice', lib = "/usr/lib/R/library")
+find.package('lattice')
+install.packages('lattice', lib = "/usr/local/lib/R/site-library")
+```
+
+
+I find that this issue affects more than one package, so I tend to move everything I can.
+Note that you don't want to move the base packages, so I omit them.
+
+
+```{bash, eval = FALSE}
+# base packages, and should not be updated
+myBase <- c('base', 'compiler', 'datasets', 'graphics', 'grDevices', 'grid', 'methods', 'parallel', 'splines', 'stats', 'stats4', 'tcltk', 'tools', 'utils')
+
+# First directory
+miss.pkgs <- list.files("/usr/lib/R/library")
+miss.pkgs <- grep(paste(myBase, collapse = "|"), miss.pkgs, value = TRUE, invert = TRUE)
+remove.packages(miss.pkgs, lib = "/usr/lib/R/library")
+install.packages(miss.pkgs, lib = "/usr/local/lib/R/library")
+
+# Second directory
+miss.pkgs <- list.files("/usr/local/lib/R/site-library")
+miss.pkgs <- grep(paste(myBase, collapse = "|"), miss.pkgs, value = TRUE, invert = TRUE)
+remove.packages(miss.pkgs, lib = "/usr/local/lib/R/site-library")
+install.packages(miss.pkgs, lib = "/usr/local/lib/R/library")
+
+```
+
+
+Once we have the required dependencies we can build and check our package.
+
+
+## Build and test package
+
+
+If you have not mounted a volume containing the package you could download it from CRAN.
+
+
+```{r, eval = FALSE}
+mkdir RSource
+cd RSource
+wget https://cran.r-project.org/src/contrib/vcfR_1.4.0.tar.gz
+tar -xvzf vcfR_1.4.0.tar.gz
+cd ..
+```
+
+
+Build and test the package as follows.
+
+
+```{r, eval = FALSE}
+Rdevel CMD build vcfR/
+Rdevel CMD check --as-cran vcfR_1.4.0.9000.tar.gz 
+```
+
+
+```{}
+# Rdevel CMD INSTALL vcfR_1.4.0.9000.tar.gz 
+
+# RD CMD build /RSource/vcfR
+# RD CMD check --as-cran vcfR_1.4.0.9000.tar.gz
+# RD CMD check --no-build-vignettes vcfR_1.4.0.9000.tar.gz
+```
+
+
+
+I use `testthat` for unit testing.
+One of my tests failed.
+I can find that output in my tests directory.
+
+
+```{bash, eval = FALSE}
+less vcfR.Rcheck/tests/testthat.Rout.fail 
+```
+
+
+This should allow us to reproduce any error reported to us from CRAN.
+If we can reproduce the error we should be able to fix it.
+
+
+If there is a question about how the compiler was called we can check in the log files.
+In the file `00install.out` we can validate that the compilation included the correct options.
+
+
+```{bash, eval = FALSE}
+-fsanitize=address -fno-omit-frame-pointer
+```
+
+
+In order to isolate the problem we can install the built package and try to execute the script that threw the error.
+
+
+```{r, eval = FALSE}
+Rdevel CMD INSTALL vcfR_1.4.0.tar.gz
+Rscript RSource/vcfR/tests/testthat/test_3_extract_gt.R
+```
+
+
+
+```{bash, eval = FALSE}
+root@f91ccb9ab8cf:/# Rscriptdevel RSource/vcfR/tests/testthat/test_3_extract_gt.R 
+
+   *****       ***   vcfR   ***       *****
+   This is vcfR 1.4.0
+     browseVignettes('vcfR') # Documentation
+     citation('vcfR') # Citation
+   *****       *****      *****       *****
+
+=================================================================
+==6066==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffe1d3c3f83 at pc 0x7f22cb00bec0 bp 0x7ffe1d3c3650 sp 0x7ffe1d3c3648
+READ of size 1 at 0x7ffe1d3c3f83 thread T0
+    #0 0x7f22cb00bebf in gt2alleles(Rcpp::String, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >) (/usr/local/lib/R/site-library/vcfR/libs/vcfR.so+0x30bebf)
+    #1 0x7f22cb014ea1 in extract_GT_to_CM2(Rcpp::Matrix<16, Rcpp::PreserveStorage>, Rcpp::Matrix<16, Rcpp::PreserveStorage>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, int, int) (/usr/local/lib/R/site-library/vcfR/libs/vcfR.so+0x314ea1)
+    #2 0x7f22cafde0dd in vcfR_extract_GT_to_CM2 (/usr/local/lib/R/site-library/vcfR/libs/vcfR.so+0x2de0dd)
+    #3 0x7f22da6f126b in do_dotcall (/usr/local/lib/R/lib/libR.so+0xa8226b)
+    #4 0x7f22da7ed244 in bcEval (/usr/local/lib/R/lib/libR.so+0xb7e244)
+    #5 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #6 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #7 0x7f22da82f700 in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc0700)
+    #8 0x7f22da843c56 in do_set (/usr/local/lib/R/lib/libR.so+0xbd4c56)
+    #9 0x7f22da82fc98 in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc0c98)
+    #10 0x7f22da83d36d in do_begin (/usr/local/lib/R/lib/libR.so+0xbce36d)
+    #11 0x7f22da82fc98 in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc0c98)
+    #12 0x7f22da847beb in do_eval (/usr/local/lib/R/lib/libR.so+0xbd8beb)
+    #13 0x7f22da7ed244 in bcEval (/usr/local/lib/R/lib/libR.so+0xb7e244)
+    #14 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #15 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #16 0x7f22da8009b7 in bcEval (/usr/local/lib/R/lib/libR.so+0xb919b7)
+    #17 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #18 0x7f22da8323b4 in forcePromise (/usr/local/lib/R/lib/libR.so+0xbc33b4)
+    #19 0x7f22da833643 in getvar (/usr/local/lib/R/lib/libR.so+0xbc4643)
+    #20 0x7f22da7fe132 in bcEval (/usr/local/lib/R/lib/libR.so+0xb8f132)
+    #21 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #22 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #23 0x7f22da8009b7 in bcEval (/usr/local/lib/R/lib/libR.so+0xb919b7)
+    #24 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #25 0x7f22da8323b4 in forcePromise (/usr/local/lib/R/lib/libR.so+0xbc33b4)
+    #26 0x7f22da833643 in getvar (/usr/local/lib/R/lib/libR.so+0xbc4643)
+    #27 0x7f22da7fe132 in bcEval (/usr/local/lib/R/lib/libR.so+0xb8f132)
+    #28 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #29 0x7f22da8323b4 in forcePromise (/usr/local/lib/R/lib/libR.so+0xbc33b4)
+    #30 0x7f22da833643 in getvar (/usr/local/lib/R/lib/libR.so+0xbc4643)
+    #31 0x7f22da7fe132 in bcEval (/usr/local/lib/R/lib/libR.so+0xb8f132)
+    #32 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #33 0x7f22da8323b4 in forcePromise (/usr/local/lib/R/lib/libR.so+0xbc33b4)
+    #34 0x7f22da833643 in getvar (/usr/local/lib/R/lib/libR.so+0xbc4643)
+    #35 0x7f22da7fe132 in bcEval (/usr/local/lib/R/lib/libR.so+0xb8f132)
+    #36 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #37 0x7f22da8323b4 in forcePromise (/usr/local/lib/R/lib/libR.so+0xbc33b4)
+    #38 0x7f22da833643 in getvar (/usr/local/lib/R/lib/libR.so+0xbc4643)
+    #39 0x7f22da7fe132 in bcEval (/usr/local/lib/R/lib/libR.so+0xb8f132)
+    #40 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #41 0x7f22da8323b4 in forcePromise (/usr/local/lib/R/lib/libR.so+0xbc33b4)
+    #42 0x7f22da833643 in getvar (/usr/local/lib/R/lib/libR.so+0xbc4643)
+    #43 0x7f22da7fe132 in bcEval (/usr/local/lib/R/lib/libR.so+0xb8f132)
+    #44 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #45 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #46 0x7f22da8009b7 in bcEval (/usr/local/lib/R/lib/libR.so+0xb919b7)
+    #47 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #48 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #49 0x7f22da8009b7 in bcEval (/usr/local/lib/R/lib/libR.so+0xb919b7)
+    #50 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #51 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #52 0x7f22da8009b7 in bcEval (/usr/local/lib/R/lib/libR.so+0xb919b7)
+    #53 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #54 0x7f22da8323b4 in forcePromise (/usr/local/lib/R/lib/libR.so+0xbc33b4)
+    #55 0x7f22da833643 in getvar (/usr/local/lib/R/lib/libR.so+0xbc4643)
+    #56 0x7f22da7fe132 in bcEval (/usr/local/lib/R/lib/libR.so+0xb8f132)
+    #57 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #58 0x7f22da8323b4 in forcePromise (/usr/local/lib/R/lib/libR.so+0xbc33b4)
+    #59 0x7f22da833643 in getvar (/usr/local/lib/R/lib/libR.so+0xbc4643)
+    #60 0x7f22da7fe132 in bcEval (/usr/local/lib/R/lib/libR.so+0xb8f132)
+    #61 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #62 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #63 0x7f22da8009b7 in bcEval (/usr/local/lib/R/lib/libR.so+0xb919b7)
+    #64 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #65 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #66 0x7f22da8009b7 in bcEval (/usr/local/lib/R/lib/libR.so+0xb919b7)
+    #67 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #68 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #69 0x7f22da8009b7 in bcEval (/usr/local/lib/R/lib/libR.so+0xb919b7)
+    #70 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #71 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #72 0x7f22da8009b7 in bcEval (/usr/local/lib/R/lib/libR.so+0xb919b7)
+    #73 0x7f22da82f22f in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc022f)
+    #74 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #75 0x7f22da82f700 in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc0700)
+    #76 0x7f22da83d36d in do_begin (/usr/local/lib/R/lib/libR.so+0xbce36d)
+    #77 0x7f22da82fc98 in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc0c98)
+    #78 0x7f22da839d41 in R_execClosure (/usr/local/lib/R/lib/libR.so+0xbcad41)
+    #79 0x7f22da82f700 in Rf_eval (/usr/local/lib/R/lib/libR.so+0xbc0700)
+    #80 0x7f22da8d651d in Rf_ReplIteration (/usr/local/lib/R/lib/libR.so+0xc6751d)
+    #81 0x7f22da8d7218 in R_ReplConsole (/usr/local/lib/R/lib/libR.so+0xc68218)
+    #82 0x7f22da8d7327 in run_Rmainloop (/usr/local/lib/R/lib/libR.so+0xc68327)
+    #83 0x55bbbebad9f9 in main (/usr/local/lib/R/bin/exec/R+0x9f9)
+    #84 0x7f22d89ae2b0 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x202b0)
+    #85 0x55bbbebada49 in _start (/usr/local/lib/R/bin/exec/R+0xa49)
+
+Address 0x7ffe1d3c3f83 is located in stack of thread T0 at offset 579 in frame
+    #0 0x7f22cb0082af in gt2alleles(Rcpp::String, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >) (/usr/local/lib/R/site-library/vcfR/libs/vcfR.so+0x3082af)
+
+  This frame has 9 object(s):
+    [32, 36) 'unphased_as_na'
+    [96, 100) 'allele_number'
+    [160, 168) '__size'
+    [224, 232) '__osize'
+    [288, 312) 'gt_vector'
+    [352, 376) 'delim_vector'
+    [416, 448) 'sep'
+    [480, 512) 'na_allele'
+    [544, 576) 'gt2' <== Memory access at offset 579 overflows this variable
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism or swapcontext
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: stack-buffer-overflow (/usr/local/lib/R/site-library/vcfR/libs/vcfR.so+0x30bebf) in gt2alleles(Rcpp::String, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >)
+Shadow bytes around the buggy address:
+  0x100043a707a0: 00 00 00 00 00 00 00 00 f1 f1 f1 f1 04 f4 f4 f4
+  0x100043a707b0: f2 f2 f2 f2 04 f4 f4 f4 f2 f2 f2 f2 00 f4 f4 f4
+  0x100043a707c0: f2 f2 f2 f2 00 f4 f4 f4 f2 f2 f2 f2 00 00 00 f4
+  0x100043a707d0: f2 f2 f2 f2 00 00 00 f4 f2 f2 f2 f2 00 00 00 00
+  0x100043a707e0: f2 f2 f2 f2 00 00 00 00 f2 f2 f2 f2 00 00 00 00
+=>0x100043a707f0:[f3]f3 f3 f3 00 00 00 00 00 00 00 00 00 00 00 00
+  0x100043a70800: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x100043a70810: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x100043a70820: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x100043a70830: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x100043a70840: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Heap right redzone:      fb
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack partial redzone:   f4
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==6066==ABORTING
+root@f91ccb9ab8cf:/# 
+```
+
+
+This reproduces the error we're looking for.
+(We knew which file it was from the report on CRAN.)
+We should now be able to isolate the offending commands in this file.
+This tells us at least two important issues with our code.
+First, the problem is in the function `gt2alleles()`.
+Second, the issue is with the object `gt2`.
+However, this does not pinpoint the problem.
+In order to accomplish that, we'll need to use a debugger.
+
+
+```{bash, eval = FALSE}
+shell> Rdevel -d gdb
+(gdb) run
+R> library(vcfR)
+<Crtl + c>
+(gdb) b gt2alleles
+(gdb) c
+```
+
+
+We can now copy and paste our offending code into the terminal.
+
+
+```{bash, eval = FALSE}
+R> data(vcfR_example)
+R> chrom <- create.chromR(name="Chrom", vcf=vcf, seq=dna, ann=gff, verbose=FALSE)
+R> chrom <- masker(chrom, min_DP = 1e3, max_DP = 2e3)
+
+R> # This is where our problem is.
+R> gt <- extract.gt(chrom, element="GT", return.alleles = TRUE)
+
+(gdb) s
+(gdb) n
+
+info args
+
+
+print gt
+print allele_vector
+
+
+(gdb) fr v
+
+(gdb) finish
+(gdb) quit
+
+
+```
+
+
+
+```{bash, eval = FALSE}
+quit
+```
+
+
+
+
+We can enter the R environment and copy and paste the lines of our test into the console until we generate our error.
+
+
+```{bash, eval = FALSE}
+Rdevel
+#Rscriptdevel -e ''
+#Rscriptdevel -e 'library(vcfR); '
+
+```
+
+
+Once we have found the offending line we'll want to use a debugger to step isolate the code at issue.
+Kevin Ushey has put together a nice post called [Debugging with LLDB](http://kevinushey.github.io/blog/2015/04/13/debugging-with-lldb/) which addresses the use of lldb which is very similar to gdb.
+
 
 
 
