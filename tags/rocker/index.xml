@@ -2,31 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rocker on Brian J. Knaus</title>
-    <link>https://knausb.github.io/tags/rocker/</link>
+    <link>/tags/rocker/</link>
     <description>Recent content in Rocker on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Fri, 23 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://knausb.github.io/tags/rocker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/rocker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Running r-devel-ubsan-clang in Docker</title>
-      <link>https://knausb.github.io/2017/06/running-r-devel-ubsan-clang-in-docker/</link>
+      <title>Reproducing a clang-UBSAN issue</title>
+      <link>/2017/06/reproducing-a-clang-ubsan-issue/</link>
       <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/06/running-r-devel-ubsan-clang-in-docker/</guid>
+      <guid>/2017/06/reproducing-a-clang-ubsan-issue/</guid>
+      <description>My R package, vcfR Version 1.5.0, is currently reporting a clang-UBSAN issue. I’ve described how to geet a Docker image with clang-UBSAN up and running here. Once we have the image up and running we’ll want to install package dependencies. First, pandoc is needed to render markdown and qpdf is used to check pdfs.
+apt-get update apt-get install pandoc qpdf Then we can install R packages.
+R -e &amp;#39;install.packages(c(&amp;quot;ape&amp;quot;, &amp;quot;dplyr&amp;quot;, &amp;quot;knitr&amp;quot;, &amp;quot;poppr&amp;quot;, &amp;quot;Rcpp&amp;quot;, &amp;quot;memuse&amp;quot;, &amp;quot;pinfsc50&amp;quot;, &amp;quot;rmarkdown&amp;quot;, &amp;quot;testthat&amp;quot;, &amp;quot;tidyr&amp;quot;, &amp;quot;vegan&amp;quot;, &amp;quot;viridisLite&amp;quot;), dependencies = TRUE, lib = &amp;quot;/usr/local/lib/R/site-library&amp;quot;)&amp;#39; Build and test our package.</description>
+    </item>
+    
+    <item>
+      <title>Running r-devel-ubsan-clang in Docker</title>
+      <link>/2017/06/running-r-devel-ubsan-clang-in-docker/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/06/running-r-devel-ubsan-clang-in-docker/</guid>
       <description>My R package, vcfR Version 1.5.0, currently has an issue with clang-UBSAN. This can be seen at it’s CRAN site and clicking the link for ‘CRAN checks.’ Under the section ‘Additional issues’ it lists ‘clang-UBSAN’. clang is ‘a C language family frontend for LLVM’ that is typically used as the compiler on OSX (Macs) when Xcode is installed. The undefined behavior sanitizer (UBSAN) tests for issues such as memory overflows. In order for UBSAN to work you need a version of R that is compiled specifically for this purpose.</description>
     </item>
     
     <item>
       <title>Running R in Docker</title>
-      <link>https://knausb.github.io/2017/06/running-r-in-docker/</link>
+      <link>/2017/06/running-r-in-docker/</link>
       <pubDate>Sat, 03 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/06/running-r-in-docker/</guid>
+      <guid>/2017/06/running-r-in-docker/</guid>
       <description>Docker is a ‘container,’ or a mini-operating system, you can run within your existing operating system. This is nice because you can build an environment where you can build and test code. And if it breaks, you can kill it and start a new container and start again. In the context of R development there are at least two good reasons someone would want to run R in Docker. First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel.</description>
     </item>
     
