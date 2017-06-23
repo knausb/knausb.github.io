@@ -1,0 +1,25 @@
+---
+title: Running r-devel-ubsan-clang in Docker
+author: Brian J. Knaus
+date: '2017-06-23'
+slug: running-r-devel-ubsan-clang-in-docker
+categories: []
+tags: []
+description: ''
+draft: yes
+---
+
+
+
+<p>My R package, vcfR Version 1.5.0, currently has an issue with clang-UBSAN. This can be seen at <a href="https://cran.r-project.org/web/packages/vcfR/index.html">it’s CRAN site</a> and clicking the link for ‘CRAN checks.’ Under the section ‘Additional issues’ it lists ‘clang-UBSAN’. <a href="https://clang.llvm.org/">clang</a> is ‘a C language family frontend for LLVM’ that is typically used as the compiler on OSX (Macs) when Xcode is installed. The undefined behavior sanitizer (<a href="https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html">UBSAN</a>) tests for issues such as memory overflows. In order for UBSAN to work you need a version of R that is compiled specifically for this purpose. We typically do not want to do this to the production version of R we use at our workstation. Instead, we’ll user the Docker image provided by Rocker.</p>
+<p>Rocker provides Docker images for R in a number of flavors. The rocker dockerhub site can be found <a href="https://hub.docker.com/u/rocker/?page=1">here</a>. The rocker group has a <a href="https://github.com/rocker-org/rocker">rocker GitHub site</a> as well. We’ll want to make sure we have the most recent version. We can do this by ‘pulling’ the image, which we accomplish as follows.</p>
+<pre class="bash"><code>$ sudo docker pull rocker/r-devel-ubsan-clang</code></pre>
+<p>We should now be able to start our container.</p>
+<pre class="bash"><code>$ sudo docker run --name=r-devel-ubsan-clang -v ~/gits/vcfR:/RSource/vcfR --rm -ti rocker/r-devel-ubsan-clang /bin/bash</code></pre>
+<p>Once we have our container running we can validate clang is installed by querying its version.</p>
+<pre class="bash"><code># clang-3.9 --version
+clang version 3.9.1-9 (tags/RELEASE_391/rc2)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin</code></pre>
+<p>We should now be ready to address our R package issues.</p>

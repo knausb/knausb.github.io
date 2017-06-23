@@ -8,7 +8,7 @@
 <meta property="og:title" content="Asan" />
 <meta property="og:description" content="Brian J. Knaus&#39;s blog about genomics and biology." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://knausb.github.io/tags/asan/" />
+<meta property="og:url" content="/tags/asan/" />
 
 
 
@@ -32,7 +32,7 @@
   "@context": "http://schema.org",
   "@type": "Blog",
   "headline": "Brian J. Knaus",
-  "url" : "https://knausb.github.io/tags/asan/",
+  "url" : "/tags/asan/",
   "author": {
     "@type": "Person",
     "name": "Brian J. Knaus"
@@ -44,16 +44,16 @@
 </script>
 
 
-    <link rel="canonical" href="https://knausb.github.io/tags/asan/">
+    <link rel="canonical" href="/tags/asan/">
 
     <title>Brian J. Knaus</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://knausb.github.io/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
 
     
     <!-- RSS 2.0 feed -->
-    <link href="https://knausb.github.io/tags/asan/index.xml" rel="alternate" type="application/rss+xml" title="Brian J. Knaus" />
+    <link href="/tags/asan/index.xml" rel="alternate" type="application/rss+xml" title="Brian J. Knaus" />
     
 
     
@@ -69,13 +69,13 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="https://knausb.github.io/">Home</a>
+          <a class="nav-link " href="/">Home</a>
           
           
-          <a class="nav-link" href="https://knausb.github.io/about/">About Brian</a>
+          <a class="nav-link" href="/about/">About Brian</a>
           
           
-          <a class="nav-link" href="https://knausb.github.io/vcfr/">vcfR</a>
+          <a class="nav-link" href="/vcfr/">vcfR</a>
           
           
         </nav>
@@ -84,7 +84,7 @@
 
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="https://knausb.github.io/" rel="home">Brian J. Knaus</a></h1>
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
         <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
       </div>
     </header>
@@ -103,7 +103,7 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2017/06/cran-memory-error/">CRAN memory error</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/06/cran-memory-error/">CRAN memory error</a></h2>
     <p class="blog-post-meta"><time datetime="2017-06-12T00:00:00Z">Mon Jun 12, 2017</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
@@ -113,7 +113,7 @@
 </p>
   </header>
   I have a package on CRAN where the CRAN tests are reporting a memory error. In order to use the address sanitizer (ASAN) we need to have a version of R that has been compiled specially to make use of it. In a previous post I described how we can use Docker to run rocker images so we do not have to change our system R. I’ve also validated the ASAN is working.
-  <a href='https://knausb.github.io/2017/06/cran-memory-error/'>Read more →</a>
+  <a href='/2017/06/cran-memory-error/'>Read more →</a>
 </article> 
 
 
@@ -123,7 +123,7 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2017/06/validating-asan/">Validating ASAN</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/06/validating-asan/">Validating ASAN</a></h2>
     <p class="blog-post-meta"><time datetime="2017-06-10T00:00:00Z">Sat Jun 10, 2017</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
@@ -133,7 +133,7 @@
 </p>
   </header>
   The address sanitizer (ASAN) is a tool produced by google that detects memory coruption bugs. It is relevant to the work I do, in part, because CRAN checks contributed packages with this tool. This is a good practice on the part of CRAN to ensure that packages it hosts lack bugs. However, if you are unfamiliar with this tool it may present a formidable challenge to use. Here I explain how I’ve implemented it in my work.
-  <a href='https://knausb.github.io/2017/06/validating-asan/'>Read more →</a>
+  <a href='/2017/06/validating-asan/'>Read more →</a>
 </article> 
 
 
@@ -159,6 +159,8 @@
     <ol class="list-unstyled">
 
 
+<li><a href="/2017/06/running-r-devel-ubsan-clang-in-docker/">Running r-devel-ubsan-clang in Docker</a></li>
+
 <li><a href="/2017/06/cran-memory-error/">CRAN memory error</a></li>
 
 <li><a href="/2017/06/validating-asan/">Validating ASAN</a></li>
@@ -166,8 +168,6 @@
 <li><a href="/2017/06/a-first-post-using-blogdown/">A first post using blogdown</a></li>
 
 <li><a href="/2017/06/running-r-in-docker/">Running R in Docker</a></li>
-
-<li><a href="/2017/05/hello-blogdown/">Hello blogdown</a></li>
 
     </ol>
   </section>

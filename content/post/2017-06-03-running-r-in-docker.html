@@ -25,11 +25,13 @@ service docker start
 service docker stop</code></pre>
 <p>With the Docker system running you can query its status.</p>
 <pre class="bash"><code>sudo docker version
-sudo docker ps # Installed images.
 sudo docker run hello-world</code></pre>
 <p>Help can be found by adding ‘help’ to a command.</p>
 <pre class="bash"><code>sudo docker --help
 sudo docker run --help</code></pre>
+<p>Docker images are sets of layers we download. When we ‘run’ the image we create a container. We can run several containers from one image. We can query the images we have available as well as the running container.</p>
+<pre class="bash"><code>sudo docker images
+sudo docker ps</code></pre>
 <p>Note that when we quit that no changes were made to the image.</p>
 </div>
 <div id="docker-images" class="section level2">

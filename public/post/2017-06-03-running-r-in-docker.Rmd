@@ -51,7 +51,6 @@ With the Docker system running you can query its status.
 
 ```{bash, eval = FALSE}
 sudo docker version
-sudo docker ps # Installed images.
 sudo docker run hello-world
 ```
 
@@ -63,6 +62,18 @@ Help can be found by adding 'help' to a command.
 sudo docker --help
 sudo docker run --help
 ```
+
+
+Docker images are sets of layers we download.
+When we 'run' the image we create a container.
+We can run several containers from one image.
+We can query the images we have available as well as the running container.
+
+```{bash, eval = FALSE}
+sudo docker images
+sudo docker ps
+```
+
 
 
 Note that when we quit that no changes were made to the image.
