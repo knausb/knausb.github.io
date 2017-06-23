@@ -2,166 +2,166 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Brian J. Knaus</title>
-    <link>https://knausb.github.io/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Mon, 12 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://knausb.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Asan</title>
-      <link>https://knausb.github.io/tags/asan/</link>
+      <link>/tags/asan/</link>
       <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/asan/</guid>
+      <guid>/tags/asan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Blogdown</title>
-      <link>https://knausb.github.io/tags/blogdown/</link>
+      <link>/tags/blogdown/</link>
       <pubDate>Sat, 03 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/blogdown/</guid>
+      <guid>/tags/blogdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C&#43;&#43;</title>
-      <link>https://knausb.github.io/tags/c&#43;&#43;/</link>
+      <link>/tags/c&#43;&#43;/</link>
       <pubDate>Sat, 10 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/c&#43;&#43;/</guid>
+      <guid>/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Development</title>
-      <link>https://knausb.github.io/tags/development/</link>
+      <link>/tags/development/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/development/</guid>
+      <guid>/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker</title>
-      <link>https://knausb.github.io/tags/docker/</link>
-      <pubDate>Sat, 03 Jun 2017 00:00:00 +0000</pubDate>
+      <link>/tags/docker/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/docker/</guid>
+      <guid>/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Go</title>
-      <link>https://knausb.github.io/tags/go/</link>
+      <link>/tags/go/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/go/</guid>
+      <guid>/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>https://knausb.github.io/tags/golang/</link>
+      <link>/tags/golang/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/golang/</guid>
+      <guid>/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>https://knausb.github.io/tags/hugo/</link>
+      <link>/tags/hugo/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/hugo/</guid>
+      <guid>/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Plot</title>
-      <link>https://knausb.github.io/tags/plot/</link>
+      <link>/tags/plot/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://knausb.github.io/tags/plot/</guid>
+      <guid>/tags/plot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://knausb.github.io/tags/r/</link>
-      <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
+      <link>/tags/r/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/r/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R Markdown</title>
-      <link>https://knausb.github.io/tags/r-markdown/</link>
+      <link>/tags/r-markdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://knausb.github.io/tags/r-markdown/</guid>
+      <guid>/tags/r-markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rcpp</title>
-      <link>https://knausb.github.io/tags/rcpp/</link>
+      <link>/tags/rcpp/</link>
       <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/rcpp/</guid>
+      <guid>/tags/rcpp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Regression</title>
-      <link>https://knausb.github.io/tags/regression/</link>
+      <link>/tags/regression/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://knausb.github.io/tags/regression/</guid>
+      <guid>/tags/regression/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rocker</title>
-      <link>https://knausb.github.io/tags/rocker/</link>
-      <pubDate>Sat, 03 Jun 2017 00:00:00 +0000</pubDate>
+      <link>/tags/rocker/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/rocker/</guid>
+      <guid>/tags/rocker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Templates</title>
-      <link>https://knausb.github.io/tags/templates/</link>
+      <link>/tags/templates/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/templates/</guid>
+      <guid>/tags/templates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Themes</title>
-      <link>https://knausb.github.io/tags/themes/</link>
+      <link>/tags/themes/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/themes/</guid>
+      <guid>/tags/themes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ubsan</title>
-      <link>https://knausb.github.io/tags/ubsan/</link>
+      <link>/tags/ubsan/</link>
       <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/tags/ubsan/</guid>
+      <guid>/tags/ubsan/</guid>
       <description></description>
     </item>
     
