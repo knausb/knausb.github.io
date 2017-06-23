@@ -28,7 +28,7 @@ We can install these in our Docker instance in a manner similar to a typical sys
 
 ```{R, eval = FALSE}
 apt-get update
-apt-get install pandoc qpdf libssl-dev libssh2-1-dev
+apt-get install libssh2-1-dev libssl-dev pandoc qpdf
 ```
 
 
