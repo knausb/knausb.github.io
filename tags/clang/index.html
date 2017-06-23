@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Clang" />
+<meta property="og:description" content="Brian J. Knaus&#39;s blog about genomics and biology." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/tags/clang/" />
+
+
+
+<meta property="og:updated_time" content="2017-06-23T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.21" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Blog",
+  "headline": "Brian J. Knaus",
+  "url" : "/tags/clang/",
+  "author": {
+    "@type": "Person",
+    "name": "Brian J. Knaus"
+  },
+  "dateModified": "2017-06-23T00:00:00&#43;00:00",
+  "keywords": "development,golang,r,asan,blogdown,c&#43;&#43;,clang,development,docker,go,golang,hugo,plot,r,r-markdown,rcpp,regression,rocker,templates,themes,ubsan,",
+  "description": "Brian J. Knaus&#39;s blog about genomics and biology."
+}
+</script>
+
+
+    <link rel="canonical" href="/tags/clang/">
+
+    <title>Brian J. Knaus</title>
+
+    <!-- combined, minified CSS -->
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+
+    
+    <!-- RSS 2.0 feed -->
+    <link href="/tags/clang/index.xml" rel="alternate" type="application/rss+xml" title="Brian J. Knaus" />
+    
+
+    
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="/">Home</a>
+          
+          
+          <a class="nav-link" href="/about/">About Brian</a>
+          
+          
+          <a class="nav-link" href="/vcfr/">vcfR</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
+        <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="/2017/06/reproducing-a-clang-ubsan-issue/">Reproducing a clang-UBSAN issue</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-06-23T00:00:00Z">Fri Jun 23, 2017</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/clang" rel="tag">clang</a>, <a href="/tags/docker" rel="tag">Docker</a>, <a href="/tags/r" rel="tag">R</a>, <a href="/tags/rocker" rel="tag">Rocker</a>, <a href="/tags/ubsan" rel="tag">UBSAN</a>
+
+</p>
+  </header>
+  My R package, vcfR Version 1.5.0, is currently reporting a clang-UBSAN issue. I’ve described how to geet a Docker image with clang-UBSAN up and running here. Once we have the image up and running we’ll want to install package dependencies. First, pandoc is needed to render markdown and qpdf is used to check pdfs.
+apt-get update apt-get install pandoc qpdf Then we can install R packages.
+R -e &#39;install.packages(c(&quot;ape&quot;, &quot;dplyr&quot;, &quot;knitr&quot;, &quot;poppr&quot;, &quot;Rcpp&quot;, &quot;memuse&quot;, &quot;pinfsc50&quot;, &quot;rmarkdown&quot;, &quot;testthat&quot;, &quot;tidyr&quot;, &quot;vegan&quot;, &quot;viridisLite&quot;), dependencies = TRUE, lib = &quot;/usr/local/lib/R/site-library&quot;)&#39; Build and test our package.
+  <a href='/2017/06/reproducing-a-clang-ubsan-issue/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Evolutionary genomics, quantitative and computational biology.</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2017/06/reproducing-a-clang-ubsan-issue/">Reproducing a clang-UBSAN issue</a></li>
+
+<li><a href="/2017/06/running-r-devel-ubsan-clang-in-docker/">Running r-devel-ubsan-clang in Docker</a></li>
+
+<li><a href="/2017/06/cran-memory-error/">CRAN memory error</a></li>
+
+<li><a href="/2017/06/validating-asan/">Validating ASAN</a></li>
+
+<li><a href="/2017/06/a-first-post-using-blogdown/">A first post using blogdown</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/knausb/knausb.github.io">This site on GitHub</a></li>
+      
+      <li><a href="https://CRAN.R-project.org/package=vcfR">vcfR</a></li>
+      
+      <li><a href="https://github.com/knausb/vcfR">vcfR on GitHub</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog contents © Brian J. Knaus
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

@@ -1,0 +1,204 @@
+---
+title: Reproducing a clang-UBSAN issue
+author: Brian J. Knaus
+date: '2017-06-23'
+slug: reproducing-a-clang-ubsan-issue
+categories: [R]
+tags: [clang, Docker, R, Rocker, UBSAN]
+description: ''
+draft: no
+---
+
+
+My R package, vcfR Version 1.5.0, is currently reporting a clang-UBSAN issue.
+I've described how to geet a Docker image with clang-UBSAN up and running [here](../running-r-devel-ubsan-clang-in-docker/).
+Once we have the image up and running we'll want to install package dependencies.
+First, `pandoc` is needed to render markdown and `qpdf` is used to check pdfs.
+
+
+```{bash, eval = FALSE}
+apt-get update
+apt-get install pandoc qpdf
+```
+
+
+Then we can install R packages.
+
+
+```{bash, eval = FALSE}
+R -e 'install.packages(c("ape", "dplyr", "knitr", "poppr", "Rcpp", "memuse", "pinfsc50", "rmarkdown", "testthat", "tidyr", "vegan", "viridisLite"), dependencies = TRUE, lib = "/usr/local/lib/R/site-library")'
+```
+
+
+Build and test our package.
+
+
+```{bash, eval = FALSE}
+R CMD build vcfR/
+Rdevel CMD check --as-cran vcfR_1.5.0.9000.tar.gz 
+```
+
+
+
+```{bash, eval = FALSE}
+* using log directory ‘/RSource/vcfR.Rcheck’
+* using R Under development (unstable) (2017-06-13 r72789)
+* using platform: x86_64-pc-linux-gnu (64-bit)
+* using session charset: UTF-8
+* using option ‘--as-cran’
+* checking for file ‘vcfR/DESCRIPTION’ ... OK
+* this is package ‘vcfR’ version ‘1.5.0.9000’
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘Brian J. Knaus <briank.lists@gmail.com>’
+
+Version contains large components (1.5.0.9000)
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘vcfR’ can be installed ...^T ERROR
+Installation failed.
+See ‘/RSource/vcfR.Rcheck/00install.out’ for details.
+* DONE
+
+Status: 1 ERROR, 1 NOTE
+See
+  ‘/RSource/vcfR.Rcheck/00check.log’
+for details.
+
+
+=================================================================
+==14102==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 1952 byte(s) in 4 object(s) allocated from:
+    #0 0x4cb998  (/usr/local/lib/R/bin/exec/R+0x4cb998)
+    #1 0x7f7cc1b040c0  (/usr/local/lib/R/modules//internet.so+0x530c0)
+    #2 0x7f7cd378cf04  (/usr/local/lib/R/lib/libR.so+0x748f04)
+    #3 0x7f7cd3998c0a  (/usr/local/lib/R/lib/libR.so+0x954c0a)
+    #4 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #5 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #6 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #7 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #8 0x7f7cd39d2123  (/usr/local/lib/R/lib/libR.so+0x98e123)
+    #9 0x7f7cd3a11578  (/usr/local/lib/R/lib/libR.so+0x9cd578)
+    #10 0x7f7cd3a119ad  (/usr/local/lib/R/lib/libR.so+0x9cd9ad)
+    #11 0x7f7cd39a3347  (/usr/local/lib/R/lib/libR.so+0x95f347)
+    #12 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #13 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #14 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #15 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #16 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #17 0x7f7cd39dd663  (/usr/local/lib/R/lib/libR.so+0x999663)
+    #18 0x7f7cd35fbaae  (/usr/local/lib/R/lib/libR.so+0x5b7aae)
+    #19 0x7f7cd3b2a88c  (/usr/local/lib/R/lib/libR.so+0xae688c)
+    #20 0x7f7cd398ef94  (/usr/local/lib/R/lib/libR.so+0x94af94)
+    #21 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #22 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #23 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #24 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #25 0x7f7cd39d2123  (/usr/local/lib/R/lib/libR.so+0x98e123)
+    #26 0x7f7cd3a11578  (/usr/local/lib/R/lib/libR.so+0x9cd578)
+    #27 0x7f7cd3a119ad  (/usr/local/lib/R/lib/libR.so+0x9cd9ad)
+    #28 0x7f7cd39a3347  (/usr/local/lib/R/lib/libR.so+0x95f347)
+    #29 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+
+Direct leak of 976 byte(s) in 2 object(s) allocated from:
+    #0 0x4cb998  (/usr/local/lib/R/bin/exec/R+0x4cb998)
+    #1 0x7f7cc1b040c0  (/usr/local/lib/R/modules//internet.so+0x530c0)
+    #2 0x7f7cd378cf04  (/usr/local/lib/R/lib/libR.so+0x748f04)
+    #3 0x7f7cd3998c0a  (/usr/local/lib/R/lib/libR.so+0x954c0a)
+    #4 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #5 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #6 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #7 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #8 0x7f7cd39d2123  (/usr/local/lib/R/lib/libR.so+0x98e123)
+    #9 0x7f7cd3a11578  (/usr/local/lib/R/lib/libR.so+0x9cd578)
+    #10 0x7f7cd3a119ad  (/usr/local/lib/R/lib/libR.so+0x9cd9ad)
+    #11 0x7f7cd39a3347  (/usr/local/lib/R/lib/libR.so+0x95f347)
+    #12 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #13 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #14 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #15 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #16 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #17 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #18 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #19 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #20 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #21 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #22 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #23 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #24 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #25 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #26 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #27 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #28 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #29 0x7f7cd398364b  (/usr/local/lib/R/lib/libR.so+0x93f64b)
+
+Direct leak of 488 byte(s) in 1 object(s) allocated from:
+    #0 0x4cb998  (/usr/local/lib/R/bin/exec/R+0x4cb998)
+    #1 0x7f7cc1b040c0  (/usr/local/lib/R/modules//internet.so+0x530c0)
+    #2 0x7f7cd378cf04  (/usr/local/lib/R/lib/libR.so+0x748f04)
+    #3 0x7f7cd3998c0a  (/usr/local/lib/R/lib/libR.so+0x954c0a)
+    #4 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #5 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #6 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #7 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #8 0x7f7cd39d2123  (/usr/local/lib/R/lib/libR.so+0x98e123)
+    #9 0x7f7cd3a11578  (/usr/local/lib/R/lib/libR.so+0x9cd578)
+    #10 0x7f7cd3a119ad  (/usr/local/lib/R/lib/libR.so+0x9cd9ad)
+    #11 0x7f7cd39a3347  (/usr/local/lib/R/lib/libR.so+0x95f347)
+    #12 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #13 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #14 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #15 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #16 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #17 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #18 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #19 0x7f7cd39d2123  (/usr/local/lib/R/lib/libR.so+0x98e123)
+    #20 0x7f7cd3a11578  (/usr/local/lib/R/lib/libR.so+0x9cd578)
+    #21 0x7f7cd3a119ad  (/usr/local/lib/R/lib/libR.so+0x9cd9ad)
+    #22 0x7f7cd39a3347  (/usr/local/lib/R/lib/libR.so+0x95f347)
+    #23 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #24 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #25 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #26 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+    #27 0x7f7cd39daaea  (/usr/local/lib/R/lib/libR.so+0x996aea)
+    #28 0x7f7cd399ce6e  (/usr/local/lib/R/lib/libR.so+0x958e6e)
+    #29 0x7f7cd3982687  (/usr/local/lib/R/lib/libR.so+0x93e687)
+
+SUMMARY: AddressSanitizer: 3416 byte(s) leaked in 7 allocation(s).
+```
+
+
+This reproduces the error, however it is not quite as informative as the output from CRAN.
+It is important that we can reproduce the error so that we can tell whether any changes we make results in a fix.
+But for now I think we should look at the output from CRAN.
+The file 'tests/testthat.Rout' reports (in part):
+
+
+```{bash, eval = FALSE}
+> #
+> test_file("testthat/test_freq_peak.R")
+freq_peak: freq_peak.cpp:394:20: runtime error: value nan is outside the range of representable values of type 'int'
+SUMMARY: AddressSanitizer: undefined-behavior freq_peak.cpp:394:20 in 
+...........
+
+DONE ===========================================================================
+```
+
+
+The CRAN output informs us as to which unit test, which function, and what line in the function caused the error.
+Now that we can reproduce the error, and know where to look for it, we can attempt a fix.
+
+
+
+```{bash, eval = FALSE}
+
+```
+
+
+
