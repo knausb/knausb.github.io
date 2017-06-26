@@ -5,14 +5,14 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta property="og:title" content="Themes" />
+<meta property="og:title" content="Docker" />
 <meta property="og:description" content="Brian J. Knaus&#39;s blog about genomics and biology." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/tags/themes/" />
+<meta property="og:url" content="/categories/docker/" />
 
 
 
-<meta property="og:updated_time" content="2014-04-02T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2017-06-26T00:00:00&#43;00:00"/>
 
 
 
@@ -32,19 +32,19 @@
   "@context": "http://schema.org",
   "@type": "Blog",
   "headline": "Brian J. Knaus",
-  "url" : "/tags/themes/",
+  "url" : "/categories/docker/",
   "author": {
     "@type": "Person",
     "name": "Brian J. Knaus"
   },
-  "dateModified": "2014-04-02T00:00:00&#43;00:00",
+  "dateModified": "2017-06-26T00:00:00&#43;00:00",
   "keywords": "development,docker,golang,r,asan,blogdown,c&#43;&#43;,clang,development,docker,go,golang,hugo,plot,r,r-markdown,rcpp,regression,rocker,templates,themes,ubsan,",
   "description": "Brian J. Knaus&#39;s blog about genomics and biology."
 }
 </script>
 
 
-    <link rel="canonical" href="/tags/themes/">
+    <link rel="canonical" href="/categories/docker/">
 
     <title>Brian J. Knaus</title>
 
@@ -53,7 +53,7 @@
 
     
     <!-- RSS 2.0 feed -->
-    <link href="/tags/themes/index.xml" rel="alternate" type="application/rss+xml" title="Brian J. Knaus" />
+    <link href="/categories/docker/index.xml" rel="alternate" type="application/rss+xml" title="Brian J. Knaus" />
     
 
     
@@ -103,18 +103,18 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="/2014/04/hugo-template-primer/">(Hu)go Template Primer</a></h2>
-    <p class="blog-post-meta"><time datetime="2014-04-02T00:00:00Z">Wed Apr 02, 2014</time> by Brian J. Knaus in 
-<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/development" rel="category tag">Development</a>, <a href="/categories/golang" rel="category tag">golang</a>
+    <h2 class="blog-post-title"><a href="/2017/06/customizing-a-docker-image/">Customizing a Docker image</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-06-26T00:00:00Z">Mon Jun 26, 2017</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/docker" rel="category tag">Docker</a>
 
 
-<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/go" rel="tag">go</a>, <a href="/tags/golang" rel="tag">golang</a>, <a href="/tags/templates" rel="tag">templates</a>, <a href="/tags/themes" rel="tag">themes</a>, <a href="/tags/development" rel="tag">development</a>
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/docker" rel="tag">Docker</a>, <a href="/tags/rocker" rel="tag">rocker</a>
 
 </p>
   </header>
-  Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates.
-  <a href='/2014/04/hugo-template-primer/'>Read more →</a>
+  In previous posts we’ve used Docker images to troubleshoot R package issues. One of the tasks associated with this has been the installation of system and R dependencies. This installation can be somewhat time consuming. In order to avoid this we can customize a container so that it has the dependencies we need. Here we’ll see how this is accomplished.
+We’ve been using the rocker r-devel-san-clang container. A first step is to fork this repository to your own account.
+  <a href='/2017/06/customizing-a-docker-image/'>Read more →</a>
 </article> 
 
 
