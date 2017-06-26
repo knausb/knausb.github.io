@@ -1,0 +1,33 @@
+---
+title: Customizing a Docker image
+author: Brian J. Knaus
+date: '2017-06-26'
+slug: customizing-a-docker-image
+categories: [Docker]
+tags: [Docker, rocker]
+description: 'How to fork and customize a Docker image'
+draft: no
+---
+
+
+
+<p>In previous posts we’ve used Docker images to troubleshoot R package issues. One of the tasks associated with this has been the installation of system and R dependencies. This installation can be somewhat time consuming. In order to avoid this we can customize a container so that it has the dependencies we need. Here we’ll see how this is accomplished.</p>
+<p>We’ve been using the rocker <code>r-devel-san-clang</code> container. A first step is to fork this repository to your own account. The rocker repository can be found here.</p>
+<pre class="r"><code>https://github.com/rocker-org/r-devel-san-clang</code></pre>
+<p>You should be able to find a button in the top right of the page where you can <code>fork</code> the repository. We can now clone it to make a local copy.</p>
+<pre class="bash"><code>git clone git@github.com:knausb/r-devel-san-clang.git</code></pre>
+<p>We can make a branch so that we keep our work seperate from master. Information on branching can be found at the <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">git documentation</a>.</p>
+<pre class="bash"><code>git checkout -b bjk</code></pre>
+<p>We can now open the <code>Dockerfile</code> in our favorite text editor and customize it. <a href="../cran-memory-error/">Previously</a> I’ve identified some system and R dependencies that are specific to building my package. In the Dockerfile we’ll see a couplpe of lines as follows.</p>
+<pre class="bash"><code>RUN apt-get update -qq \
+    &amp;&amp; apt-get install -t unstable -y --no-install-recommends \</code></pre>
+<p>This is where we’ll add our system dependencies. <a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/">Docker’s best practices guide</a> asks us to add our dependencies alphabetically to aid maintenance. We’ll add <code>pandoc</code> and <code>qpdf</code>.</p>
+<p>At the end of the file we’ll add a few lines to install our dependencies. For your package you will want to modify this list.</p>
+<pre class="bash"><code>## Install vcfR dependencies
+RUN R --slave -e &#39;install.packages(c(&quot;ape&quot;, &quot;dplyr&quot;, &quot;knitr&quot;, &quot;poppr&quot;, &quot;Rcpp&quot;, &quot;memuse&quot;, &quot;pinfsc50&quot;, &quot;rmarkdown&quot;, &quot;testthat&quot;, &quot;tidyr&quot;, &quot;vegan&quot;, &quot;viridisLite&quot;), dependencies = TRUE)&#39;</code></pre>
+<p>The <a href="https://docs.docker.com/get-started/part2/#build-the-app">Docker documentation</a> includes directions on how to build our app. For our container it should look like this.</p>
+<pre class="bash"><code>sudo docker build -t r-devel-san-clang .</code></pre>
+<p>Here the <code>-t</code> flag allows us to add a tag. Note that it will take a bit for the dependencies to download and install. Okay, it will take quite a bit.</p>
+<p>After everything is installed we should be able to start the image as we have done similarly in the past.</p>
+<pre class="bash"><code>sudo docker run --name=r-devel-san-clang -v ~/gits/vcfR:/RSource/vcfR --rm -ti r-devel-san-clang /bin/bash</code></pre>
+<p>While building the container requires an investment in time, the result is that now when we run our image we have all of our dependencies installed and do not have to invest time in to install them. We should be ready to proceed to our testing now.</p>

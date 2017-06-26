@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Brian J. Knaus</title>
+    <link>/categories/docker/</link>
+    <description>Recent content in Docker on Brian J. Knaus</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Blog contents © Brian J. Knaus</copyright>
+    <lastBuildDate>Mon, 26 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Customizing a Docker image</title>
+      <link>/2017/06/customizing-a-docker-image/</link>
+      <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/06/customizing-a-docker-image/</guid>
+      <description>In previous posts we’ve used Docker images to troubleshoot R package issues. One of the tasks associated with this has been the installation of system and R dependencies. This installation can be somewhat time consuming. In order to avoid this we can customize a container so that it has the dependencies we need. Here we’ll see how this is accomplished.
+We’ve been using the rocker r-devel-san-clang container. A first step is to fork this repository to your own account.</description>
+    </item>
+    
+  </channel>
+</rss>
