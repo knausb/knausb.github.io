@@ -8,7 +8,7 @@
 <meta property="og:title" content="Docker" />
 <meta property="og:description" content="Brian J. Knaus&#39;s blog about genomics and biology." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://knausb.github.io/tags/docker/" />
+<meta property="og:url" content="/tags/docker/" />
 
 
 
@@ -32,7 +32,7 @@
   "@context": "http://schema.org",
   "@type": "Blog",
   "headline": "Brian J. Knaus",
-  "url" : "https://knausb.github.io/tags/docker/",
+  "url" : "/tags/docker/",
   "author": {
     "@type": "Person",
     "name": "Brian J. Knaus"
@@ -44,16 +44,16 @@
 </script>
 
 
-    <link rel="canonical" href="https://knausb.github.io/tags/docker/">
+    <link rel="canonical" href="/tags/docker/">
 
     <title>Brian J. Knaus</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://knausb.github.io/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
 
     
     <!-- RSS 2.0 feed -->
-    <link href="https://knausb.github.io/tags/docker/index.xml" rel="alternate" type="application/rss+xml" title="Brian J. Knaus" />
+    <link href="/tags/docker/index.xml" rel="alternate" type="application/rss+xml" title="Brian J. Knaus" />
     
 
     
@@ -69,13 +69,13 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="https://knausb.github.io/">Home</a>
+          <a class="nav-link " href="/">Home</a>
           
           
-          <a class="nav-link" href="https://knausb.github.io/about/">About Brian</a>
+          <a class="nav-link" href="/about/">About Brian</a>
           
           
-          <a class="nav-link" href="https://knausb.github.io/vcfr/">vcfR</a>
+          <a class="nav-link" href="/vcfr/">vcfR</a>
           
           
         </nav>
@@ -84,7 +84,7 @@
 
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="https://knausb.github.io/" rel="home">Brian J. Knaus</a></h1>
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
         <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
       </div>
     </header>
@@ -103,7 +103,7 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2017/06/customizing-a-docker-image/">Customizing a Docker image</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/06/customizing-a-docker-image/">Customizing a Docker image</a></h2>
     <p class="blog-post-meta"><time datetime="2017-06-26T00:00:00Z">Mon Jun 26, 2017</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/docker" rel="category tag">Docker</a>
 
@@ -114,7 +114,7 @@
   </header>
   In previous posts we’ve used Docker images to troubleshoot R package issues. One of the tasks associated with this has been the installation of system and R dependencies. This installation can be somewhat time consuming. In order to avoid this we can customize a container so that it has the dependencies we need. Here we’ll see how this is accomplished.
 We’ve been using the rocker r-devel-san-clang container. A first step is to fork this repository to your own account.
-  <a href='https://knausb.github.io/2017/06/customizing-a-docker-image/'>Read more →</a>
+  <a href='/2017/06/customizing-a-docker-image/'>Read more →</a>
 </article> 
 
 
@@ -124,7 +124,7 @@ We’ve been using the rocker r-devel-san-clang container. A first step is to fo
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2017/06/reproducing-a-clang-ubsan-issue/">Reproducing a clang-UBSAN issue</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/06/reproducing-a-clang-ubsan-issue/">Reproducing a clang-UBSAN issue</a></h2>
     <p class="blog-post-meta"><time datetime="2017-06-23T00:00:00Z">Fri Jun 23, 2017</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
@@ -136,7 +136,7 @@ We’ve been using the rocker r-devel-san-clang container. A first step is to fo
   My R package, vcfR Version 1.5.0, is currently reporting a clang-UBSAN issue. I’ve described how to geet a Docker image with clang-UBSAN up and running here. Once we have the image up and running we’ll want to install package dependencies. First, pandoc is needed to render markdown and qpdf is used to check pdfs.
 apt-get update apt-get install pandoc qpdf Then we can install R packages.
 R -e &#39;install.packages(c(&quot;ape&quot;, &quot;dplyr&quot;, &quot;knitr&quot;, &quot;poppr&quot;, &quot;Rcpp&quot;, &quot;memuse&quot;, &quot;pinfsc50&quot;, &quot;rmarkdown&quot;, &quot;testthat&quot;, &quot;tidyr&quot;, &quot;vegan&quot;, &quot;viridisLite&quot;), dependencies = TRUE, lib = &quot;/usr/local/lib/R/site-library&quot;)&#39; Build and test our package.
-  <a href='https://knausb.github.io/2017/06/reproducing-a-clang-ubsan-issue/'>Read more →</a>
+  <a href='/2017/06/reproducing-a-clang-ubsan-issue/'>Read more →</a>
 </article> 
 
 
@@ -146,7 +146,7 @@ R -e &#39;install.packages(c(&quot;ape&quot;, &quot;dplyr&quot;, &quot;knitr&quo
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2017/06/running-r-devel-ubsan-clang-in-docker/">Running r-devel-ubsan-clang in Docker</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/06/running-r-devel-ubsan-clang-in-docker/">Running r-devel-ubsan-clang in Docker</a></h2>
     <p class="blog-post-meta"><time datetime="2017-06-23T00:00:00Z">Fri Jun 23, 2017</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
@@ -156,7 +156,7 @@ R -e &#39;install.packages(c(&quot;ape&quot;, &quot;dplyr&quot;, &quot;knitr&quo
 </p>
   </header>
   My R package, vcfR Version 1.5.0, currently has an issue with clang-UBSAN. This can be seen at it’s CRAN site and clicking the link for ‘CRAN checks.’ Under the section ‘Additional issues’ it lists ‘clang-UBSAN’. clang is ‘a C language family frontend for LLVM’ that is typically used as the compiler on OSX (Macs) when Xcode is installed. The undefined behavior sanitizer (UBSAN) tests for issues such as memory overflows. In order for UBSAN to work you need a version of R that is compiled specifically for this purpose.
-  <a href='https://knausb.github.io/2017/06/running-r-devel-ubsan-clang-in-docker/'>Read more →</a>
+  <a href='/2017/06/running-r-devel-ubsan-clang-in-docker/'>Read more →</a>
 </article> 
 
 
@@ -166,7 +166,7 @@ R -e &#39;install.packages(c(&quot;ape&quot;, &quot;dplyr&quot;, &quot;knitr&quo
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2017/06/running-r-in-docker/">Running R in Docker</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/06/running-r-in-docker/">Running R in Docker</a></h2>
     <p class="blog-post-meta"><time datetime="2017-06-03T00:00:00Z">Sat Jun 03, 2017</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
@@ -176,7 +176,7 @@ R -e &#39;install.packages(c(&quot;ape&quot;, &quot;dplyr&quot;, &quot;knitr&quo
 </p>
   </header>
   Docker is a ‘container,’ or a mini-operating system, you can run within your existing operating system. This is nice because you can build an environment where you can build and test code. And if it breaks, you can kill it and start a new container and start again. In the context of R development there are at least two good reasons someone would want to run R in Docker. First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel.
-  <a href='https://knausb.github.io/2017/06/running-r-in-docker/'>Read more →</a>
+  <a href='/2017/06/running-r-in-docker/'>Read more →</a>
 </article> 
 
 
