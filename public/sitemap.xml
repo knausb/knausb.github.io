@@ -108,25 +108,25 @@
   </url>
   
   <url>
-    <loc>https://knausb.github.io/categories/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://knausb.github.io/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://knausb.github.io/categories/docker/</loc>
-    <lastmod>2017-06-26T00:00:00+00:00</lastmod>
+    <loc>https://knausb.github.io/categories/development/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://knausb.github.io/tags/docker/</loc>
+    <lastmod>2017-06-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://knausb.github.io/categories/docker/</loc>
     <lastmod>2017-06-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -138,13 +138,13 @@
   </url>
   
   <url>
-    <loc>https://knausb.github.io/categories/golang/</loc>
+    <loc>https://knausb.github.io/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://knausb.github.io/tags/golang/</loc>
+    <loc>https://knausb.github.io/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -168,13 +168,13 @@
   </url>
   
   <url>
-    <loc>https://knausb.github.io/categories/r/</loc>
+    <loc>https://knausb.github.io/tags/r/</loc>
     <lastmod>2017-06-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://knausb.github.io/tags/r/</loc>
+    <loc>https://knausb.github.io/categories/r/</loc>
     <lastmod>2017-06-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
