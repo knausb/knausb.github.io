@@ -206,3 +206,50 @@ When we look at line 394 in the freq_peak.cpp we see the following.
 Here `myFreqs(i)` is an element of an `Rcpp::NumericVector` which means it may include missing values.
 However, an `int` can not hold a missing value, which appears to be the source of our error.
 
+
+## Update (2017-06-27)
+
+
+I've realized that my first interpretation of the output may not have been acurate.
+I'm in the habit of building and testing my package as follows.
+
+
+```{bash, eval = FALSE}
+R CMD build vcfR
+RD CMD check vcfR_1.5.0.9000.tar.gz
+```
+
+
+This means that examples and vignettes are built as well as the tests.
+I can modify the commanf to omit this.
+
+
+```{bash, eval = FALSE}
+RD CMD check --no-examples --no-vignettes vcfR_1.5.0.9000.tar.gz
+```
+
+
+The result is that I no longer receive the lengthy Leak Sanitizer output.
+This output appears to be avoided by including the `--no-vignettes` flag, which suggests that this leak may be associated with a dependency involved with rendering the vignettes.
+After rerunning the check as above I then check the tests output.
+
+
+```{bash, eval = FALSE}
+less vcfR.Rcheck/tests/testthat.Rout
+```
+
+
+Where I see the freq_peak error.
+In the specific context of this bit of code I have decided that I can ignore missing values.
+So I wrap this region of code with a test.
+
+
+```{bash, eval = FALSE}
+if( !Rcpp::NumericVector::is_na(myFreqs(i)) ){
+  // Code to execute if we have a non-missing value.
+}
+```
+
+
+I now recompile the package and rerun the check and the error appears to be resolved.
+

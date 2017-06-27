@@ -161,3 +161,18 @@ DONE ===========================================================================
 <p>When we look at line 394 in the freq_peak.cpp we see the following.</p>
 <pre class="bash"><code> int intQuery = myFreqs(i) * multiplier;</code></pre>
 <p>Here <code>myFreqs(i)</code> is an element of an <code>Rcpp::NumericVector</code> which means it may include missing values. However, an <code>int</code> can not hold a missing value, which appears to be the source of our error.</p>
+<div id="update-2017-06-27" class="section level2">
+<h2>Update (2017-06-27)</h2>
+<p>I’ve realized that my first interpretation of the output may not have been acurate. I’m in the habit of building and testing my package as follows.</p>
+<pre class="bash"><code>R CMD build vcfR
+RD CMD check vcfR_1.5.0.9000.tar.gz</code></pre>
+<p>This means that examples and vignettes are built as well as the tests. I can modify the commanf to omit this.</p>
+<pre class="bash"><code>RD CMD check --no-examples --no-vignettes vcfR_1.5.0.9000.tar.gz</code></pre>
+<p>The result is that I no longer receive the lengthy Leak Sanitizer output. This output appears to be avoided by including the <code>--no-vignettes</code> flag, which suggests that this leak may be associated with a dependency involved with rendering the vignettes. After rerunning the check as above I then check the tests output.</p>
+<pre class="bash"><code>less vcfR.Rcheck/tests/testthat.Rout</code></pre>
+<p>Where I see the freq_peak error. In the specific context of this bit of code I have decided that I can ignore missing values. So I wrap this region of code with a test.</p>
+<pre class="bash"><code>if( !Rcpp::NumericVector::is_na(myFreqs(i)) ){
+  // Code to execute if we have a non-missing value.
+}</code></pre>
+<p>I now recompile the package and rerun the check and the error appears to be resolved.</p>
+</div>
