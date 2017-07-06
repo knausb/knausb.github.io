@@ -1,0 +1,46 @@
+---
+title: R 3.4.1 personal library location
+author: Brian J. Knaus
+date: '2017-07-06'
+slug: r-3-4-1-personal-library-location
+categories: [R]
+tags: [R]
+description: 'R 3.4.1 personal library location error'
+---
+
+
+
+<p>R 3.4.1 ‘Single Candle’ was released on June 30, 2017. Our group is preparing to provide an R workshop at our societal meeting this summer, so I’m tryingot keep up to date with the R releases. Installation on my work Ubuntu 16.04 LTS machine appeared to go smoothly. However, upon trying to install packages I received the following error.</p>
+<pre class="r"><code>Warning in install.packages(update[instlib == l, &quot;Package&quot;], l, contriburl =
+contriburl,  :
+  &#39;lib = &quot;/usr/lib/R/site-library&quot;&#39; is not writable
+Would you like to use a personal library instead?  (y/n) y
+Would you like to create a personal library
+NA
+to install packages into?  (y/n) y
+Error in install.packages(update[instlib == l, &quot;Package&quot;], l, contriburl =
+contriburl,  :
+  unable to create ‘NA’</code></pre>
+<p>This seemed odd to me because I am used to R creating a personal library as a child of my home directory. Here it is attempting to use ’NA“, which fails. With a little Googling I found the issue posted <a href="https://stackoverflow.com/q/44861967">here on stack overflow</a>, where Dirk Eddelbuettel has replied, and <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=866768">on Debian Bug report logs</a>, where Dirk has also replied. I also found <a href="https://stackoverflow.com/a/29970899">this post on stackoverflow</a> useful, which is also by Dirk, because it explains the recommendation for where packages should be installed on a Unix system. Here I explain how I used information from these links to start installing packages on my system.</p>
+<div id="my-system" class="section level2">
+<h2>My system</h2>
+<p>First off its important to state that the system I’m discussing today is a work system on a work network, as opposed to a personal system. That means I need to avoid interrupting any network settings or else I’ll have to contact IT to get them to help me fix it. Fortunately, our netowrk is a Windows network, so I’m really more of an exception which may give me more flexibility than others.</p>
+</div>
+<div id="my-.libpaths" class="section level2">
+<h2>My .libPaths()</h2>
+<p>As suggested by Dirk I checked the permissions of my <code>/usr/local/lib/R/site-library</code>.</p>
+<pre class="r"><code>$ ls -l /usr/local/lib/R/
+total 4
+drwxrwsr-x 2 root staff 4096 Aug  5  2016 site-library</code></pre>
+<p>Its owned by <code>root</code> and group memebership belongs to <code>staff</code>. I can check and see that I’m not a part of <code>staff</code>, which explains the error.</p>
+<pre class="r"><code>$ id
+uid=1142428492(knausb) gid=1142424065(domain^users) groups=1142424065(domain^users),126(vboxusers),1142425304(grunwald-lab),1142428469(linux-users),1142429799(certsvc_dcom_access),1142429897(linux^admins)</code></pre>
+<p>Because I’m not actually the system administrator, I do not know a lot about the existing groups. I found <a href="https://stackoverflow.com/a/2835475">this post</a> which explains how I can query for the members of groups on my system. After creating the script I use the following to determine that there are no members of this group.</p>
+<pre class="r"><code>perl -T list_group_members.pl staff</code></pre>
+<p>This leads me to believe I can change it’s group ownership with no consequences.</p>
+<pre class="r"><code>$ sudo chgrp domain^users /usr/local/lib/R/site-library/
+$ ls -l /usr/local/lib/R/
+total 4
+drwxrwsr-x 103 root domain^users 4096 Jul  6 10:16 site-library</code></pre>
+<p>Now I, and presumedly other users on this system if there are any, can install packages into <code>/usr/local/lib/R/site-library/</code>. Which means I have some package installations to work on.</p>
+</div>
