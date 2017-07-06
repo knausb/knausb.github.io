@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="R 3.4.1 personal library location" />
+<meta property="og:description" content="R 3.4.1 personal library location error" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2017/07/r-3.4.1-personal-library-location/" />
+
+
+
+<meta property="article:published_time" content="2017-07-06T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-07-06T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="R 3.4.1 personal library location"/>
+<meta name="twitter:title" content="R 3.4.1 personal library location"/>
+<meta name="twitter:description" content="R 3.4.1 personal library location error"/>
+<meta name="twitter:site" content="@username"/>
+<meta name="generator" content="Hugo 0.21" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "R 3.4.1 personal library location",
+  "url": "/2017/07/r-3.4.1-personal-library-location/",
+  "wordCount": "475",
+  "datePublished": "2017-07-06T00:00:00&#43;00:00",
+  "dateModified": "2017-07-06T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Brian J. Knaus"
+  },
+  "keywords": "R,R",
+  "description": "R 3.4.1 personal library location error"
+}
+</script>
+
+
+
+    <link rel="canonical" href="/2017/07/r-3.4.1-personal-library-location/">
+
+    <title>R 3.4.1 personal library location | Brian J. Knaus</title>
+
+    <!-- combined, minified CSS -->
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+
+    
+
+    
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="/">Home</a>
+          
+          
+          <a class="nav-link" href="/about/">About Brian</a>
+          
+          
+          <a class="nav-link" href="/vcfr/">vcfR</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
+        <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="/2017/07/r-3.4.1-personal-library-location/">R 3.4.1 personal library location</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-07-06T00:00:00Z">Thu Jul 06, 2017</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/r" rel="tag">R</a>
+
+</p>
+  </header>
+  <p>R 3.4.1 ‘Single Candle’ was released on June 30, 2017. Our group is preparing to provide an R workshop at our societal meeting this summer, so I’m tryingot keep up to date with the R releases. Installation on my work Ubuntu 16.04 LTS machine appeared to go smoothly. However, upon trying to install packages I received the following error.</p>
+<pre class="r"><code>Warning in install.packages(update[instlib == l, &quot;Package&quot;], l, contriburl =
+contriburl,  :
+  &#39;lib = &quot;/usr/lib/R/site-library&quot;&#39; is not writable
+Would you like to use a personal library instead?  (y/n) y
+Would you like to create a personal library
+NA
+to install packages into?  (y/n) y
+Error in install.packages(update[instlib == l, &quot;Package&quot;], l, contriburl =
+contriburl,  :
+  unable to create ‘NA’</code></pre>
+<p>This seemed odd to me because I am used to R creating a personal library as a child of my home directory. Here it is attempting to use ’NA“, which fails. With a little Googling I found the issue posted <a href="https://stackoverflow.com/q/44861967">here on stack overflow</a>, where Dirk Eddelbuettel has replied, and <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=866768">on Debian Bug report logs</a>, where Dirk has also replied. I also found <a href="https://stackoverflow.com/a/29970899">this post on stackoverflow</a> useful, which is also by Dirk, because it explains the recommendation for where packages should be installed on a Unix system. Here I explain how I used information from these links to start installing packages on my system.</p>
+<div id="my-system" class="section level2">
+<h2>My system</h2>
+<p>First off its important to state that the system I’m discussing today is a work system on a work network, as opposed to a personal system. That means I need to avoid interrupting any network settings or else I’ll have to contact IT to get them to help me fix it. Fortunately, our netowrk is a Windows network, so I’m really more of an exception which may give me more flexibility than others.</p>
+</div>
+<div id="my-.libpaths" class="section level2">
+<h2>My .libPaths()</h2>
+<p>As suggested by Dirk I checked the permissions of my <code>/usr/local/lib/R/site-library</code>.</p>
+<pre class="r"><code>$ ls -l /usr/local/lib/R/
+total 4
+drwxrwsr-x 2 root staff 4096 Aug  5  2016 site-library</code></pre>
+<p>Its owned by <code>root</code> and group memebership belongs to <code>staff</code>. I can check and see that I’m not a part of <code>staff</code>, which explains the error.</p>
+<pre class="r"><code>$ id
+uid=1142428492(knausb) gid=1142424065(domain^users) groups=1142424065(domain^users),126(vboxusers),1142425304(grunwald-lab),1142428469(linux-users),1142429799(certsvc_dcom_access),1142429897(linux^admins)</code></pre>
+<p>Because I’m not actually the system administrator, I do not know a lot about the existing groups. I found <a href="https://stackoverflow.com/a/2835475">this post</a> which explains how I can query for the members of groups on my system. After creating the script I use the following to determine that there are no members of this group.</p>
+<pre class="r"><code>perl -T list_group_members.pl staff</code></pre>
+<p>This leads me to believe I can change it’s group ownership with no consequences.</p>
+<pre class="r"><code>$ sudo chgrp domain^users /usr/local/lib/R/site-library/
+$ ls -l /usr/local/lib/R/
+total 4
+drwxrwsr-x 103 root domain^users 4096 Jul  6 10:16 site-library</code></pre>
+<p>Now I, and presumedly other users on this system if there are any, can install packages into <code>/usr/local/lib/R/site-library/</code>. Which means I have some package installations to work on.</p>
+</div>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f07%2fr-3.4.1-personal-library-location%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=%2f2017%2f07%2fr-3.4.1-personal-library-location%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f07%2fr-3.4.1-personal-library-location%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=%2f2017%2f07%2fr-3.4.1-personal-library-location%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Evolutionary genomics, quantitative and computational biology.</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2017/07/r-3.4.1-personal-library-location/">R 3.4.1 personal library location</a></li>
+
+<li><a href="/2017/06/customizing-a-docker-image/">Customizing a Docker image</a></li>
+
+<li><a href="/2017/06/reproducing-a-clang-ubsan-issue/">Reproducing a clang-UBSAN issue</a></li>
+
+<li><a href="/2017/06/running-r-devel-ubsan-clang-in-docker/">Running r-devel-ubsan-clang in Docker</a></li>
+
+<li><a href="/2017/06/cran-memory-error/">CRAN memory error</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/knausb/knausb.github.io">This site on GitHub</a></li>
+      
+      <li><a href="https://CRAN.R-project.org/package=vcfR">vcfR</a></li>
+      
+      <li><a href="https://github.com/knausb/vcfR">vcfR on GitHub</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog contents © Brian J. Knaus
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>
