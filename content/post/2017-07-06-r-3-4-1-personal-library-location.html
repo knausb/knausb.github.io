@@ -44,3 +44,19 @@ total 4
 drwxrwsr-x 103 root domain^users 4096 Jul  6 10:16 site-library</code></pre>
 <p>Now I, and presumedly other users on this system if there are any, can install packages into <code>/usr/local/lib/R/site-library/</code>. Which means I have some package installations to work on.</p>
 </div>
+<div id="setting-r_libs_user" class="section level2">
+<h2>Setting <code>R_LIBS_USER</code></h2>
+<p>The above appears to be the ‘suggested’ manner to address this issue. However, there are options if the above does not suit you. For example, if you do not have administrator priviledges on the system you are working on, you will not be able to implement the above method. An alternate solution is to modify your <code>Renviron</code> file to set <code>R_LIBS_USER</code>. This can usually be found here:</p>
+<pre class="r"><code>/usr/lib/R/etc/Renviron</code></pre>
+<p>You should be able to locate the following lines.</p>
+<pre class="r"><code># edd Jun 2017  Comment-out R_LIBS_USER
+#R_LIBS_USER=${R_LIBS_USER-&#39;~/R/x86_64-pc-linux-gnu-library/3.4&#39;}
+##R_LIBS_USER=${R_LIBS_USER-&#39;~/Library/R/3.4/library&#39;}</code></pre>
+<p>If you uncomment this so that it appears as follows,</p>
+<pre class="r"><code># edd Jun 2017  Comment-out R_LIBS_USER
+R_LIBS_USER=${R_LIBS_USER-&#39;~/R/x86_64-pc-linux-gnu-library/3.4&#39;}
+##R_LIBS_USER=${R_LIBS_USER-&#39;~/Library/R/3.4/library&#39;}</code></pre>
+<p>and restart R, it should restore the behavior you are familiar with where a personal library is created at the indicated path. However, this still requires administrator privileges. If you add:</p>
+<pre class="r"><code>R_LIBS_USER=${R_LIBS_USER-&#39;~/R/x86_64-pc-linux-gnu-library/3.4&#39;}</code></pre>
+<p>to your <code>~/.Rprofile</code> file (where ‘~’ is your home directory) you should gain behavior similar to the previous solution except that this should only affect your account as opposed to all system accounts. Happy package installing!</p>
+</div>
