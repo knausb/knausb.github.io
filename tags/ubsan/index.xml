@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ubsan on Brian J. Knaus</title>
-    <link>/tags/ubsan/</link>
+    <link>https://knausb.github.io/tags/ubsan/</link>
     <description>Recent content in Ubsan on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Fri, 23 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/ubsan/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knausb.github.io/tags/ubsan/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Reproducing a clang-UBSAN issue</title>
-      <link>/2017/06/reproducing-a-clang-ubsan-issue/</link>
+      <link>https://knausb.github.io/2017/06/reproducing-a-clang-ubsan-issue/</link>
       <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/reproducing-a-clang-ubsan-issue/</guid>
+      <guid>https://knausb.github.io/2017/06/reproducing-a-clang-ubsan-issue/</guid>
       <description>My R package, vcfR Version 1.5.0, is currently reporting a clang-UBSAN issue. I’ve described how to geet a Docker image with clang-UBSAN up and running here. Once we have the image up and running we’ll want to install package dependencies. First, pandoc is needed to render markdown and qpdf is used to check pdfs.
 apt-get update apt-get install pandoc qpdf Then we can install R packages.
 R -e &amp;#39;install.packages(c(&amp;quot;ape&amp;quot;, &amp;quot;dplyr&amp;quot;, &amp;quot;knitr&amp;quot;, &amp;quot;poppr&amp;quot;, &amp;quot;Rcpp&amp;quot;, &amp;quot;memuse&amp;quot;, &amp;quot;pinfsc50&amp;quot;, &amp;quot;rmarkdown&amp;quot;, &amp;quot;testthat&amp;quot;, &amp;quot;tidyr&amp;quot;, &amp;quot;vegan&amp;quot;, &amp;quot;viridisLite&amp;quot;), dependencies = TRUE, lib = &amp;quot;/usr/local/lib/R/site-library&amp;quot;)&amp;#39; Build and test our package.</description>
@@ -25,10 +25,10 @@ R -e &amp;#39;install.packages(c(&amp;quot;ape&amp;quot;, &amp;quot;dplyr&amp;qu
     
     <item>
       <title>CRAN memory error</title>
-      <link>/2017/06/cran-memory-error/</link>
+      <link>https://knausb.github.io/2017/06/cran-memory-error/</link>
       <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/cran-memory-error/</guid>
+      <guid>https://knausb.github.io/2017/06/cran-memory-error/</guid>
       <description>I have a package on CRAN where the CRAN tests are reporting a memory error. In order to use the address sanitizer (ASAN) we need to have a version of R that has been compiled specially to make use of it. In a previous post I described how we can use Docker to run rocker images so we do not have to change our system R. I’ve also validated the ASAN is working.</description>
     </item>
     
