@@ -12,7 +12,7 @@ copyright = "Blog contents © Brian J. Knaus"
 #
 googleAnalytics = "UA-4713082-11"
 #
-disqusShortname = "brianjknaus"
+disqusShortname = "knausb-github-io"
 
 [permalinks]
   post = "/:year/:month/:title/"
