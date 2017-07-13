@@ -45,7 +45,7 @@
   "@type": "BlogPosting",
   "headline": "R 3.4.1 personal library location",
   "url": "https://knausb.github.io/2017/07/r-3.4.1-personal-library-location/",
-  "wordCount": "648",
+  "wordCount": "661",
   "datePublished": "2017-07-06T00:00:00&#43;00:00",
   "dateModified": "2017-07-06T00:00:00&#43;00:00",
   "author": {
@@ -174,7 +174,7 @@ R_LIBS_USER=${R_LIBS_USER-&#39;~/R/x86_64-pc-linux-gnu-library/3.4&#39;}
 ##R_LIBS_USER=${R_LIBS_USER-&#39;~/Library/R/3.4/library&#39;}</code></pre>
 <p>and restart R, it should restore the behavior you are familiar with where a personal library is created at the indicated path. However, this still requires administrator privileges. If you add:</p>
 <pre class="r"><code>R_LIBS_USER=${R_LIBS_USER-&#39;~/R/x86_64-pc-linux-gnu-library/3.4&#39;}</code></pre>
-<p>to your <code>~/.Rprofile</code> file (where ‘~’ is your home directory) you should gain behavior similar to the previous solution except that this should only affect your account as opposed to all system accounts. Happy package installing!</p>
+<p>to your <code>~/.Renviron</code> file (where ‘~’ is your home directory). If you do not have this file already, you can create it. You should now gain behavior similar to the previous solution except that this should only affect your account as opposed to all system accounts. Happy package installing!</p>
 </div>
 
 

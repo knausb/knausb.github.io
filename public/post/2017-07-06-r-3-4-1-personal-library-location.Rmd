@@ -137,6 +137,9 @@ R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.4'}
 ```
 
 
-to your `~/.Rprofile` file (where '~' is your home directory) you should gain behavior similar to the previous solution except that this should only affect your account as opposed to all system accounts.
+to your `~/.Renviron` file (where '~' is your home directory).
+If you do not have this file already, you can create it.
+You should now gain behavior similar to the previous solution except that this should only affect your account as opposed to all system accounts.
 Happy package installing!
+
 
