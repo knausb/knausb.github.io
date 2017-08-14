@@ -1,0 +1,112 @@
+---
+title: Header files in Rcpp
+author: Brian J. Knaus
+date: '2017-08-14'
+slug: ''
+categories: [R]
+tags: [R, Rcpp, Header files]
+description: 'Header files in Rcpp'
+draft: yes
+---
+
+
+In C++ you can create functions in order to help organize your code.
+This is helpful as your project grows or if you have a task that is performed by a function that several other functions may call.
+However, the functions you create are only visible to the other funcitons that are contained in a single source file.
+As your project grows, you may want to distribute your functions among several files.
+And if you do create that funcitons that is called by several other functions you may want to put it in its own file.
+But how do you get functions in different files to communicate with one another?
+The answer is to create header files.
+This post demonstrates how to create and use header files within the Rcpp framework.
+
+
+## A minimal package
+
+
+The use of header files is best illustrated by adding them to an R package.
+In order to illustrarte their use, we'll need to create a minimal package to work with.
+I suggest using the R package **pkgKitten** which can be installed from CRAN if you do not already have it.
+
+
+```
+library(pkgKitten)
+kitten(name = "myRpackage")
+```
+
+You'll also want **devtools** to easily add **Rcpp** to your package.
+
+
+```
+library(devtools)
+use_rcpp()
+```
+
+
+This should result in an R package ready to use Rcpp and ready for us to add a header file and C++ source to.
+
+
+## Files
+
+
+In order to illustrate the use of header files in Rcpp, we'll create three separate files.
+
+
+**File**: modString.h
+```
+#ifndef MODSTRING_H
+#define MODSTRING_H
+
+// This is the content of the .h file, which is where the declarations go
+//int add(int x, int y); // function prototype for add.h -- don't forget the semicolon!
+std::string modString(std::string myString);
+
+// This is the end of the header guard
+#endif
+```
+
+**File**: modString.cpp
+```
+std::string modString(std::string myString)
+{
+    return myString;
+}
+```
+
+**File**: myFunction.cpp
+```
+#include <Rcpp.h>
+#include "modString.h"
+using namespace Rcpp;
+
+//' @title modify_string
+//' @description
+//' Modify a string in Rcpp.
+//' @name modify_string
+//' 
+//' @export
+// [[Rcpp::export]]
+StringVector modify_string(StringVector x) {
+  return x;
+}
+
+```
+
+## Links
+
+These are sources for information I used to create this post.
+
+[Headers and Includes at cplusplus.com](http://www.cplusplus.com/forum/articles/10627/)    
+[Header files at LearnCpp.com](http://www.learncpp.com/cpp-tutorial/19-header-files/)    
+[pkgKitten](https://CRAN.R-project.org/package=pkgKitten) at CRAN    
+
+
+In order to find examples of header files used in R packages you can search GitHub using the following query.
+
+
+
+```
+user:cran extension:.h
+```
+
+Make sure you search for 'Code' instead of the default search of 'Repositories' so that you return code examples.
+
