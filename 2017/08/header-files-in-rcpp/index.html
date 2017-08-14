@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Header files in Rcpp" />
+<meta property="og:description" content="Header files in Rcpp" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2017/08/header-files-in-rcpp/" />
+
+
+
+<meta property="article:published_time" content="2017-08-14T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-08-14T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Header files in Rcpp"/>
+<meta name="twitter:title" content="Header files in Rcpp"/>
+<meta name="twitter:description" content="Header files in Rcpp"/>
+<meta name="twitter:site" content="@username"/>
+<meta name="generator" content="Hugo 0.20.7" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Header files in Rcpp",
+  "url": "/2017/08/header-files-in-rcpp/",
+  "wordCount": "401",
+  "datePublished": "2017-08-14T00:00:00&#43;00:00",
+  "dateModified": "2017-08-14T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Brian J. Knaus"
+  },
+  "keywords": "R,R,Rcpp,Header files",
+  "description": "Header files in Rcpp"
+}
+</script>
+
+
+
+    <link rel="canonical" href="/2017/08/header-files-in-rcpp/">
+
+    <title>Header files in Rcpp | Brian J. Knaus</title>
+
+    <!-- combined, minified CSS -->
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-4713082-11', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="/">Home</a>
+          
+          
+          <a class="nav-link" href="/about/">About Brian</a>
+          
+          
+          <a class="nav-link" href="/vcfr/">vcfR</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
+        <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="/2017/08/header-files-in-rcpp/">Header files in Rcpp</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-08-14T00:00:00Z">Mon Aug 14, 2017</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/r" rel="tag">R</a>, <a href="/tags/rcpp" rel="tag">Rcpp</a>, <a href="/tags/header-files" rel="tag">Header files</a>
+
+</p>
+  </header>
+  <p>In C++ you can create functions in order to help organize your code. This is helpful as your project grows or if you have a task that is performed by a function that several other functions may call. However, the functions you create are only visible to the other funcitons that are contained in a single source file. As your project grows, you may want to distribute your functions among several files. And if you do create that funcitons that is called by several other functions you may want to put it in its own file. But how do you get functions in different files to communicate with one another? The answer is to create header files. This post demonstrates how to create and use header files within the Rcpp framework.</p>
+<div id="a-minimal-package" class="section level2">
+<h2>A minimal package</h2>
+<p>The use of header files is best illustrated by adding them to an R package. In order to illustrarte their use, we’ll need to create a minimal package to work with. I suggest using the R package <strong>pkgKitten</strong> which can be installed from CRAN if you do not already have it.</p>
+<pre><code>library(pkgKitten)
+kitten(name = &quot;myRpackage&quot;)</code></pre>
+<p>You’ll also want <strong>devtools</strong> to easily add <strong>Rcpp</strong> to your package.</p>
+<pre><code>library(devtools)
+use_rcpp()</code></pre>
+<p>This should result in an R package ready to use Rcpp and ready for us to add a header file and C++ source to.</p>
+</div>
+<div id="files" class="section level2">
+<h2>Files</h2>
+<p>In order to illustrate the use of header files in Rcpp, we’ll create three separate files.</p>
+<p><strong>File</strong>: modString.h</p>
+<pre><code>#ifndef MODSTRING_H
+#define MODSTRING_H
+
+// This is the content of the .h file, which is where the declarations go
+//int add(int x, int y); // function prototype for add.h -- don&#39;t forget the semicolon!
+std::string modString(std::string myString);
+
+// This is the end of the header guard
+#endif</code></pre>
+<p><strong>File</strong>: modString.cpp</p>
+<pre><code>std::string modString(std::string myString)
+{
+    return myString;
+}</code></pre>
+<p><strong>File</strong>: myFunction.cpp</p>
+<pre><code>#include &lt;Rcpp.h&gt;
+#include &quot;modString.h&quot;
+using namespace Rcpp;
+
+//&#39; @title modify_string
+//&#39; @description
+//&#39; Modify a string in Rcpp.
+//&#39; @name modify_string
+//&#39; 
+//&#39; @export
+// [[Rcpp::export]]
+StringVector modify_string(StringVector x) {
+  return x;
+}
+</code></pre>
+</div>
+<div id="links" class="section level2">
+<h2>Links</h2>
+<p>These are sources for information I used to create this post.</p>
+<p><a href="http://www.cplusplus.com/forum/articles/10627/">Headers and Includes at cplusplus.com</a><br />
+<a href="http://www.learncpp.com/cpp-tutorial/19-header-files/">Header files at LearnCpp.com</a><br />
+<a href="https://CRAN.R-project.org/package=pkgKitten">pkgKitten</a> at CRAN</p>
+<p>In order to find examples of header files used in R packages you can search GitHub using the following query.</p>
+<pre><code>user:cran extension:.h</code></pre>
+<p>Make sure you search for ‘Code’ instead of the default search of ‘Repositories’ so that you return code examples.</p>
+</div>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f08%2fheader-files-in-rcpp%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=%2f2017%2f08%2fheader-files-in-rcpp%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f08%2fheader-files-in-rcpp%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=%2f2017%2f08%2fheader-files-in-rcpp%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+  
+  
+  if (window.location.hostname == "localhost")
+    return;
+
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  var disqus_shortname = 'knausb-github-io';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Evolutionary genomics, quantitative and computational biology.</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2017/08/header-files-in-rcpp/">Header files in Rcpp</a></li>
+
+<li><a href="/2017/07/r-3.4.1-personal-library-location/">R 3.4.1 personal library location</a></li>
+
+<li><a href="/2017/06/customizing-a-docker-image/">Customizing a Docker image</a></li>
+
+<li><a href="/2017/06/reproducing-a-clang-ubsan-issue/">Reproducing a clang-UBSAN issue</a></li>
+
+<li><a href="/2017/06/running-r-devel-ubsan-clang-in-docker/">Running r-devel-ubsan-clang in Docker</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/knausb/knausb.github.io">This site on GitHub</a></li>
+      
+      <li><a href="https://CRAN.R-project.org/package=vcfR">vcfR</a></li>
+      
+      <li><a href="https://github.com/knausb/vcfR">vcfR on GitHub</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog contents © Brian J. Knaus
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>
