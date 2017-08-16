@@ -91,13 +91,18 @@ StringVector modify_string(StringVector x) {
 
 ```
 
+## Usage
+
+
+
+
 ## Links
 
 These are sources for information I used to create this post.
 
-[Headers and Includes at cplusplus.com](http://www.cplusplus.com/forum/articles/10627/)    
-[Header files at LearnCpp.com](http://www.learncpp.com/cpp-tutorial/19-header-files/)    
-[pkgKitten](https://CRAN.R-project.org/package=pkgKitten) at CRAN    
+[Headers and Includes](http://www.cplusplus.com/forum/articles/10627/) at cplusplus.com.    
+[Header files](http://www.learncpp.com/cpp-tutorial/19-header-files/) at LearnCpp.com.    
+[pkgKitten](https://CRAN.R-project.org/package=pkgKitten) at CRAN, and at [dirk.eddelbuettel.com ](http://dirk.eddelbuettel.com/code/pkgkitten.html) (because it has a cute picture).    
 
 
 In order to find examples of header files used in R packages you can search GitHub using the following query.
