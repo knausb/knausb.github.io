@@ -49,6 +49,32 @@ I use the RStudio C++ template called 'timesTwo'.
 This should result in an R package ready to use Rcpp and ready for us to add a header file and C++ source to.
 
 
+
+**File**: R/hello.R
+```
+## a placeholder
+hello <- function(txt = "world") {
+    cat("Hello, ", txt, "\n")
+}
+
+#' @useDynLib myRpackage
+#' @importFrom Rcpp sourceCpp
+NULL
+```
+
+**File**: src/timesTwo.cpp
+```
+#include <Rcpp.h>
+using namespace Rcpp;
+
+
+// [[Rcpp::export]]
+int timesTwo(int x) {
+   return x * 2;
+}
+```
+
+
 ```
 bash$ R CMD build myRpackage
 bash$ R CMD check --as-cran myRpackage_1.0.tar.gz
@@ -76,9 +102,15 @@ std::string modString(std::string myString);
 
 **File**: modString.cpp
 ```
+#include <string>
+#include <sstream>
+
 std::string modString(std::string myString)
 {
-    return myString;
+  std::stringstream mySStream;
+  mySStream << myString << ", from header";
+  myString = mySStream.str();
+  return myString;
 }
 ```
 
@@ -92,13 +124,17 @@ using namespace Rcpp;
 //' @description
 //' Modify a string in Rcpp.
 //' @name modify_string
+//' @param x a vector of strings
 //' 
 //' @export
 // [[Rcpp::export]]
 StringVector modify_string(StringVector x) {
+  std::string myString;
+  myString = x[0];
+  myString = modString(myString);
+  x[0] = myString;
   return x;
 }
-
 ```
 
 ## Usage

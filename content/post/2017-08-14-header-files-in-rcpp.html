@@ -15,12 +15,34 @@ draft: yes
 <div id="a-minimal-package" class="section level2">
 <h2>A minimal package</h2>
 <p>The use of header files is best illustrated by adding them to an R package. In order to illustrarte their use, we’ll need to create a minimal package to work with. I suggest using the R package <strong>pkgKitten</strong> which can be installed from CRAN if you do not already have it.</p>
-<pre><code>library(pkgKitten)
-kitten(name = &quot;myRpackage&quot;)</code></pre>
+<pre><code>R&gt; library(pkgKitten)
+R&gt; kitten(name = &quot;myRpackage&quot;)</code></pre>
 <p>You’ll also want <strong>devtools</strong> to easily add <strong>Rcpp</strong> to your package.</p>
-<pre><code>library(devtools)
-use_rcpp()</code></pre>
-<p>This should result in an R package ready to use Rcpp and ready for us to add a header file and C++ source to.</p>
+<pre><code>bash$ cd myRpackage
+bash$ R
+R&gt; library(devtools)
+R&gt; use_rcpp()</code></pre>
+<p>And you’ll want to follow the directions at the prompt. You’ll also want to create a C++ source file in the <em>src/</em> directory. I use the RStudio C++ template called ‘timesTwo’. This should result in an R package ready to use Rcpp and ready for us to add a header file and C++ source to.</p>
+<p><strong>File</strong>: R/hello.R</p>
+<pre><code>## a placeholder
+hello &lt;- function(txt = &quot;world&quot;) {
+    cat(&quot;Hello, &quot;, txt, &quot;\n&quot;)
+}
+
+#&#39; @useDynLib myRpackage
+#&#39; @importFrom Rcpp sourceCpp
+NULL</code></pre>
+<p><strong>File</strong>: src/timesTwo.cpp</p>
+<pre><code>#include &lt;Rcpp.h&gt;
+using namespace Rcpp;
+
+
+// [[Rcpp::export]]
+int timesTwo(int x) {
+   return x * 2;
+}</code></pre>
+<pre><code>bash$ R CMD build myRpackage
+bash$ R CMD check --as-cran myRpackage_1.0.tar.gz</code></pre>
 </div>
 <div id="files" class="section level2">
 <h2>Files</h2>
@@ -36,9 +58,15 @@ std::string modString(std::string myString);
 // This is the end of the header guard
 #endif</code></pre>
 <p><strong>File</strong>: modString.cpp</p>
-<pre><code>std::string modString(std::string myString)
+<pre><code>#include &lt;string&gt;
+#include &lt;sstream&gt;
+
+std::string modString(std::string myString)
 {
-    return myString;
+  std::stringstream mySStream;
+  mySStream &lt;&lt; myString &lt;&lt; &quot;, from header&quot;;
+  myString = mySStream.str();
+  return myString;
 }</code></pre>
 <p><strong>File</strong>: myFunction.cpp</p>
 <pre><code>#include &lt;Rcpp.h&gt;
@@ -49,13 +77,17 @@ using namespace Rcpp;
 //&#39; @description
 //&#39; Modify a string in Rcpp.
 //&#39; @name modify_string
+//&#39; @param x a vector of strings
 //&#39; 
 //&#39; @export
 // [[Rcpp::export]]
 StringVector modify_string(StringVector x) {
+  std::string myString;
+  myString = x[0];
+  myString = modString(myString);
+  x[0] = myString;
   return x;
-}
-</code></pre>
+}</code></pre>
 </div>
 <div id="usage" class="section level2">
 <h2>Usage</h2>
