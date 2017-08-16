@@ -29,20 +29,30 @@ I suggest using the R package **pkgKitten** which can be installed from CRAN if 
 
 
 ```
-library(pkgKitten)
-kitten(name = "myRpackage")
+R> library(pkgKitten)
+R> kitten(name = "myRpackage")
 ```
 
 You'll also want **devtools** to easily add **Rcpp** to your package.
 
 
 ```
-library(devtools)
-use_rcpp()
+bash$ cd myRpackage
+bash$ R
+R> library(devtools)
+R> use_rcpp()
 ```
 
-
+And you'll want to follow the directions at the prompt.
+You'll also want to create a C++ source file in the *src/* directory.
+I use the RStudio C++ template called 'timesTwo'.
 This should result in an R package ready to use Rcpp and ready for us to add a header file and C++ source to.
+
+
+```
+bash$ R CMD build myRpackage
+bash$ R CMD check --as-cran myRpackage_1.0.tar.gz
+```
 
 
 ## Files
