@@ -45,7 +45,7 @@
   "@type": "BlogPosting",
   "headline": "Header files in Rcpp",
   "url": "/2017/08/header-files-in-rcpp/",
-  "wordCount": "538",
+  "wordCount": "494",
   "datePublished": "2017-08-14T00:00:00&#43;00:00",
   "dateModified": "2017-08-14T00:00:00&#43;00:00",
   "author": {
@@ -166,41 +166,38 @@ bash$ R CMD check --as-cran myRpackage_1.0.tar.gz</code></pre>
 <pre><code>#ifndef MODSTRING_H
 #define MODSTRING_H
 
-// This is the content of the .h file, which is where the declarations go
-//int add(int x, int y); // function prototype for add.h -- don&#39;t forget the semicolon!
-std::string modString(std::string myString);
+#include &lt;Rcpp.h&gt;
+Rcpp::StringVector modString(Rcpp::StringVector myStringV);
 
-// This is the end of the header guard
 #endif</code></pre>
 <p><strong>File</strong>: modString.cpp</p>
 <pre><code>#include &lt;string&gt;
 #include &lt;sstream&gt;
+#include &lt;Rcpp.h&gt;
 
-std::string modString(std::string myString)
+Rcpp::StringVector modString(Rcpp::StringVector myStringV)
 {
-  std::stringstream mySStream;
-  mySStream &lt;&lt; myString &lt;&lt; &quot;, from header&quot;;
-  myString = mySStream.str();
-  return myString;
+  if(myStringV.size() &gt; 1){
+    myStringV[1] = &quot;Rcpp&quot;;
+  }
+  return myStringV;
 }</code></pre>
 <p><strong>File</strong>: myFunction.cpp</p>
 <pre><code>#include &lt;Rcpp.h&gt;
 #include &quot;modString.h&quot;
-using namespace Rcpp;
 
 //&#39; @title modify_string
 //&#39; @description
 //&#39; Modify a string in Rcpp.
 //&#39; @name modify_string
 //&#39; @param x a vector of strings
+//&#39; @examples
+//&#39; modify_string(x=c(&#39;Hello&#39;, &quot;C++&quot;, &#39;header&#39;, &#39;files&#39;))
 //&#39; 
 //&#39; @export
 // [[Rcpp::export]]
-StringVector modify_string(StringVector x) {
-  std::string myString;
-  myString = x[0];
-  myString = modString(myString);
-  x[0] = myString;
+Rcpp::StringVector modify_string(Rcpp::StringVector x) {
+  x = modString(x);
   return x;
 }</code></pre>
 </div>

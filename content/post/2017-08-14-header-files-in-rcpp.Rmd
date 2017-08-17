@@ -92,11 +92,9 @@ In order to illustrate the use of header files in Rcpp, we'll create three separ
 #ifndef MODSTRING_H
 #define MODSTRING_H
 
-// This is the content of the .h file, which is where the declarations go
-//int add(int x, int y); // function prototype for add.h -- don't forget the semicolon!
-std::string modString(std::string myString);
+#include <Rcpp.h>
+Rcpp::StringVector modString(Rcpp::StringVector myStringV);
 
-// This is the end of the header guard
 #endif
 ```
 
@@ -104,13 +102,14 @@ std::string modString(std::string myString);
 ```
 #include <string>
 #include <sstream>
+#include <Rcpp.h>
 
-std::string modString(std::string myString)
+Rcpp::StringVector modString(Rcpp::StringVector myStringV)
 {
-  std::stringstream mySStream;
-  mySStream << myString << ", from header";
-  myString = mySStream.str();
-  return myString;
+  if(myStringV.size() > 1){
+    myStringV[1] = "Rcpp";
+  }
+  return myStringV;
 }
 ```
 
@@ -118,21 +117,19 @@ std::string modString(std::string myString)
 ```
 #include <Rcpp.h>
 #include "modString.h"
-using namespace Rcpp;
 
 //' @title modify_string
 //' @description
 //' Modify a string in Rcpp.
 //' @name modify_string
 //' @param x a vector of strings
+//' @examples
+//' modify_string(x=c('Hello', "C++", 'header', 'files'))
 //' 
 //' @export
 // [[Rcpp::export]]
-StringVector modify_string(StringVector x) {
-  std::string myString;
-  myString = x[0];
-  myString = modString(myString);
-  x[0] = myString;
+Rcpp::StringVector modify_string(Rcpp::StringVector x) {
+  x = modString(x);
   return x;
 }
 ```
