@@ -20,11 +20,11 @@ The answer is to create header files.
 This post demonstrates how to create and use header files within the Rcpp framework.
 
 
-## A minimal package
+## A minimal R package
 
 
 The use of header files is best illustrated by adding them to an R package.
-In order to illustrarte their use, we'll need to create a minimal package to work with.
+In order to illustrarte their use, we'll need to create a minimal R package to work with.
 I suggest using the R package **pkgKitten** which can be installed from CRAN if you do not already have it.
 
 
@@ -37,17 +37,13 @@ You'll also want **devtools** to easily add **Rcpp** to your package.
 
 
 ```
-bash$ cd myRpackage
-bash$ R
+R> setwd("myRpackage")
 R> library(devtools)
 R> use_rcpp()
 ```
 
 And you'll want to follow the directions at the prompt.
-You'll also want to create a C++ source file in the *src/* directory.
-I use the RStudio C++ template called 'timesTwo'.
-This should result in an R package ready to use Rcpp and ready for us to add a header file and C++ source to.
-
+My solution was to add lines to the `hello.R` file.
 
 
 **File**: R/hello.R
@@ -62,17 +58,7 @@ hello <- function(txt = "world") {
 NULL
 ```
 
-**File**: src/timesTwo.cpp
-```
-#include <Rcpp.h>
-using namespace Rcpp;
-
-
-// [[Rcpp::export]]
-int timesTwo(int x) {
-   return x * 2;
-}
-```
+You should now be able to build and check your package.
 
 
 ```
@@ -80,11 +66,36 @@ bash$ R CMD build myRpackage
 bash$ R CMD check --as-cran myRpackage_1.0.tar.gz
 ```
 
+I actually generate two note, so its not a completely clean build.
 
-## Files
+```
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘Your Name <your@email.com>’
+
+New submission
+
+* checking DESCRIPTION meta-information ... NOTE
+'LinkingTo' field is unused: package has no 'src' directory
+```
+
+The first note informs us that this is a new submission, and we can ignore it.
+The second note is generated because we have yet to populate the `src/` directory with Rcpp code.
+We can ignore this for now as well.
 
 
-In order to illustrate the use of header files in Rcpp, we'll create three separate files.
+
+## Header files
+
+
+We can now add a header file as well as some Rcpp code files to our package.
+We'll add three files.
+The first file will be named `modString.h`.
+This is our header file and it declares our function.
+The second file will be named `modString.cpp`.
+This is the function that is declared in the header file.
+Lastly, we'll create `myFunction.cpp`.
+This is Rcpp code that will call the function that is declared in the header file.
+These files are presented below.
 
 
 **File**: modString.h
@@ -97,6 +108,20 @@ Rcpp::StringVector modString(Rcpp::StringVector myStringV);
 
 #endif
 ```
+
+Note the inclusion of the following code.
+
+
+```
+#ifndef MODSTRING_H
+#define MODSTRING_H
+...
+#endif
+```
+
+This is the 'header guard' and protects you from making multiple definitions of this code.
+This should always be a part of your header files.
+
 
 **File**: modString.cpp
 ```
@@ -118,24 +143,65 @@ Rcpp::StringVector modString(Rcpp::StringVector myStringV)
 #include <Rcpp.h>
 #include "modString.h"
 
-//' @title modify_string
+//' @title myFunction
 //' @description
 //' Modify a string in Rcpp.
 //' @name modify_string
 //' @param x a vector of strings
 //' @examples
-//' modify_string(x=c('Hello', "C++", 'header', 'files'))
+//' myFunction(x=c('Hello', "C++", 'header', 'files'))
 //' 
 //' @export
 // [[Rcpp::export]]
-Rcpp::StringVector modify_string(Rcpp::StringVector x) {
+Rcpp::StringVector myFunction(Rcpp::StringVector x) {
   x = modString(x);
   return x;
 }
 ```
 
+We should now be able to build and check our code again.
+
+
+```
+bash$ R CMD build myRpackage
+bash$ R CMD check --as-cran myRpackage_1.0.tar.gz
+```
+
+I still generate two notes, but the second one is different.
+
+
+```
+* checking compiled code ... NOTE
+File ‘myRpackage/libs/myRpackage.so’:
+  Found no calls to: ‘R_registerRoutines’, ‘R_useDynamicSymbols’
+
+It is good practice to register native routines and to disable symbol
+search.
+
+See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
+```
+
+If this were an actual package we would want to address this.
+Help can be found at these links.
+
+https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Registering-native-routines
+http://dirk.eddelbuettel.com/blog/2017/03/29/#001_easy_package_registration
+http://dirk.eddelbuettel.com/blog/2017/03/30/#002_even_easier_package_registration
+
+
+We're just building an example here that will be deleted instead of being submitted to CRAN, so we'll ignore this here.
+
+
 ## Usage
 
+
+We should now be able to install our package and test it.
+
+```
+R> install.packages("myRpackage_1.0.tar.gz", repos = NULL, type="source")
+R> library('myRpackage')
+R> myFunction(x=c('Hello', "C++", 'header', 'files'))
+```
 
 
 
