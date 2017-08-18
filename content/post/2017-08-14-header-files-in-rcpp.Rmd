@@ -44,11 +44,18 @@ R> use_rcpp()
 
 And you'll want to follow the directions at the prompt.
 My solution was to add lines to the `hello.R` file.
+I've also modified this file from the one created by `pkgKitten` to include Roxygen comments.
 
 
 **File**: R/hello.R
 ```
-## a placeholder
+#' @title hello
+#' @description
+#' Says hello.
+#' @name hello
+#' @param txt something to say hello to
+#' 
+#' @export
 hello <- function(txt = "world") {
     cat("Hello, ", txt, "\n")
 }
@@ -146,7 +153,7 @@ Rcpp::StringVector modString(Rcpp::StringVector myStringV)
 //' @title myFunction
 //' @description
 //' Modify a string in Rcpp.
-//' @name modify_string
+//' @name myFunction
 //' @param x a vector of strings
 //' @examples
 //' myFunction(x=c('Hello', "C++", 'header', 'files'))
@@ -157,6 +164,20 @@ Rcpp::StringVector myFunction(Rcpp::StringVector x) {
   x = modString(x);
   return x;
 }
+```
+
+
+We'll want to remove the existing `NAMESPACE` file so that Roxygen can create its own.
+Then we'll want to document the project using `devtools`.
+
+
+```
+bash$ cd myRproject
+bash$ rm NAMESPECE
+bash$ R
+R> devtools::document()
+R> q()
+bash$ cd ..
 ```
 
 We should now be able to build and check our code again.

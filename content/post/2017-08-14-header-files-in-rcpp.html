@@ -21,9 +21,15 @@ R&gt; kitten(name = &quot;myRpackage&quot;)</code></pre>
 <pre><code>R&gt; setwd(&quot;myRpackage&quot;)
 R&gt; library(devtools)
 R&gt; use_rcpp()</code></pre>
-<p>And you’ll want to follow the directions at the prompt. My solution was to add lines to the <code>hello.R</code> file.</p>
+<p>And you’ll want to follow the directions at the prompt. My solution was to add lines to the <code>hello.R</code> file. I’ve also modified this file from the one created by <code>pkgKitten</code> to include Roxygen comments.</p>
 <p><strong>File</strong>: R/hello.R</p>
-<pre><code>## a placeholder
+<pre><code>#&#39; @title hello
+#&#39; @description
+#&#39; Says hello.
+#&#39; @name hello
+#&#39; @param txt something to say hello to
+#&#39; 
+#&#39; @export
 hello &lt;- function(txt = &quot;world&quot;) {
     cat(&quot;Hello, &quot;, txt, &quot;\n&quot;)
 }
@@ -80,7 +86,7 @@ Rcpp::StringVector modString(Rcpp::StringVector myStringV)
 //&#39; @title myFunction
 //&#39; @description
 //&#39; Modify a string in Rcpp.
-//&#39; @name modify_string
+//&#39; @name myFunction
 //&#39; @param x a vector of strings
 //&#39; @examples
 //&#39; myFunction(x=c(&#39;Hello&#39;, &quot;C++&quot;, &#39;header&#39;, &#39;files&#39;))
@@ -91,6 +97,13 @@ Rcpp::StringVector myFunction(Rcpp::StringVector x) {
   x = modString(x);
   return x;
 }</code></pre>
+<p>We’ll want to remove the existing <code>NAMESPACE</code> file so that Roxygen can create its own. Then we’ll want to document the project using <code>devtools</code>.</p>
+<pre><code>bash$ cd myRproject
+bash$ rm NAMESPECE
+bash$ R
+R&gt; devtools::document()
+R&gt; q()
+bash$ cd ..</code></pre>
 <p>We should now be able to build and check our code again.</p>
 <pre><code>bash$ R CMD build myRpackage
 bash$ R CMD check --as-cran myRpackage_1.0.tar.gz</code></pre>
