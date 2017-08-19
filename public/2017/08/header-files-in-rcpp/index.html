@@ -45,7 +45,7 @@
   "@type": "BlogPosting",
   "headline": "Header files in Rcpp",
   "url": "/2017/08/header-files-in-rcpp/",
-  "wordCount": "538",
+  "wordCount": "540",
   "datePublished": "2017-08-14T00:00:00&#43;00:00",
   "dateModified": "2017-08-14T00:00:00&#43;00:00",
   "author": {
@@ -133,8 +133,9 @@ ga('send', 'pageview');
 <pre><code>R&gt; library(pkgKitten)
 R&gt; kitten(name = &quot;myRpackage&quot;)</code></pre>
 <p>You’ll also want <strong>devtools</strong> to easily add <strong>Rcpp</strong> to your package.</p>
-<pre><code>bash$ cd myRpackage
-bash$ R
+<pre><code>#bash$ cd myRpackage
+#bash$ R
+R&gt; setwd(&#39;myRpackage&#39;)
 R&gt; library(devtools)
 R&gt; use_rcpp()</code></pre>
 <p>And you’ll want to follow the directions at the prompt. You’ll also want to create a C++ source file in the <em>src/</em> directory. I use the RStudio C++ template called ‘timesTwo’. This should result in an R package ready to use Rcpp and ready for us to add a header file and C++ source to.</p>

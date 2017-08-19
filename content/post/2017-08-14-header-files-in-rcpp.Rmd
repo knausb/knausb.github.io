@@ -37,8 +37,9 @@ You'll also want **devtools** to easily add **Rcpp** to your package.
 
 
 ```
-bash$ cd myRpackage
-bash$ R
+#bash$ cd myRpackage
+#bash$ R
+R> setwd('myRpackage')
 R> library(devtools)
 R> use_rcpp()
 ```
