@@ -164,9 +164,15 @@ Rcpp::StringVector myFunction(Rcpp::StringVector x) {
 ```
 
 
-We'll want to remove the existing `NAMESPACE` file so that Roxygen can create its own.
-However, `devtools` seems to have issues initializing a NAMESPACE file from scratch.
-Here's an example in case you have issues.
+### NAMESPACE file
+
+
+The `pkgKitten` creates a NAMESPACE file for us.
+However, I like to use the Roxygen functionality to manage my NAMESPACE files.
+Because the `pkgKitten` NAMESPACE file was not created using Roxygen it will complain when we use `devtools::document()`.
+This is  a problem because we do need to export the function we created to our namespace.
+I suggest creating your own NAMESPACE file as illustrated below.
+Once you've created this file it will be updated by Roxygen when documenting your package.
 
 
 **FILE**: NAMESPACE
@@ -216,7 +222,7 @@ R> myFunction(x=c('Hello', "C++", 'header', 'files'))
 
 The function `modString` replaces the second element of the vector, "C++", with "Rcpp".
 This demonstrates functionality of our header file.
-We can now use source code from other files in our package.
+We can now use functions from different files together.
 
 
 ## Links
