@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Brian J. Knaus</title>
-    <link>/tags/r/</link>
+    <link>https://knausb.github.io/tags/r/</link>
     <description>Recent content in R on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Mon, 14 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knausb.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Header files in Rcpp</title>
-      <link>/2017/08/header-files-in-rcpp/</link>
+      <link>https://knausb.github.io/2017/08/header-files-in-rcpp/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/08/header-files-in-rcpp/</guid>
+      <guid>https://knausb.github.io/2017/08/header-files-in-rcpp/</guid>
       <description>In C++ you can create functions in order to help organize your code. This is helpful as your project grows or if you have a task that is performed by a function that several other functions may call. However, the functions you create are only visible to the other funcitons that are contained in a single source file. As your project grows, you may want to distribute your functions among several files.</description>
     </item>
     
     <item>
       <title>R 3.4.1 personal library location</title>
-      <link>/2017/07/r-3.4.1-personal-library-location/</link>
+      <link>https://knausb.github.io/2017/07/r-3.4.1-personal-library-location/</link>
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/07/r-3.4.1-personal-library-location/</guid>
+      <guid>https://knausb.github.io/2017/07/r-3.4.1-personal-library-location/</guid>
       <description>R 3.4.1 ‘Single Candle’ was released on June 30, 2017. Our group is preparing to provide an R workshop at our societal meeting this summer, so I’m tryingot keep up to date with the R releases. Installation on my work Ubuntu 16.04 LTS machine appeared to go smoothly. However, upon trying to install packages I received the following error.
 Warning in install.packages(update[instlib == l, &amp;quot;Package&amp;quot;], l, contriburl = contriburl, : &amp;#39;lib = &amp;quot;/usr/lib/R/site-library&amp;quot;&amp;#39; is not writable Would you like to use a personal library instead?</description>
     </item>
     
     <item>
       <title>Reproducing a clang-UBSAN issue</title>
-      <link>/2017/06/reproducing-a-clang-ubsan-issue/</link>
+      <link>https://knausb.github.io/2017/06/reproducing-a-clang-ubsan-issue/</link>
       <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/reproducing-a-clang-ubsan-issue/</guid>
+      <guid>https://knausb.github.io/2017/06/reproducing-a-clang-ubsan-issue/</guid>
       <description>My R package, vcfR Version 1.5.0, is currently reporting a clang-UBSAN issue. I’ve described how to geet a Docker image with clang-UBSAN up and running here. Once we have the image up and running we’ll want to install package dependencies. First, pandoc is needed to render markdown and qpdf is used to check pdfs.
 apt-get update apt-get install pandoc qpdf Then we can install R packages.
 R -e &amp;#39;install.packages(c(&amp;quot;ape&amp;quot;, &amp;quot;dplyr&amp;quot;, &amp;quot;knitr&amp;quot;, &amp;quot;poppr&amp;quot;, &amp;quot;Rcpp&amp;quot;, &amp;quot;memuse&amp;quot;, &amp;quot;pinfsc50&amp;quot;, &amp;quot;rmarkdown&amp;quot;, &amp;quot;testthat&amp;quot;, &amp;quot;tidyr&amp;quot;, &amp;quot;vegan&amp;quot;, &amp;quot;viridisLite&amp;quot;), dependencies = TRUE, lib = &amp;quot;/usr/local/lib/R/site-library&amp;quot;)&amp;#39; Build and test our package.</description>
@@ -44,28 +44,28 @@ R -e &amp;#39;install.packages(c(&amp;quot;ape&amp;quot;, &amp;quot;dplyr&amp;qu
     
     <item>
       <title>Running r-devel-ubsan-clang in Docker</title>
-      <link>/2017/06/running-r-devel-ubsan-clang-in-docker/</link>
+      <link>https://knausb.github.io/2017/06/running-r-devel-ubsan-clang-in-docker/</link>
       <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/running-r-devel-ubsan-clang-in-docker/</guid>
+      <guid>https://knausb.github.io/2017/06/running-r-devel-ubsan-clang-in-docker/</guid>
       <description>My R package, vcfR Version 1.5.0, currently has an issue with clang-UBSAN. This can be seen at it’s CRAN site and clicking the link for ‘CRAN checks.’ Under the section ‘Additional issues’ it lists ‘clang-UBSAN’. clang is ‘a C language family frontend for LLVM’ that is typically used as the compiler on OSX (Macs) when Xcode is installed. The undefined behavior sanitizer (UBSAN) tests for issues such as memory overflows. In order for UBSAN to work you need a version of R that is compiled specifically for this purpose.</description>
     </item>
     
     <item>
       <title>CRAN memory error</title>
-      <link>/2017/06/cran-memory-error/</link>
+      <link>https://knausb.github.io/2017/06/cran-memory-error/</link>
       <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/cran-memory-error/</guid>
+      <guid>https://knausb.github.io/2017/06/cran-memory-error/</guid>
       <description>I have a package on CRAN where the CRAN tests are reporting a memory error. In order to use the address sanitizer (ASAN) we need to have a version of R that has been compiled specially to make use of it. In a previous post I described how we can use Docker to run rocker images so we do not have to change our system R. I’ve also validated the ASAN is working.</description>
     </item>
     
     <item>
       <title>Validating ASAN</title>
-      <link>/2017/06/validating-asan/</link>
+      <link>https://knausb.github.io/2017/06/validating-asan/</link>
       <pubDate>Sat, 10 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/validating-asan/</guid>
+      <guid>https://knausb.github.io/2017/06/validating-asan/</guid>
       <description>The address sanitizer (ASAN) is a tool produced by google that detects memory coruption bugs. It is relevant to the work I do, in part, because CRAN checks contributed packages with this tool. This is a good practice on the part of CRAN to ensure that packages it hosts lack bugs. However, if you are unfamiliar with this tool it may present a formidable challenge to use. Here I explain how I’ve implemented it in my work.</description>
     </item>
     
