@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Minimal Reproducible Example on Brian J. Knaus</title>
+    <link>/tags/minimal-reproducible-example/</link>
+    <description>Recent content in Minimal Reproducible Example on Brian J. Knaus</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Blog contents © Brian J. Knaus</copyright>
+    <lastBuildDate>Wed, 13 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/minimal-reproducible-example/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A minimal Rcpp and Roxygen2 package</title>
+      <link>/2017/09/a-minimal-rcpp-and-roxygen2-package/</link>
+      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/09/a-minimal-rcpp-and-roxygen2-package/</guid>
+      <description>I maintain an R package or two. The R universe includes a lot of nice tools that perform ‘magic’ to help my job as a developer easier. Sometimes, this magic breaks, which leaves me at a loss. My best path forward involves creating a new, minimal, package and attempting to rebuild the package. Because of the stated dependencies, this minimal package requires:
+roxygen2 Rcpp  This repository describes how I build this minimal package.</description>
+    </item>
+    
+  </channel>
+</rss>
