@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="A minimal Rcpp and Roxygen2 package" />
+<meta property="og:description" content="A minimal Rcpp and Roxygen2 package" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2017/09/a-minimal-rcpp-and-roxygen2-package/" />
+
+
+
+<meta property="article:published_time" content="2017-09-13T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-09-13T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="A minimal Rcpp and Roxygen2 package"/>
+<meta name="twitter:title" content="A minimal Rcpp and Roxygen2 package"/>
+<meta name="twitter:description" content="A minimal Rcpp and Roxygen2 package"/>
+<meta name="twitter:site" content="@username"/>
+<meta name="generator" content="Hugo 0.21" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A minimal Rcpp and Roxygen2 package",
+  "url": "/2017/09/a-minimal-rcpp-and-roxygen2-package/",
+  "wordCount": "593",
+  "datePublished": "2017-09-13T00:00:00&#43;00:00",
+  "dateModified": "2017-09-13T00:00:00&#43;00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Brian J. Knaus"
+  },
+  "keywords": "R,R,Rcpp,Roxygen2,minimal reproducible example",
+  "description": "A minimal Rcpp and Roxygen2 package"
+}
+</script>
+
+
+
+    <link rel="canonical" href="/2017/09/a-minimal-rcpp-and-roxygen2-package/">
+
+    <title>A minimal Rcpp and Roxygen2 package | Brian J. Knaus</title>
+
+    <!-- combined, minified CSS -->
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-4713082-11', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="/">Home</a>
+          
+          
+          <a class="nav-link" href="/about/">About Brian</a>
+          
+          
+          <a class="nav-link" href="/vcfr/">vcfR</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
+        <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="/2017/09/a-minimal-rcpp-and-roxygen2-package/">A minimal Rcpp and Roxygen2 package</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-09-13T00:00:00Z">Wed Sep 13, 2017</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/r" rel="tag">R</a>, <a href="/tags/rcpp" rel="tag">Rcpp</a>, <a href="/tags/roxygen2" rel="tag">Roxygen2</a>, <a href="/tags/minimal-reproducible-example" rel="tag">minimal reproducible example</a>
+
+</p>
+  </header>
+  <p>I maintain an R package or two. The R universe includes a lot of nice tools that perform ‘magic’ to help my job as a developer easier. Sometimes, this magic breaks, which leaves me at a loss. My best path forward involves creating a new, minimal, package and attempting to rebuild the package. Because of the stated dependencies, this minimal package requires:</p>
+<ol style="list-style-type: decimal">
+<li>roxygen2</li>
+<li>Rcpp</li>
+</ol>
+<p>This repository describes how I build this minimal package. I work at the <code>bash</code> shell instead of <code>R</code> because I’d like to automate this as much as possible. My hope is that this will help me, and perhaps others, troubleshoot their package issues. And if this goal is not met, it may help create a minimal reproducible example to post to a discussion group.</p>
+<div id="creating-an-r-package-that-uses-roxygen2" class="section level2">
+<h2>Creating an R package that uses roxygen2</h2>
+<p>First we’ll Create an R package that includes <code>roxygen2</code>. We can use the package <code>devtools</code> to accomplish this.</p>
+<pre><code>Rscript -e &quot;devtools::create(&#39;myRPkg&#39;, rstudio = F)&quot;
+Rscript -e &quot;devtools::use_gpl3_license(pkg = &#39;myRPkg&#39;)&quot;
+Rscript -e &quot;devtools::use_package_doc(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
+<p>Now we can create a simple function for our package.</p>
+<pre><code>echo &quot;#&#39; Add together two numbers.
+#&#39;
+#&#39; @param x A number.
+#&#39; @param y A number.
+#&#39; @return The sum of \code{x} and \code{y}.
+#&#39; @examples
+#&#39; add(1, 1)
+#&#39; add(10, 1)
+#&#39; @export
+add &lt;- function(x, y) {
+  x + y
+}
+&quot; &gt;&gt; myRPkg/R/add.R</code></pre>
+<p>Once we have added this funciton, we’ll want to document it. This will create the man page from the <code>roxygen2</code> comments and, because we’ve exported the function it should be added to our namespace.</p>
+<pre><code>Rscript -e &quot;devtools::document(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
+<p>Now we should have an R package. We can now build it and test it.</p>
+<pre><code>R CMD build myRPkg
+R CMD check --as-cran myRPkg_0.0.0.9000.tar.gz</code></pre>
+<p>This should throw one ‘NOTE’ that raises our attention that this will be a new submission to CRAN. We don’t actually intend to submit this to CRAN, so we can ignore it.</p>
+</div>
+<div id="adding-rcpp-to-the-package" class="section level2">
+<h2>Adding Rcpp to the package</h2>
+<p>We can now add Rcpp to the package.</p>
+<pre><code>Rscript -e &quot;devtools::use_rcpp(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
+<p>This command instructs us to add a few lines of code to the package.</p>
+<pre><code>perl -pi -e &quot;s/NULL/\#&#39; \@useDynLib myRPkg/g&quot; myRPkg/R/myRPkg-package.r
+echo &quot;#&#39; @importFrom Rcpp sourceCpp
+NULL&quot; &gt;&gt; myRPkg/R/myRPkg-package.r</code></pre>
+<p>And we were also asked to document the package again.</p>
+<pre><code>Rscript -e &quot;devtools::document(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
+<p>We’ll now want to create an Rcpp function.</p>
+<pre><code>echo &quot;//&#39; Multiply a number by two
+//&#39;
+//&#39; @param x A single integer.
+//&#39; @export
+// [[Rcpp::export]]
+int timesTwo(int x) {
+   return x * 2;
+}&quot; &gt;&gt; myRPkg/src/timesTwo.cpp</code></pre>
+<p>We will have to document this new function.</p>
+<pre><code>Rscript -e &quot;devtools::document(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
+<p>We should now have a package that uses roxygen2 and Rcpp. We can build and check it.</p>
+<pre><code>R CMD build myRPkg
+R CMD check --as-cran myRPkg_0.0.0.9000.tar.gz</code></pre>
+</div>
+<div id="install-and-remove-the-package" class="section level2">
+<h2>Install and remove the package</h2>
+<p>We can install the package from the command line.</p>
+<pre><code>R CMD INSTALL myRPkg_0.0.0.9000.tar.gz</code></pre>
+<p>We can also remove the package from the command line when we are done with it.</p>
+<pre><code>R CMD REMOVE myRPkg</code></pre>
+<p>A slightly more <code>R</code> flavor of this could also be used.</p>
+<pre><code>Rscript -e &quot;install.packages(&#39;myRPkg_0.0.0.9000.tar.gz&#39;, repos = NULL, type=&#39;source&#39;)&quot;</code></pre>
+<p>And remove.</p>
+<pre><code>Rscript -e &quot;remove.packages(&#39;myRPkg&#39;)&quot;</code></pre>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>We should now have a funcitonal R package that uses <code>roxygen2</code> and <code>Rcpp</code>. The above process has been automated in the script <code>make_myRPkg.sh</code>. However, if you encounter any issues you should step through the above directions. We can now add functions that we are attempting to troubleshoot or make other modifications that may demonstrate issues.</p>
+<blockquote>
+<p>This post comes from my GitHub repository, <a href="https://github.com/knausb/myRPkg">myRPkg</a>, where I’ve included a script to automate this process.</p>
+</blockquote>
+</div>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f09%2fa-minimal-rcpp-and-roxygen2-package%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=%2f2017%2f09%2fa-minimal-rcpp-and-roxygen2-package%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f09%2fa-minimal-rcpp-and-roxygen2-package%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=%2f2017%2f09%2fa-minimal-rcpp-and-roxygen2-package%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+  
+  
+  if (window.location.hostname == "localhost")
+    return;
+
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  var disqus_shortname = 'knausb-github-io';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Evolutionary genomics, quantitative and computational biology.</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2017/09/a-minimal-rcpp-and-roxygen2-package/">A minimal Rcpp and Roxygen2 package</a></li>
+
+<li><a href="/2017/08/header-files-in-rcpp/">Header files in Rcpp</a></li>
+
+<li><a href="/2017/07/r-3.4.1-personal-library-location/">R 3.4.1 personal library location</a></li>
+
+<li><a href="/2017/06/customizing-a-docker-image/">Customizing a Docker image</a></li>
+
+<li><a href="/2017/06/reproducing-a-clang-ubsan-issue/">Reproducing a clang-UBSAN issue</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/knausb/knausb.github.io">This site on GitHub</a></li>
+      
+      <li><a href="https://CRAN.R-project.org/package=vcfR">vcfR</a></li>
+      
+      <li><a href="https://github.com/knausb/vcfR">vcfR on GitHub</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      Blog contents © Brian J. Knaus
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

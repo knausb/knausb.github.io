@@ -1,0 +1,89 @@
+---
+title: A minimal Rcpp and Roxygen2 package
+author: Brian J. Knaus
+date: '2017-09-13'
+slug: a-minimal-rcpp-and-roxygen2-package
+categories: [R]
+tags: [R, Rcpp, Roxygen2, minimal reproducible example]
+description: 'A minimal Rcpp and Roxygen2 package'
+draft: no
+---
+
+
+
+<p>I maintain an R package or two. The R universe includes a lot of nice tools that perform ‘magic’ to help my job as a developer easier. Sometimes, this magic breaks, which leaves me at a loss. My best path forward involves creating a new, minimal, package and attempting to rebuild the package. Because of the stated dependencies, this minimal package requires:</p>
+<ol style="list-style-type: decimal">
+<li>roxygen2</li>
+<li>Rcpp</li>
+</ol>
+<p>This repository describes how I build this minimal package. I work at the <code>bash</code> shell instead of <code>R</code> because I’d like to automate this as much as possible. My hope is that this will help me, and perhaps others, troubleshoot their package issues. And if this goal is not met, it may help create a minimal reproducible example to post to a discussion group.</p>
+<div id="creating-an-r-package-that-uses-roxygen2" class="section level2">
+<h2>Creating an R package that uses roxygen2</h2>
+<p>First we’ll Create an R package that includes <code>roxygen2</code>. We can use the package <code>devtools</code> to accomplish this.</p>
+<pre><code>Rscript -e &quot;devtools::create(&#39;myRPkg&#39;, rstudio = F)&quot;
+Rscript -e &quot;devtools::use_gpl3_license(pkg = &#39;myRPkg&#39;)&quot;
+Rscript -e &quot;devtools::use_package_doc(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
+<p>Now we can create a simple function for our package.</p>
+<pre><code>echo &quot;#&#39; Add together two numbers.
+#&#39;
+#&#39; @param x A number.
+#&#39; @param y A number.
+#&#39; @return The sum of \code{x} and \code{y}.
+#&#39; @examples
+#&#39; add(1, 1)
+#&#39; add(10, 1)
+#&#39; @export
+add &lt;- function(x, y) {
+  x + y
+}
+&quot; &gt;&gt; myRPkg/R/add.R</code></pre>
+<p>Once we have added this funciton, we’ll want to document it. This will create the man page from the <code>roxygen2</code> comments and, because we’ve exported the function it should be added to our namespace.</p>
+<pre><code>Rscript -e &quot;devtools::document(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
+<p>Now we should have an R package. We can now build it and test it.</p>
+<pre><code>R CMD build myRPkg
+R CMD check --as-cran myRPkg_0.0.0.9000.tar.gz</code></pre>
+<p>This should throw one ‘NOTE’ that raises our attention that this will be a new submission to CRAN. We don’t actually intend to submit this to CRAN, so we can ignore it.</p>
+</div>
+<div id="adding-rcpp-to-the-package" class="section level2">
+<h2>Adding Rcpp to the package</h2>
+<p>We can now add Rcpp to the package.</p>
+<pre><code>Rscript -e &quot;devtools::use_rcpp(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
+<p>This command instructs us to add a few lines of code to the package.</p>
+<pre><code>perl -pi -e &quot;s/NULL/\#&#39; \@useDynLib myRPkg/g&quot; myRPkg/R/myRPkg-package.r
+echo &quot;#&#39; @importFrom Rcpp sourceCpp
+NULL&quot; &gt;&gt; myRPkg/R/myRPkg-package.r</code></pre>
+<p>And we were also asked to document the package again.</p>
+<pre><code>Rscript -e &quot;devtools::document(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
+<p>We’ll now want to create an Rcpp function.</p>
+<pre><code>echo &quot;//&#39; Multiply a number by two
+//&#39;
+//&#39; @param x A single integer.
+//&#39; @export
+// [[Rcpp::export]]
+int timesTwo(int x) {
+   return x * 2;
+}&quot; &gt;&gt; myRPkg/src/timesTwo.cpp</code></pre>
+<p>We will have to document this new function.</p>
+<pre><code>Rscript -e &quot;devtools::document(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
+<p>We should now have a package that uses roxygen2 and Rcpp. We can build and check it.</p>
+<pre><code>R CMD build myRPkg
+R CMD check --as-cran myRPkg_0.0.0.9000.tar.gz</code></pre>
+</div>
+<div id="install-and-remove-the-package" class="section level2">
+<h2>Install and remove the package</h2>
+<p>We can install the package from the command line.</p>
+<pre><code>R CMD INSTALL myRPkg_0.0.0.9000.tar.gz</code></pre>
+<p>We can also remove the package from the command line when we are done with it.</p>
+<pre><code>R CMD REMOVE myRPkg</code></pre>
+<p>A slightly more <code>R</code> flavor of this could also be used.</p>
+<pre><code>Rscript -e &quot;install.packages(&#39;myRPkg_0.0.0.9000.tar.gz&#39;, repos = NULL, type=&#39;source&#39;)&quot;</code></pre>
+<p>And remove.</p>
+<pre><code>Rscript -e &quot;remove.packages(&#39;myRPkg&#39;)&quot;</code></pre>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>We should now have a funcitonal R package that uses <code>roxygen2</code> and <code>Rcpp</code>. The above process has been automated in the script <code>make_myRPkg.sh</code>. However, if you encounter any issues you should step through the above directions. We can now add functions that we are attempting to troubleshoot or make other modifications that may demonstrate issues.</p>
+<blockquote>
+<p>This post comes from my GitHub repository, <a href="https://github.com/knausb/myRPkg">myRPkg</a>, where I’ve included a script to automate this process.</p>
+</blockquote>
+</div>
