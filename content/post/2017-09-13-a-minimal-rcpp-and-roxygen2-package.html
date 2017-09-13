@@ -55,7 +55,9 @@ NULL&quot; &gt;&gt; myRPkg/R/myRPkg-package.r</code></pre>
 <p>And we were also asked to document the package again.</p>
 <pre><code>Rscript -e &quot;devtools::document(pkg = &#39;myRPkg&#39;)&quot;</code></pre>
 <p>We’ll now want to create an Rcpp function.</p>
-<pre><code>echo &quot;//&#39; Multiply a number by two
+<pre><code>echo &quot;#include &lt;Rcpp.h&gt;
+using namespace Rcpp;
+//&#39; Multiply a number by two
 //&#39;
 //&#39; @param x A single integer.
 //&#39; @export
