@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43; on Brian J. Knaus</title>
-    <link>/tags/c&#43;&#43;/</link>
+    <link>https://knausb.github.io/tags/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Sat, 10 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knausb.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Validating ASAN</title>
-      <link>/2017/06/validating-asan/</link>
+      <link>https://knausb.github.io/2017/06/validating-asan/</link>
       <pubDate>Sat, 10 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/validating-asan/</guid>
+      <guid>https://knausb.github.io/2017/06/validating-asan/</guid>
       <description>The address sanitizer (ASAN) is a tool produced by google that detects memory coruption bugs. It is relevant to the work I do, in part, because CRAN checks contributed packages with this tool. This is a good practice on the part of CRAN to ensure that packages it hosts lack bugs. However, if you are unfamiliar with this tool it may present a formidable challenge to use. Here I explain how I’ve implemented it in my work.</description>
     </item>
     
