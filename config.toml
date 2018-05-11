@@ -108,3 +108,5 @@ disqusShortname = "knausb-github-io"
 #[languages.bg]
 
 # vim: ts=2 sw=2 et
+
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
