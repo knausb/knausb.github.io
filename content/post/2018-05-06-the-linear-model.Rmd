@@ -6,6 +6,7 @@ slug: the-linear-model
 categories: [R, rstats]
 tags: [rstats]
 description: 'The linear model'
+draft: no
 ---
 
 
