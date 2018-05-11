@@ -2,51 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Brian J. Knaus</title>
-    <link>https://knausb.github.io/categories/r/</link>
+    <link>/categories/r/</link>
     <description>Recent content in R on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
-    <lastBuildDate>Wed, 13 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://knausb.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>The linear model</title>
+      <link>/2018/05/the-linear-model/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/the-linear-model/</guid>
+      <description>The linear model is the foundation for much of statistical hypothesis testing. As such, it should be a foundational part of any scientist’s education and career. Unfortunately, it is frequently misunderstood. Here I attempt to explain the linear model with the hope of bringing clarity to the topic.
+The linear model is based on the equation for a line, something we all learned in grade school geometry.
+y = mx + b Here y is a vector of our response or dependent variables.</description>
+    </item>
+    
+    <item>
       <title>A minimal Rcpp and Roxygen2 package</title>
-      <link>https://knausb.github.io/2017/09/a-minimal-rcpp-and-roxygen2-package/</link>
+      <link>/2017/09/a-minimal-rcpp-and-roxygen2-package/</link>
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/09/a-minimal-rcpp-and-roxygen2-package/</guid>
+      <guid>/2017/09/a-minimal-rcpp-and-roxygen2-package/</guid>
       <description>I maintain an R package or two. The R universe includes a lot of nice tools that perform ‘magic’ to help my job as a developer easier. Sometimes, this magic breaks, which leaves me at a loss. My best path forward involves creating a new, minimal, package and attempting to rebuild the package. Because of the stated dependencies, this minimal package requires:
 roxygen2 Rcpp  This repository describes how I build this minimal package.</description>
     </item>
     
     <item>
       <title>Header files in Rcpp</title>
-      <link>https://knausb.github.io/2017/08/header-files-in-rcpp/</link>
+      <link>/2017/08/header-files-in-rcpp/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/08/header-files-in-rcpp/</guid>
+      <guid>/2017/08/header-files-in-rcpp/</guid>
       <description>In C++ you can create functions in order to help organize your code. This is helpful as your project grows or if you have a task that is performed by a function that several other functions may call. However, the functions you create are only visible to the other funcitons that are contained in a single source file. As your project grows, you may want to distribute your functions among several files.</description>
     </item>
     
     <item>
       <title>R 3.4.1 personal library location</title>
-      <link>https://knausb.github.io/2017/07/r-3.4.1-personal-library-location/</link>
+      <link>/2017/07/r-3.4.1-personal-library-location/</link>
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/07/r-3.4.1-personal-library-location/</guid>
+      <guid>/2017/07/r-3.4.1-personal-library-location/</guid>
       <description>R 3.4.1 ‘Single Candle’ was released on June 30, 2017. Our group is preparing to provide an R workshop at our societal meeting this summer, so I’m tryingot keep up to date with the R releases. Installation on my work Ubuntu 16.04 LTS machine appeared to go smoothly. However, upon trying to install packages I received the following error.
 Warning in install.packages(update[instlib == l, &amp;quot;Package&amp;quot;], l, contriburl = contriburl, : &amp;#39;lib = &amp;quot;/usr/lib/R/site-library&amp;quot;&amp;#39; is not writable Would you like to use a personal library instead?</description>
     </item>
     
     <item>
       <title>Reproducing a clang-UBSAN issue</title>
-      <link>https://knausb.github.io/2017/06/reproducing-a-clang-ubsan-issue/</link>
+      <link>/2017/06/reproducing-a-clang-ubsan-issue/</link>
       <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/06/reproducing-a-clang-ubsan-issue/</guid>
+      <guid>/2017/06/reproducing-a-clang-ubsan-issue/</guid>
       <description>My R package, vcfR Version 1.5.0, is currently reporting a clang-UBSAN issue. I’ve described how to geet a Docker image with clang-UBSAN up and running here. Once we have the image up and running we’ll want to install package dependencies. First, pandoc is needed to render markdown and qpdf is used to check pdfs.
 apt-get update apt-get install pandoc qpdf Then we can install R packages.
 R -e &amp;#39;install.packages(c(&amp;quot;ape&amp;quot;, &amp;quot;dplyr&amp;quot;, &amp;quot;knitr&amp;quot;, &amp;quot;poppr&amp;quot;, &amp;quot;Rcpp&amp;quot;, &amp;quot;memuse&amp;quot;, &amp;quot;pinfsc50&amp;quot;, &amp;quot;rmarkdown&amp;quot;, &amp;quot;testthat&amp;quot;, &amp;quot;tidyr&amp;quot;, &amp;quot;vegan&amp;quot;, &amp;quot;viridisLite&amp;quot;), dependencies = TRUE, lib = &amp;quot;/usr/local/lib/R/site-library&amp;quot;)&amp;#39; Build and test our package.</description>
@@ -54,37 +65,37 @@ R -e &amp;#39;install.packages(c(&amp;quot;ape&amp;quot;, &amp;quot;dplyr&amp;qu
     
     <item>
       <title>Running r-devel-ubsan-clang in Docker</title>
-      <link>https://knausb.github.io/2017/06/running-r-devel-ubsan-clang-in-docker/</link>
+      <link>/2017/06/running-r-devel-ubsan-clang-in-docker/</link>
       <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/06/running-r-devel-ubsan-clang-in-docker/</guid>
+      <guid>/2017/06/running-r-devel-ubsan-clang-in-docker/</guid>
       <description>My R package, vcfR Version 1.5.0, currently has an issue with clang-UBSAN. This can be seen at it’s CRAN site and clicking the link for ‘CRAN checks.’ Under the section ‘Additional issues’ it lists ‘clang-UBSAN’. clang is ‘a C language family frontend for LLVM’ that is typically used as the compiler on OSX (Macs) when Xcode is installed. The undefined behavior sanitizer (UBSAN) tests for issues such as memory overflows. In order for UBSAN to work you need a version of R that is compiled specifically for this purpose.</description>
     </item>
     
     <item>
       <title>CRAN memory error</title>
-      <link>https://knausb.github.io/2017/06/cran-memory-error/</link>
+      <link>/2017/06/cran-memory-error/</link>
       <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/06/cran-memory-error/</guid>
+      <guid>/2017/06/cran-memory-error/</guid>
       <description>I have a package on CRAN where the CRAN tests are reporting a memory error. In order to use the address sanitizer (ASAN) we need to have a version of R that has been compiled specially to make use of it. In a previous post I described how we can use Docker to run rocker images so we do not have to change our system R. I’ve also validated the ASAN is working.</description>
     </item>
     
     <item>
       <title>Validating ASAN</title>
-      <link>https://knausb.github.io/2017/06/validating-asan/</link>
+      <link>/2017/06/validating-asan/</link>
       <pubDate>Sat, 10 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/06/validating-asan/</guid>
+      <guid>/2017/06/validating-asan/</guid>
       <description>The address sanitizer (ASAN) is a tool produced by google that detects memory coruption bugs. It is relevant to the work I do, in part, because CRAN checks contributed packages with this tool. This is a good practice on the part of CRAN to ensure that packages it hosts lack bugs. However, if you are unfamiliar with this tool it may present a formidable challenge to use. Here I explain how I’ve implemented it in my work.</description>
     </item>
     
     <item>
       <title>A first post using blogdown</title>
-      <link>https://knausb.github.io/2017/06/a-first-post-using-blogdown/</link>
+      <link>/2017/06/a-first-post-using-blogdown/</link>
       <pubDate>Sat, 03 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/06/a-first-post-using-blogdown/</guid>
+      <guid>/2017/06/a-first-post-using-blogdown/</guid>
       <description>Once you have Hugo and blogdown set up you should be ready to blog! How to set up Hugo and blogdown was briefly covered in a previous post, with links to more information. We can use blogdown to create a template for our first blog.
 library(blogdown) new_post(title=&amp;quot;A first post using blogdown&amp;quot;, rmd = TRUE) This creates a file named:
 ./content/post/2017-06-03-a-first-post-using-blogdown.Rmd where ‘.’ is the root directory of your github.io project. The function new_post() prefixes your post’s title with todays date to create the filename.</description>
@@ -92,29 +103,29 @@ library(blogdown) new_post(title=&amp;quot;A first post using blogdown&amp;quot;
     
     <item>
       <title>Running R in Docker</title>
-      <link>https://knausb.github.io/2017/06/running-r-in-docker/</link>
+      <link>/2017/06/running-r-in-docker/</link>
       <pubDate>Sat, 03 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/06/running-r-in-docker/</guid>
+      <guid>/2017/06/running-r-in-docker/</guid>
       <description>Docker is a ‘container,’ or a mini-operating system, you can run within your existing operating system. This is nice because you can build an environment where you can build and test code. And if it breaks, you can kill it and start a new container and start again. In the context of R development there are at least two good reasons someone would want to run R in Docker. First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel.</description>
     </item>
     
     <item>
       <title>Hello blogdown</title>
-      <link>https://knausb.github.io/2017/05/hello-blogdown/</link>
+      <link>/2017/05/hello-blogdown/</link>
       <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/05/hello-blogdown/</guid>
+      <guid>/2017/05/hello-blogdown/</guid>
       <description>This is my first blog. Hello blogdown!
 I built this site using the directions I found at this link provided by Amber Thomas. Note that the scripts ‘setup.sh’ and ‘deploy.sh’ work on your GitHub repository names ‘username.github.io’. Even if you think you’re building it somewhere else, this script will clobber the contents of that repository. Also, try a few themes before you add content. I found that some of the theme did not play well with blogdown on GitHub.</description>
     </item>
     
     <item>
       <title>Hello R Markdown</title>
-      <link>https://knausb.github.io/2015/07/hello-r-markdown/</link>
+      <link>/2015/07/hello-r-markdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://knausb.github.io/2015/07/hello-r-markdown/</guid>
+      <guid>/2015/07/hello-r-markdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>

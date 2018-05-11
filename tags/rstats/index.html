@@ -6,13 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="Rstats" />
-<meta property="og:description" content="Brian J. Knaus&#39;s home at GitHub." />
+<meta property="og:description" content="Brian J. Knaus&#39;s blog about genomics and biology." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/tags/rstats/" />
 
 
 
-<meta property="og:updated_time" content="2017-05-26T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-05-06T00:00:00&#43;00:00"/>
 
 
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.21" />
+<meta name="generator" content="Hugo 0.20.2" />
 
 
     
@@ -37,9 +37,9 @@
     "@type": "Person",
     "name": "Brian J. Knaus"
   },
-  "dateModified": "2017-05-26T00:00:00&#43;00:00",
-  "keywords": "development,golang,r,development,go,golang,hugo,plot,r-markdown,regression,rstats,templates,themes,",
-  "description": "Brian J. Knaus&#39;s home at GitHub."
+  "dateModified": "2018-05-06T00:00:00&#43;00:00",
+  "keywords": "development,docker,golang,r,rstats,asan,blogdown,c&#43;&#43;,clang,development,docker,go,golang,header-files,hugo,minimal-reproducible-example,plot,r,r-markdown,rcpp,regression,rocker,roxygen2,rstats,templates,themes,ubsan,",
+  "description": "Brian J. Knaus&#39;s blog about genomics and biology."
 }
 </script>
 
@@ -57,6 +57,13 @@
     
 
     
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-4713082-11', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
 
     
 
@@ -75,6 +82,9 @@
           <a class="nav-link" href="/about/">About Brian</a>
           
           
+          <a class="nav-link" href="/vcfr/">vcfR</a>
+          
+          
         </nav>
       </div>
     </div>
@@ -82,7 +92,7 @@
     <header class="blog-header">
       <div class="container">
         <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
-        <p class="lead blog-description">Brian J. Knaus&rsquo;s home at GitHub.</p>
+        <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
       </div>
     </header>
 
@@ -100,18 +110,19 @@
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="/2017/05/hello-blogdown/">Hello blogdown</a></h2>
-    <p class="blog-post-meta"><time datetime="2017-05-26T00:00:00Z">Fri May 26, 2017</time> by Brian J. Knaus in 
-<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
+    <h2 class="blog-post-title"><a href="/2018/05/the-linear-model/">The linear model</a></h2>
+    <p class="blog-post-meta"><time datetime="2018-05-06T00:00:00Z">Sun May 06, 2018</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>, <a href="/categories/rstats" rel="category tag">rstats</a>
 
 
 <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/rstats" rel="tag">rstats</a>
 
 </p>
   </header>
-  This is my first blog. Hello blogdown!
-I built this site using the directions I found at this link provided by Amber Thomas. Note that the scripts ‘setup.sh’ and ‘deploy.sh’ work on your GitHub repository names ‘username.github.io’. Even if you think you’re building it somewhere else, this script will clobber the contents of that repository. Also, try a few themes before you add content. I found that some of the theme did not play well with blogdown on GitHub.
-  <a href='/2017/05/hello-blogdown/'>Read more →</a>
+  The linear model is the foundation for much of statistical hypothesis testing. As such, it should be a foundational part of any scientist’s education and career. Unfortunately, it is frequently misunderstood. Here I attempt to explain the linear model with the hope of bringing clarity to the topic.
+The linear model is based on the equation for a line, something we all learned in grade school geometry.
+y = mx + b Here y is a vector of our response or dependent variables.
+  <a href='/2018/05/the-linear-model/'>Read more →</a>
 </article> 
 
 
@@ -137,15 +148,15 @@ I built this site using the directions I found at this link provided by Amber Th
     <ol class="list-unstyled">
 
 
-<li><a href="/2014/09/creating-a-new-theme/">Creating a New Theme</a></li>
+<li><a href="/2018/05/the-linear-model/">The linear model</a></li>
 
-<li><a href="/2014/03/migrate-to-hugo-from-jekyll/">Migrate to Hugo from Jekyll</a></li>
+<li><a href="/2017/09/a-minimal-rcpp-and-roxygen2-package/">A minimal Rcpp and Roxygen2 package</a></li>
 
-<li><a href="/2017/05/hello-blogdown/">Hello blogdown</a></li>
+<li><a href="/2017/08/header-files-in-rcpp/">Header files in Rcpp</a></li>
 
-<li><a href="/2016/12/a-plain-markdown-post/">A Plain Markdown Post</a></li>
+<li><a href="/2017/07/r-3.4.1-personal-library-location/">R 3.4.1 personal library location</a></li>
 
-<li><a href="/2015/07/hello-r-markdown/">Hello R Markdown</a></li>
+<li><a href="/2017/06/customizing-a-docker-image/">Customizing a Docker image</a></li>
 
     </ol>
   </section>
@@ -156,6 +167,8 @@ I built this site using the directions I found at this link provided by Amber Th
   <section class="sidebar-module">
     <h4>Links</h4>
     <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/knausb/knausb.github.io">This site on GitHub</a></li>
       
       <li><a href="https://CRAN.R-project.org/package=vcfR">vcfR</a></li>
       
@@ -173,7 +186,7 @@ I built this site using the directions I found at this link provided by Amber Th
     <footer class="blog-footer">
       <p>
       
-      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      Blog contents © Brian J. Knaus
       
       </p>
       <p>
