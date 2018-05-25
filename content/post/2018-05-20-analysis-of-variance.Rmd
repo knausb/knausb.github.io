@@ -1,0 +1,17 @@
+---
+title: 'Analysis of variance'
+author: 'Brian J. Knaus'
+date: '2018-05-20'
+slug: analysis-of-variance
+categories: [R, rstats]
+tags: [ANOVA,  the linear model]
+description: ''
+draft: yes
+---
+
+
+
+
+
+
+
