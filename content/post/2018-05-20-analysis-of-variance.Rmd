@@ -10,8 +10,7 @@ draft: yes
 ---
 
 
-
-
-
+Analysis of variance (ANOVA) attempts to address the question if two or more groups are on average different.
+We've previously addressed [the linear model](2018-05-06-the-linear-model.html)
 
 
