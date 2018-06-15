@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rstats on Brian J. Knaus</title>
-    <link>/tags/rstats/</link>
+    <link>https://knausb.github.io/tags/rstats/</link>
     <description>Recent content in Rstats on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Sun, 06 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/rstats/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knausb.github.io/tags/rstats/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The linear model</title>
-      <link>/2018/05/the-linear-model/</link>
+      <link>https://knausb.github.io/2018/05/the-linear-model/</link>
       <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/the-linear-model/</guid>
+      <guid>https://knausb.github.io/2018/05/the-linear-model/</guid>
       <description>The linear model is the foundation for much of statistical hypothesis testing. As such, it should be a foundational part of any scientist’s education and career. Unfortunately, it is frequently misunderstood. Here I attempt to explain the linear model with the hope of bringing clarity to the topic.
 The linear model is based on the equation for a line, something we all learned in grade school geometry.
 y = mx + b Here y is a vector of our response or dependent variables.</description>
