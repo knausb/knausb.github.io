@@ -143,25 +143,25 @@
   </url>
   
   <url>
-    <loc>/categories/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/docker/</loc>
-    <lastmod>2017-06-26T00:00:00+00:00</lastmod>
+    <loc>/categories/development/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/docker/</loc>
+    <lastmod>2017-06-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/docker/</loc>
     <lastmod>2017-06-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -173,13 +173,13 @@
   </url>
   
   <url>
-    <loc>/categories/golang/</loc>
+    <loc>/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/golang/</loc>
+    <loc>/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -215,13 +215,13 @@
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -233,13 +233,13 @@
   </url>
   
   <url>
-    <loc>/categories/rcpp/</loc>
+    <loc>/tags/rcpp/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rcpp/</loc>
+    <loc>/categories/rcpp/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -263,14 +263,14 @@
   </url>
   
   <url>
-    <loc>/categories/rstats/</loc>
-    <lastmod>2018-05-20T00:00:00+00:00</lastmod>
+    <loc>/tags/rstats/</loc>
+    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rstats/</loc>
-    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
+    <loc>/categories/rstats/</loc>
+    <lastmod>2018-05-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
