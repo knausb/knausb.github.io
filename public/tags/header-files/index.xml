@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Header Files on Brian J. Knaus</title>
-    <link>/tags/header-files/</link>
+    <link>https://knausb.github.io/tags/header-files/</link>
     <description>Recent content in Header Files on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Mon, 14 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/header-files/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knausb.github.io/tags/header-files/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Header files in Rcpp</title>
-      <link>/2017/08/header-files-in-rcpp/</link>
+      <link>https://knausb.github.io/2017/08/header-files-in-rcpp/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/08/header-files-in-rcpp/</guid>
+      <guid>https://knausb.github.io/2017/08/header-files-in-rcpp/</guid>
       <description>In C++ you can create functions in order to help organize your code. This is helpful as your project grows or if you have a task that is performed by a function that several other functions may call. However, the functions you create are only visible to the other funcitons that are contained in a single source file. As your project grows, you may want to distribute your functions among several files.</description>
     </item>
     
