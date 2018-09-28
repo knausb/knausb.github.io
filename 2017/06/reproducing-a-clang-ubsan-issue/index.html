@@ -56,7 +56,7 @@ R -e &#39;install.packages(c(&quot;ape&quot;, &quot;dplyr&quot;, &quot;knitr&quo
     "@type": "Person",
     "name": "Brian J. Knaus"
   },
-  "keywords": "R,clang,Docker,R,Rocker,UBSAN"
+  "keywords": "R, clang, Docker, Rocker, UBSAN"
 }
 </script>
 
@@ -67,7 +67,7 @@ R -e &#39;install.packages(c(&quot;ape&quot;, &quot;dplyr&quot;, &quot;knitr&quo
     <title>Reproducing a clang-UBSAN issue | Brian J. Knaus</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://knausb.github.io/css/style.css" rel="stylesheet" integrity="sha384-j3n8sYdzztDYtVc80KiiuOXoCg5Bjz0zYyLGzDMW8RbfA0u5djbF0GO3bVOPoLyN" crossorigin="anonymous">
+    <link href="https://knausb.github.io/css/style.css" rel="stylesheet" integrity="sha384-6&#43;EGfPoOzk/n2DVJSlglKT8TV1TgIMvVcKI73IZgBswLasPBn94KommV6ilJqCXE" crossorigin="anonymous">
 
     
 
@@ -88,29 +88,28 @@ ga('send', 'pageview');
 
   <body>
 
+    
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
           <a class="nav-link " href="https://knausb.github.io/">Home</a>
-          
-          
-          <a class="nav-link" href="https://knausb.github.io/about/">About Brian</a>
-          
-          
-          <a class="nav-link" href="https://knausb.github.io/vcfr/">vcfR</a>
-          
-          
         </nav>
       </div>
     </div>
+    
 
+    
+    
     <header class="blog-header">
       <div class="container">
         <h1 class="blog-title"><a href="https://knausb.github.io/" rel="home">Brian J. Knaus</a></h1>
         <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
       </div>
     </header>
+    
+    
 
+    
     <div class="container">
       <div class="row">
         <div class="col-sm-8 blog-main">
@@ -318,22 +317,19 @@ RD CMD check vcfR_1.5.0.9000.tar.gz</code></pre>
   
   <div id="disqus_thread"></div>
 <script type="text/javascript">
+    var disqus_shortname = 'knausb-github-io';
+    var disqus_identifier = 'https:\/\/knausb.github.io\/2017\/06\/reproducing-a-clang-ubsan-issue\/';
+    var disqus_title = 'Reproducing a clang-UBSAN issue';
+    var disqus_url = 'https:\/\/knausb.github.io\/2017\/06\/reproducing-a-clang-ubsan-issue\/';
 
-(function() {
-  
-  
-  if (window.location.hostname == "localhost")
-    return;
-
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  var disqus_shortname = 'knausb-github-io';
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   
   </footer>
   
@@ -344,7 +340,7 @@ RD CMD check vcfR_1.5.0.9000.tar.gz</code></pre>
 
         </div> <!-- /.blog-main -->
 
-        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+        <aside class="col-sm-3 ml-auto blog-sidebar">
   
   <section class="sidebar-module sidebar-module-inset">
     <h4>About</h4>
@@ -392,7 +388,9 @@ RD CMD check vcfR_1.5.0.9000.tar.gz</code></pre>
 
       </div> <!-- /.row -->
     </div> <!-- /.container -->
+    
 
+    
     <footer class="blog-footer">
       <p>
       
@@ -403,6 +401,7 @@ RD CMD check vcfR_1.5.0.9000.tar.gz</code></pre>
       <a href="#">Back to top</a>
       </p>
     </footer>
+    
 
   </body>
 
