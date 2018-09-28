@@ -39,9 +39,9 @@
     "@type": "Person",
     "name": "{{ .Params.author | default .Site.Params.author }}"
   }
-  {{- if or (.Params.categories) (.Params.tags) -}}
+  {{- if or (.Params.keywords) (or (.Params.categories) (.Params.tags)) -}}
   ,
-  "keywords": "{{ with .Params.categories }}{{ range $i, $e := . }}{{ if $i }},{{ end }}{{ $e }}{{ end }},{{ end }}{{ with .Params.tags }}{{ range $i, $e := . }}{{ if $i }},{{ end }}{{ $e }}{{ end }}{{ end }}"
+  "keywords": "{{ delimit (union .Params.keywords (union .Params.categories .Params.tags)) ", " }}"
   {{- end }}
 
   {{- with .Params.description -}}
@@ -83,7 +83,7 @@
   {{ end }}
 
   {{ if and (.Site.DisqusShortname) (ne .Params.comments false) }}
-  {{ partial "disqus.html" . }}
+  {{ template "_internal/disqus.html" . }}
   {{ end }}
   </footer>
   {{ end }}
