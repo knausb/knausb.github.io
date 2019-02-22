@@ -9,35 +9,15 @@
 <meta property="og:description" content="Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
 This document is a brief primer on using go templates." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://knausb.github.io/2014/04/hugo-template-primer/" />
-
-
-
+<meta property="og:url" content="/2014/04/hugo-template-primer/" />
 <meta property="article:published_time" content="2014-04-02T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2014-04-02T00:00:00&#43;00:00"/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-  <meta name="twitter:card" content="summary"/>
-
-
-
-<meta name="twitter:text:title" content="(Hu)go Template Primer"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="(Hu)go Template Primer"/>
 <meta name="twitter:description" content="Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
 This document is a brief primer on using go templates."/>
-<meta name="twitter:site" content="@username"/>
-<meta name="generator" content="Hugo 0.21" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 
     
@@ -46,7 +26,7 @@ This document is a brief primer on using go templates."/>
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "(Hu)go Template Primer",
-  "url": "https://knausb.github.io/2014/04/hugo-template-primer/",
+  "url": "/2014/04/hugo-template-primer/",
   "wordCount": "1488",
   "datePublished": "2014-04-02T00:00:00&#43;00:00",
   "dateModified": "2014-04-02T00:00:00&#43;00:00",
@@ -60,22 +40,26 @@ This document is a brief primer on using go templates."/>
 
 
 
-    <link rel="canonical" href="https://knausb.github.io/2014/04/hugo-template-primer/">
+    <link rel="canonical" href="/2014/04/hugo-template-primer/">
 
     <title>(Hu)go Template Primer | Brian J. Knaus</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://knausb.github.io/css/style.css" rel="stylesheet" integrity="sha384-6&#43;EGfPoOzk/n2DVJSlglKT8TV1TgIMvVcKI73IZgBswLasPBn94KommV6ilJqCXE" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-6&#43;EGfPoOzk/n2DVJSlglKT8TV1TgIMvVcKI73IZgBswLasPBn94KommV6ilJqCXE" crossorigin="anonymous">
 
     
 
     
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-4713082-11', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-4713082-11', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
     
@@ -90,7 +74,7 @@ ga('send', 'pageview');
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="https://knausb.github.io/">Home</a>
+          <a class="nav-link " href="/">Home</a>
         </nav>
       </div>
     </div>
@@ -100,7 +84,7 @@ ga('send', 'pageview');
     
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="https://knausb.github.io/" rel="home">Brian J. Knaus</a></h1>
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
         <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
       </div>
     </header>
@@ -117,7 +101,7 @@ ga('send', 'pageview');
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2014/04/hugo-template-primer/">(Hu)go Template Primer</a></h2>
+    <h2 class="blog-post-title"><a href="/2014/04/hugo-template-primer/">(Hu)go Template Primer</a></h2>
     <p class="blog-post-meta"><time datetime="2014-04-02T00:00:00Z">Wed Apr 02, 2014</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/development" rel="category tag">Development</a>, <a href="/categories/golang" rel="category tag">golang</a>
 
@@ -475,10 +459,10 @@ so, such as in this example:</p>
     <section>
     <h4>Share</h4>
     <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fknausb.github.io%2f2014%2f04%2fhugo-template-primer%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fknausb.github.io%2f2014%2f04%2fhugo-template-primer%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fknausb.github.io%2f2014%2f04%2fhugo-template-primer%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fknausb.github.io%2f2014%2f04%2fhugo-template-primer%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2014%2f04%2fhugo-template-primer%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=%2f2014%2f04%2fhugo-template-primer%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2014%2f04%2fhugo-template-primer%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=%2f2014%2f04%2fhugo-template-primer%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
     </nav>
   </section>
 
@@ -486,20 +470,25 @@ so, such as in this example:</p>
 
   
   <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'knausb-github-io';
-    var disqus_identifier = 'https:\/\/knausb.github.io\/2014\/04\/hugo-template-primer\/';
-    var disqus_title = '(Hu)go Template Primer';
-    var disqus_url = 'https:\/\/knausb.github.io\/2014\/04\/hugo-template-primer\/';
-
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "knausb-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   
   </footer>
   

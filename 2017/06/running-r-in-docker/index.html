@@ -8,34 +8,14 @@
 <meta property="og:title" content="Running R in Docker" />
 <meta property="og:description" content="Docker is a ‘container,’ or a mini-operating system, you can run within your existing operating system. This is nice because you can build an environment where you can build and test code. And if it breaks, you can kill it and start a new container and start again. In the context of R development there are at least two good reasons someone would want to run R in Docker. First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://knausb.github.io/2017/06/running-r-in-docker/" />
-
-
-
+<meta property="og:url" content="/2017/06/running-r-in-docker/" />
 <meta property="article:published_time" content="2017-06-03T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2017-06-03T00:00:00&#43;00:00"/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-  <meta name="twitter:card" content="summary"/>
-
-
-
-<meta name="twitter:text:title" content="Running R in Docker"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Running R in Docker"/>
 <meta name="twitter:description" content="Docker is a ‘container,’ or a mini-operating system, you can run within your existing operating system. This is nice because you can build an environment where you can build and test code. And if it breaks, you can kill it and start a new container and start again. In the context of R development there are at least two good reasons someone would want to run R in Docker. First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel."/>
-<meta name="twitter:site" content="@username"/>
-<meta name="generator" content="Hugo 0.21" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 
     
@@ -44,7 +24,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Running R in Docker",
-  "url": "https://knausb.github.io/2017/06/running-r-in-docker/",
+  "url": "/2017/06/running-r-in-docker/",
   "wordCount": "859",
   "datePublished": "2017-06-03T00:00:00&#43;00:00",
   "dateModified": "2017-06-03T00:00:00&#43;00:00",
@@ -58,22 +38,26 @@
 
 
 
-    <link rel="canonical" href="https://knausb.github.io/2017/06/running-r-in-docker/">
+    <link rel="canonical" href="/2017/06/running-r-in-docker/">
 
     <title>Running R in Docker | Brian J. Knaus</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://knausb.github.io/css/style.css" rel="stylesheet" integrity="sha384-6&#43;EGfPoOzk/n2DVJSlglKT8TV1TgIMvVcKI73IZgBswLasPBn94KommV6ilJqCXE" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-6&#43;EGfPoOzk/n2DVJSlglKT8TV1TgIMvVcKI73IZgBswLasPBn94KommV6ilJqCXE" crossorigin="anonymous">
 
     
 
     
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-4713082-11', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-4713082-11', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
     
@@ -88,7 +72,7 @@ ga('send', 'pageview');
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="https://knausb.github.io/">Home</a>
+          <a class="nav-link " href="/">Home</a>
         </nav>
       </div>
     </div>
@@ -98,7 +82,7 @@ ga('send', 'pageview');
     
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="https://knausb.github.io/" rel="home">Brian J. Knaus</a></h1>
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
         <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
       </div>
     </header>
@@ -115,7 +99,7 @@ ga('send', 'pageview');
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2017/06/running-r-in-docker/">Running R in Docker</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/06/running-r-in-docker/">Running R in Docker</a></h2>
     <p class="blog-post-meta"><time datetime="2017-06-03T00:00:00Z">Sat Jun 03, 2017</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
@@ -124,7 +108,10 @@ ga('send', 'pageview');
 
 </p>
   </header>
-  <p>Docker is a ‘container,’ or a mini-operating system, you can run within your existing operating system. This is nice because you can build an environment where you can build and test code. And if it breaks, you can kill it and start a new container and start again. In the context of R development there are at least two good reasons someone would want to run R in Docker. First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel. You may not want to install this in your usual environment. Installing it into a container allows you to isolate this installation from the rest of your work environment. Second, if you are using compiled code you may need to use a tool such as the AddressSanitizer. This requires you to compile a version of R using <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Using-Address-Sanitizer">certain flags</a> that are helpful for identifying memory leaks but have a performance cost that make them undesireable for a production system. Again, creating a container for a version of R built with these flags can isolate it from your production environment. Here we explore how to run R within Docker.</p>
+  
+
+
+<p>Docker is a ‘container,’ or a mini-operating system, you can run within your existing operating system. This is nice because you can build an environment where you can build and test code. And if it breaks, you can kill it and start a new container and start again. In the context of R development there are at least two good reasons someone would want to run R in Docker. First, the CRAN Repository Policy (Version $Revision: 3679 $) asserts that submitted packages should be tested with the current version of R-devel. You may not want to install this in your usual environment. Installing it into a container allows you to isolate this installation from the rest of your work environment. Second, if you are using compiled code you may need to use a tool such as the AddressSanitizer. This requires you to compile a version of R using <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Using-Address-Sanitizer">certain flags</a> that are helpful for identifying memory leaks but have a performance cost that make them undesireable for a production system. Again, creating a container for a version of R built with these flags can isolate it from your production environment. Here we explore how to run R within Docker.</p>
 <div id="installing-docker" class="section level2">
 <h2>Installing Docker</h2>
 <p>In Debian-like Linux (including Ubuntu) you can install Docker using apt.</p>
@@ -199,10 +186,10 @@ git clone git@github.com:rocker-org/r-devel-san.git</code></pre>
     <section>
     <h4>Share</h4>
     <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fknausb.github.io%2f2017%2f06%2frunning-r-in-docker%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f06%2frunning-r-in-docker%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=%2f2017%2f06%2frunning-r-in-docker%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
     </nav>
   </section>
 
@@ -210,20 +197,25 @@ git clone git@github.com:rocker-org/r-devel-san.git</code></pre>
 
   
   <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'knausb-github-io';
-    var disqus_identifier = 'https:\/\/knausb.github.io\/2017\/06\/running-r-in-docker\/';
-    var disqus_title = 'Running R in Docker';
-    var disqus_url = 'https:\/\/knausb.github.io\/2017\/06\/running-r-in-docker\/';
-
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "knausb-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   
   </footer>
   

@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rcpp on Brian J. Knaus</title>
-    <link>https://knausb.github.io/tags/rcpp/</link>
+    <link>/tags/rcpp/</link>
     <description>Recent content in Rcpp on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Thu, 14 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://knausb.github.io/tags/rcpp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/rcpp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting started with Rcpp</title>
-      <link>https://knausb.github.io/2018/06/getting-started-with-rcpp/</link>
+      <link>/2018/06/getting-started-with-rcpp/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2018/06/getting-started-with-rcpp/</guid>
+      <guid>/2018/06/getting-started-with-rcpp/</guid>
       <description>A colleague recently asked about getting started using Rcpp. After I sent the e-mail I thought that information may be of use to others. So I decided to blog about it.
 Rcpp is a package on CRAN that facilitates an interface between R and C++. It includes data structures that allow for easy sharing of data between the two languages. Because writting C++ code is usually more challenging than writing R code you should probably reserve it for tasks that you will repeat.</description>
     </item>
     
     <item>
       <title>A minimal Rcpp and Roxygen2 package</title>
-      <link>https://knausb.github.io/2017/09/a-minimal-rcpp-and-roxygen2-package/</link>
+      <link>/2017/09/a-minimal-rcpp-and-roxygen2-package/</link>
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/09/a-minimal-rcpp-and-roxygen2-package/</guid>
+      <guid>/2017/09/a-minimal-rcpp-and-roxygen2-package/</guid>
       <description>I maintain an R package or two. The R universe includes a lot of nice tools that perform ‘magic’ to help my job as a developer easier. Sometimes, this magic breaks, which leaves me at a loss. My best path forward involves creating a new, minimal, package and attempting to rebuild the package. Because of the stated dependencies, this minimal package requires:
 roxygen2 Rcpp  This repository describes how I build this minimal package.</description>
     </item>
     
     <item>
       <title>Header files in Rcpp</title>
-      <link>https://knausb.github.io/2017/08/header-files-in-rcpp/</link>
+      <link>/2017/08/header-files-in-rcpp/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/08/header-files-in-rcpp/</guid>
+      <guid>/2017/08/header-files-in-rcpp/</guid>
       <description>In C++ you can create functions in order to help organize your code. This is helpful as your project grows or if you have a task that is performed by a function that several other functions may call. However, the functions you create are only visible to the other funcitons that are contained in a single source file. As your project grows, you may want to distribute your functions among several files.</description>
     </item>
     
     <item>
       <title>CRAN memory error</title>
-      <link>https://knausb.github.io/2017/06/cran-memory-error/</link>
+      <link>/2017/06/cran-memory-error/</link>
       <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/06/cran-memory-error/</guid>
+      <guid>/2017/06/cran-memory-error/</guid>
       <description>I have a package on CRAN where the CRAN tests are reporting a memory error. In order to use the address sanitizer (ASAN) we need to have a version of R that has been compiled specially to make use of it. In a previous post I described how we can use Docker to run rocker images so we do not have to change our system R. I’ve also validated the ASAN is working.</description>
     </item>
     

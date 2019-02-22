@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Tags" />
+<meta property="og:description" content="Brian J. Knaus&#39;s blog about genomics and biology." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/tags/" />
+
+<meta property="og:updated_time" content="2018-05-20T00:00:00&#43;00:00"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tags"/>
+<meta name="twitter:description" content="Brian J. Knaus&#39;s blog about genomics and biology."/>
+<meta name="generator" content="Hugo 0.54.0" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Blog",
+  "headline": "Brian J. Knaus",
+  "url" : "/tags/",
+  "author": {
+    "@type": "Person",
+    "name": "Brian J. Knaus"
+  },
+  "dateModified": "2018-05-20T00:00:00&#43;00:00",
+  "keywords": "development,docker,golang,r,rcpp,rstats,anova,asan,blogdown,c&#43;&#43;,clang,development,docker,go,golang,header-files,hugo,minimal-reproducible-example,plot,r,r-markdown,rcpp,regression,rocker,roxygen2,rstats,templates,the-linear-model,themes,ubsan,",
+  "description": "Brian J. Knaus&#39;s blog about genomics and biology."
+}
+</script>
+
+
+    <link rel="canonical" href="/tags/">
+
+    <title>Brian J. Knaus</title>
+
+    <!-- combined, minified CSS -->
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-6&#43;EGfPoOzk/n2DVJSlglKT8TV1TgIMvVcKI73IZgBswLasPBn94KommV6ilJqCXE" crossorigin="anonymous">
+
+    
+    <!-- RSS 2.0 feed -->
+    <link href="/tags/index.xml" rel="alternate" type="application/rss+xml" title="Brian J. Knaus" />
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-4713082-11', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="/">Home</a>
+        </nav>
+      </div>
+    </div>
+    
+
+    
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
+        <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
+      </div>
+    </header>
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="/2018/06/getting-started-with-rcpp/">Getting started with Rcpp</a></h2>
+    <p class="blog-post-meta"><time datetime="2018-06-14T00:00:00Z">Thu Jun 14, 2018</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>, <a href="/categories/rcpp" rel="category tag">Rcpp</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/r" rel="tag">R</a>, <a href="/tags/rcpp" rel="tag">Rcpp</a>
+
+</p>
+  </header>
+  A colleague recently asked about getting started using Rcpp. After I sent the e-mail I thought that information may be of use to others. So I decided to blog about it.
+Rcpp is a package on CRAN that facilitates an interface between R and C++. It includes data structures that allow for easy sharing of data between the two languages. Because writting C++ code is usually more challenging than writing R code you should probably reserve it for tasks that you will repeat.
+  <a href='/2018/06/getting-started-with-rcpp/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="/2018/05/analysis-of-variance/">Analysis of variance</a></h2>
+    <p class="blog-post-meta"><time datetime="2018-05-20T00:00:00Z">Sun May 20, 2018</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>, <a href="/categories/rstats" rel="category tag">rstats</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/anova" rel="tag">ANOVA</a>, <a href="/tags/the-linear-model" rel="tag">the linear model</a>
+
+</p>
+  </header>
+  Analysis of variance (ANOVA) attempts to address the question if two or more groups are on average different. We’ve previously addressed the linear model. In the linear model we ask whether the slope is different from zero and whether the y-intercept is different from zero. In ANOVA we have predetermined groups and consider the slope for each group to be zero while we ask teh question of whether these groups all have the same y-intercept.
+  <a href='/2018/05/analysis-of-variance/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="/2018/05/the-linear-model/">The linear model</a></h2>
+    <p class="blog-post-meta"><time datetime="2018-05-06T00:00:00Z">Sun May 06, 2018</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>, <a href="/categories/rstats" rel="category tag">rstats</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/rstats" rel="tag">rstats</a>
+
+</p>
+  </header>
+  The linear model is the foundation for much of statistical hypothesis testing. As such, it should be a foundational part of any scientist’s education and career. Unfortunately, it is frequently misunderstood. Here I attempt to explain the linear model with the hope of bringing clarity to the topic.
+The linear model is based on the equation for a line, something we all learned in grade school geometry.
+y = mx + b Here y is a vector of our response or dependent variables.
+  <a href='/2018/05/the-linear-model/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="/2017/09/a-minimal-rcpp-and-roxygen2-package/">A minimal Rcpp and Roxygen2 package</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-09-13T00:00:00Z">Wed Sep 13, 2017</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/r" rel="tag">R</a>, <a href="/tags/rcpp" rel="tag">Rcpp</a>, <a href="/tags/roxygen2" rel="tag">Roxygen2</a>, <a href="/tags/minimal-reproducible-example" rel="tag">minimal reproducible example</a>
+
+</p>
+  </header>
+  I maintain an R package or two. The R universe includes a lot of nice tools that perform ‘magic’ to help my job as a developer easier. Sometimes, this magic breaks, which leaves me at a loss. My best path forward involves creating a new, minimal, package and attempting to rebuild the package. Because of the stated dependencies, this minimal package requires:
+roxygen2 Rcpp  This repository describes how I build this minimal package.
+  <a href='/2017/09/a-minimal-rcpp-and-roxygen2-package/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="/2017/08/header-files-in-rcpp/">Header files in Rcpp</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-08-14T00:00:00Z">Mon Aug 14, 2017</time> by Brian J. Knaus in 
+<i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
+
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/tags/r" rel="tag">R</a>, <a href="/tags/rcpp" rel="tag">Rcpp</a>, <a href="/tags/header-files" rel="tag">Header files</a>
+
+</p>
+  </header>
+  In C++ you can create functions in order to help organize your code. This is helpful as your project grows or if you have a task that is performed by a function that several other functions may call. However, the functions you create are only visible to the other funcitons that are contained in a single source file. As your project grows, you may want to distribute your functions among several files.
+  <a href='/2017/08/header-files-in-rcpp/'>Read more →</a>
+</article> 
+
+
+
+
+
+<nav class="blog-pagination">
+  
+  
+  
+  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true">Previous page</a>
+  <a class="btn btn-outline-primary" href="/tags/page/2/" rel="next" role="button">Next page</a>
+  
+</nav>
+
+
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Evolutionary genomics, quantitative and computational biology.</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2018/06/getting-started-with-rcpp/">Getting started with Rcpp</a></li>
+
+<li><a href="/2018/05/analysis-of-variance/">Analysis of variance</a></li>
+
+<li><a href="/2018/05/the-linear-model/">The linear model</a></li>
+
+<li><a href="/2017/09/a-minimal-rcpp-and-roxygen2-package/">A minimal Rcpp and Roxygen2 package</a></li>
+
+<li><a href="/2017/08/header-files-in-rcpp/">Header files in Rcpp</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/knausb/knausb.github.io">This site on GitHub</a></li>
+      
+      <li><a href="https://CRAN.R-project.org/package=vcfR">vcfR</a></li>
+      
+      <li><a href="https://github.com/knausb/vcfR">vcfR on GitHub</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+      <p>
+      
+      Blog contents © Brian J. Knaus
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+    
+
+  </body>
+
+</html>

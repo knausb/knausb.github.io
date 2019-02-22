@@ -8,34 +8,14 @@
 <meta property="og:title" content="Validating ASAN" />
 <meta property="og:description" content="The address sanitizer (ASAN) is a tool produced by google that detects memory coruption bugs. It is relevant to the work I do, in part, because CRAN checks contributed packages with this tool. This is a good practice on the part of CRAN to ensure that packages it hosts lack bugs. However, if you are unfamiliar with this tool it may present a formidable challenge to use. Here I explain how I’ve implemented it in my work." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://knausb.github.io/2017/06/validating-asan/" />
-
-
-
+<meta property="og:url" content="/2017/06/validating-asan/" />
 <meta property="article:published_time" content="2017-06-10T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2017-06-10T00:00:00&#43;00:00"/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-  <meta name="twitter:card" content="summary"/>
-
-
-
-<meta name="twitter:text:title" content="Validating ASAN"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Validating ASAN"/>
 <meta name="twitter:description" content="The address sanitizer (ASAN) is a tool produced by google that detects memory coruption bugs. It is relevant to the work I do, in part, because CRAN checks contributed packages with this tool. This is a good practice on the part of CRAN to ensure that packages it hosts lack bugs. However, if you are unfamiliar with this tool it may present a formidable challenge to use. Here I explain how I’ve implemented it in my work."/>
-<meta name="twitter:site" content="@username"/>
-<meta name="generator" content="Hugo 0.21" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 
     
@@ -44,7 +24,7 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "Validating ASAN",
-  "url": "https://knausb.github.io/2017/06/validating-asan/",
+  "url": "/2017/06/validating-asan/",
   "wordCount": "1023",
   "datePublished": "2017-06-10T00:00:00&#43;00:00",
   "dateModified": "2017-06-10T00:00:00&#43;00:00",
@@ -58,22 +38,26 @@
 
 
 
-    <link rel="canonical" href="https://knausb.github.io/2017/06/validating-asan/">
+    <link rel="canonical" href="/2017/06/validating-asan/">
 
     <title>Validating ASAN | Brian J. Knaus</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://knausb.github.io/css/style.css" rel="stylesheet" integrity="sha384-6&#43;EGfPoOzk/n2DVJSlglKT8TV1TgIMvVcKI73IZgBswLasPBn94KommV6ilJqCXE" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" integrity="sha384-6&#43;EGfPoOzk/n2DVJSlglKT8TV1TgIMvVcKI73IZgBswLasPBn94KommV6ilJqCXE" crossorigin="anonymous">
 
     
 
     
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-4713082-11', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-4713082-11', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
     
@@ -88,7 +72,7 @@ ga('send', 'pageview');
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link " href="https://knausb.github.io/">Home</a>
+          <a class="nav-link " href="/">Home</a>
         </nav>
       </div>
     </div>
@@ -98,7 +82,7 @@ ga('send', 'pageview');
     
     <header class="blog-header">
       <div class="container">
-        <h1 class="blog-title"><a href="https://knausb.github.io/" rel="home">Brian J. Knaus</a></h1>
+        <h1 class="blog-title"><a href="/" rel="home">Brian J. Knaus</a></h1>
         <p class="lead blog-description">Brian J. Knaus&rsquo;s blog about genomics and biology.</p>
       </div>
     </header>
@@ -115,7 +99,7 @@ ga('send', 'pageview');
 
 <article class="blog-post">
   <header>
-    <h2 class="blog-post-title"><a href="https://knausb.github.io/2017/06/validating-asan/">Validating ASAN</a></h2>
+    <h2 class="blog-post-title"><a href="/2017/06/validating-asan/">Validating ASAN</a></h2>
     <p class="blog-post-meta"><time datetime="2017-06-10T00:00:00Z">Sat Jun 10, 2017</time> by Brian J. Knaus in 
 <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;<a href="/categories/r" rel="category tag">R</a>
 
@@ -124,7 +108,10 @@ ga('send', 'pageview');
 
 </p>
   </header>
-  <p>The <a href="https://github.com/google/sanitizers">address sanitizer</a> (ASAN) is a tool produced by <a href="https://github.com/google/sanitizers">google</a> that detects <a href="https://en.wikipedia.org/wiki/AddressSanitizer">memory coruption bugs</a>. It is relevant to the work I do, in part, because <a href="https://cran.r-project.org/">CRAN</a> checks contributed packages with this tool. This is a good practice on the part of CRAN to ensure that packages it hosts lack bugs. However, if you are unfamiliar with this tool it may present a formidable challenge to use. Here I explain how I’ve implemented it in my work.</p>
+  
+
+
+<p>The <a href="https://github.com/google/sanitizers">address sanitizer</a> (ASAN) is a tool produced by <a href="https://github.com/google/sanitizers">google</a> that detects <a href="https://en.wikipedia.org/wiki/AddressSanitizer">memory coruption bugs</a>. It is relevant to the work I do, in part, because <a href="https://cran.r-project.org/">CRAN</a> checks contributed packages with this tool. This is a good practice on the part of CRAN to ensure that packages it hosts lack bugs. However, if you are unfamiliar with this tool it may present a formidable challenge to use. Here I explain how I’ve implemented it in my work.</p>
 <p>In the context of R packages, the use of ASAN requires a version of R that was compiled with <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Using-Address-Sanitizer">specific flags</a>. My current option to accomplish this is to use <a href="https://www.docker.com/">Docker</a> to run a container provided by <a href="https://hub.docker.com/u/rocker/">rocker</a>, which I’ve discussed <a href="../running-r-in-docker/">here</a>. This post picks up where that post ended, where we have a Docker container running. We can now proceed to validate that ASAN is enabled. I like to do this outside of the R tool chain as a simpler validation that things are in order. We can begin by starting our Docker container.</p>
 <pre class="bash"><code>sudo docker run --name=r-devel-san -v ~/gits/vcfR:/RSource/vcfR --rm -ti r-devel-san /bin/bash</code></pre>
 <p>First we’ll want to make sure <a href="http://llvm.org/">LLVM</a> is installed. The LLVM adds features to the ASAN. We can query for it’s presence by using <code>which</code>.</p>
@@ -221,10 +208,10 @@ root@b3070ef7a56b:/# </code></pre>
     <section>
     <h4>Share</h4>
     <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fknausb.github.io%2f2017%2f06%2fvalidating-asan%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fknausb.github.io%2f2017%2f06%2fvalidating-asan%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fknausb.github.io%2f2017%2f06%2fvalidating-asan%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fknausb.github.io%2f2017%2f06%2fvalidating-asan%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f06%2fvalidating-asan%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=%2f2017%2f06%2fvalidating-asan%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f06%2fvalidating-asan%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=%2f2017%2f06%2fvalidating-asan%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
     </nav>
   </section>
 
@@ -232,20 +219,25 @@ root@b3070ef7a56b:/# </code></pre>
 
   
   <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'knausb-github-io';
-    var disqus_identifier = 'https:\/\/knausb.github.io\/2017\/06\/validating-asan\/';
-    var disqus_title = 'Validating ASAN';
-    var disqus_url = 'https:\/\/knausb.github.io\/2017\/06\/validating-asan\/';
-
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "knausb-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   
   </footer>
   
