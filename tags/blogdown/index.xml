@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogdown on Brian J. Knaus</title>
-    <link>https://knausb.github.io/tags/blogdown/</link>
+    <link>/tags/blogdown/</link>
     <description>Recent content in Blogdown on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Sat, 03 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://knausb.github.io/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A first post using blogdown</title>
-      <link>https://knausb.github.io/2017/06/a-first-post-using-blogdown/</link>
+      <link>/2017/06/a-first-post-using-blogdown/</link>
       <pubDate>Sat, 03 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/06/a-first-post-using-blogdown/</guid>
+      <guid>/2017/06/a-first-post-using-blogdown/</guid>
       <description>Once you have Hugo and blogdown set up you should be ready to blog! How to set up Hugo and blogdown was briefly covered in a previous post, with links to more information. We can use blogdown to create a template for our first blog.
 library(blogdown) new_post(title=&amp;quot;A first post using blogdown&amp;quot;, rmd = TRUE) This creates a file named:
 ./content/post/2017-06-03-a-first-post-using-blogdown.Rmd where ‘.’ is the root directory of your github.io project.</description>
@@ -25,10 +25,10 @@ library(blogdown) new_post(title=&amp;quot;A first post using blogdown&amp;quot;
     
     <item>
       <title>Hello blogdown</title>
-      <link>https://knausb.github.io/2017/05/hello-blogdown/</link>
+      <link>/2017/05/hello-blogdown/</link>
       <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://knausb.github.io/2017/05/hello-blogdown/</guid>
+      <guid>/2017/05/hello-blogdown/</guid>
       <description>This is my first blog. Hello blogdown!
 I built this site using the directions I found at this link provided by Amber Thomas. Note that the scripts ‘setup.sh’ and ‘deploy.sh’ work on your GitHub repository names ‘username.github.io’. Even if you think you’re building it somewhere else, this script will clobber the contents of that repository. Also, try a few themes before you add content. I found that some of the theme did not play well with blogdown on GitHub.</description>
     </item>
