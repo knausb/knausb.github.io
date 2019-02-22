@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rcpp on Brian J. Knaus</title>
-    <link>/categories/rcpp/</link>
+    <link>https://knausb.github.io/categories/rcpp/</link>
     <description>Recent content in Rcpp on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Thu, 14 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/rcpp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knausb.github.io/categories/rcpp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting started with Rcpp</title>
-      <link>/2018/06/getting-started-with-rcpp/</link>
+      <link>https://knausb.github.io/2018/06/getting-started-with-rcpp/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/06/getting-started-with-rcpp/</guid>
+      <guid>https://knausb.github.io/2018/06/getting-started-with-rcpp/</guid>
       <description>A colleague recently asked about getting started using Rcpp. After I sent the e-mail I thought that information may be of use to others. So I decided to blog about it.
 Rcpp is a package on CRAN that facilitates an interface between R and C++. It includes data structures that allow for easy sharing of data between the two languages. Because writting C++ code is usually more challenging than writing R code you should probably reserve it for tasks that you will repeat.</description>
     </item>

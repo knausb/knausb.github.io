@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Linear Model on Brian J. Knaus</title>
-    <link>/tags/the-linear-model/</link>
+    <link>https://knausb.github.io/tags/the-linear-model/</link>
     <description>Recent content in The Linear Model on Brian J. Knaus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Blog contents © Brian J. Knaus</copyright>
     <lastBuildDate>Sun, 20 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/the-linear-model/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knausb.github.io/tags/the-linear-model/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Analysis of variance</title>
-      <link>/2018/05/analysis-of-variance/</link>
+      <link>https://knausb.github.io/2018/05/analysis-of-variance/</link>
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/analysis-of-variance/</guid>
+      <guid>https://knausb.github.io/2018/05/analysis-of-variance/</guid>
       <description>Analysis of variance (ANOVA) attempts to address the question if two or more groups are on average different. We’ve previously addressed the linear model. In the linear model we ask whether the slope is different from zero and whether the y-intercept is different from zero. In ANOVA we have predetermined groups and consider the slope for each group to be zero while we ask teh question of whether these groups all have the same y-intercept.</description>
     </item>
     
