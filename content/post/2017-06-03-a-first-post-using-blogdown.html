@@ -12,7 +12,8 @@ description: ''
 
 <p>Once you have Hugo and blogdown set up you should be ready to blog! How to set up Hugo and blogdown was briefly covered in a <a href="../../05/hello-blogdown/index.html">previous post</a>, with links to more information. We can use blogdown to create a template for our first blog.</p>
 <pre class="r"><code>library(blogdown)
-new_post(title=&quot;A first post using blogdown&quot;, rmd = TRUE)</code></pre>
+new_post(title=&quot;A first post using blogdown&quot;, 
+         ext = getOption(&quot;blogdown.ext&quot;, &quot;.Rmd&quot;))</code></pre>
 <p>This creates a file named:</p>
 <pre class="r"><code>./content/post/2017-06-03-a-first-post-using-blogdown.Rmd</code></pre>
 <p>where ‘.’ is the root directory of your github.io project. The function <code>new_post()</code> prefixes your post’s title with todays date to create the filename. It also fills whitespace with hyphens and converts all characters to lowercase. If you change your mind about the post you can simply delete this file.</p>

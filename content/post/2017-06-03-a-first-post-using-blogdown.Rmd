@@ -16,7 +16,8 @@ We can use blogdown to create a template for our first blog.
 
 ```{r, eval=FALSE}
 library(blogdown)
-new_post(title="A first post using blogdown", rmd = TRUE)
+new_post(title="A first post using blogdown", 
+         ext = getOption("blogdown.ext", ".Rmd"))
 ```
 
 
